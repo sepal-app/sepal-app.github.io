@@ -184,6 +184,13 @@ a:hover:not(.btn) { color: var(--brand-hover); }
   font-weight: 500;
 }
 
+.btn .icon {
+  height: 16px;
+  width: 16px;
+  vertical-align: center;
+  margin-inline-end: 4px;
+}
+
 /* Header ------------------------------------------------------ */
 
 .site-header {
