@@ -1,278 +1,323 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en-US">
+<html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Sepal</title>
-        <meta http-equiv="refresh" content="1; url=https://github.com/sepal-app/sepal">
-        <meta name="description" content="">
-        <meta name="viewport" content=
-                    "width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-        <link rel="stylesheet" href="./styles.css">
-        <!-- Place favicon.ico in the root directory -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Sepal — plant collection management</title>
+        <meta name="description" content="Sepal is a plant collection manager for botanic gardens, arboreta, nurseries and private collections. Open source, affordable, no vendor lock-in.">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="site.css">
     </head>
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">
-            You are using an <strong>outdated</strong> browser. Please
-            <a href="http://browsehappy.com/">upgrade your browser</a> to improve
-            your experience.
-            </p>
-        <![endif]-->
-        <div class="bg-white py-24 sm:py-32">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <div class="mx-auto max-w-2xl lg:text-center">
-                    <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                        Sepal <sup class="font-normal text-base">[ beta ]</sup>
-                    </h2>
+        <div class="page">
 
-                    <!-- <p class="mt-6 text-lg leading-8 text-gray-600"> -->
-                    <!--     To create a Sepal account visit <a href="https://sepal.app/register">https://sepal.app/register</a> -->
-                    <!-- </p> -->
+            <header class="site-header">
+                <div class="brand">
+                    <div class="brand__mark"></div>
+                    <span class="brand__name">Sepal</span>
+                </div>
+                <nav class="site-nav">
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#open">Open source</a>
+                    <!-- <a href="#docs">Docs</a> -->
+                    <a href="#signup" class="btn btn--primary btn--sm">Create an account</a>
+                </nav>
+            </header>
 
-                    <p class="mt-6 text-lg leading-8 text-gray-600">
-                        Sepal is a plant collection manager for botanic gardens,
-                        arboreta, nurseries or private collections.
-                    </p>
+            <section class="hero">
+                <p class="eyebrow">plant collection management</p>
+                <h1 class="hero__title">
+                    <span class="hero__tagline"></span>
+                </h1>
+                <p class="hero__lede">Sepal is a plant collection manager for botanic gardens, arboreta, nurseries and personal collections. Full-featured where it counts, priced for collections that don't need an enterprise system, and open source so your records are never locked in.</p>
+                <div class="hero__actions">
+                    <a href="#signup" class="btn btn--primary">Create an account</a>
+                    <a href="https://github.com/sepal-app/sepal" class="btn btn--outline">GitHub</a>
+                </div>
+                <p class="hero__note">credit card not require for signup · export your data any time</p>
+            </section>
 
-                    <div class="border border-dashed rounded p-4 mt-8 bg-gray-100">
-                        <p class="text-lg leading-8 text-gray-600 italic">
-                            We're making Sepal available during the <span class="font-bold">pre-release</span>
-                            stage. During this time Sepal is free to use but we
-                            can't guarantee the safety of your account or your account data.
-                        </p>
+            <section class="section">
+                <div class="mock">
+                    <div class="mock__chrome">
+                        <div class="mock__dot"></div>
+                        <div class="mock__dot"></div>
+                        <div class="mock__dot"></div>
+                        <span class="mock__url">sepal.app / accessions</span>
+                    </div>
+                    <div class="mock__body">
+                        <div class="mock__sidebar">
+                            <p class="mock__label">COLLECTION</p>
+                            <div class="mock__item is-active">Accessions</div>
+                            <div class="mock__item">Taxa</div>
+                            <div class="mock__item">Locations</div>
+                            <div class="mock__item">Media</div>
+                            <div class="mock__item">People</div>
+                        </div>
+                        <div class="mock__main">
+                            <div class="mock__row mock__row--head">
+                                <span>ACC. NO.</span><span>TAXON</span><span>LOCATION</span><span>PROVENANCE</span><span>RECEIVED</span>
+                            </div>
+                            <div class="mock__row">
+                                <span class="mock__acc">2024.0117</span>
+                                <span><em>Quercus alba</em></span>
+                                <span class="mock__dim">North Woodland · Bed 12</span>
+                                <span class="mock__dim">Wild collected</span>
+                                <span class="mock__date">2024-03-14</span>
+                            </div>
+                            <div class="mock__row">
+                                <span class="mock__acc">2024.0118</span>
+                                <span><em>Acer palmatum</em></span>
+                                <span class="mock__dim">Japanese Garden</span>
+                                <span class="mock__dim">Nursery</span>
+                                <span class="mock__date">2024-03-14</span>
+                            </div>
+                            <div class="mock__row">
+                                <span class="mock__acc">2023.0904</span>
+                                <span><em>Magnolia grandiflora</em></span>
+                                <span class="mock__dim">South Lawn</span>
+                                <span class="mock__dim">Garden exchange</span>
+                                <span class="mock__date">2023-09-02</span>
+                            </div>
+                            <div class="mock__row">
+                                <span class="mock__acc">2023.0871</span>
+                                <span><em>Cattleya trianae</em></span>
+                                <span class="mock__dim">Glasshouse 2 · Bench A</span>
+                                <span class="mock__dim">Wild collected</span>
+                                <span class="mock__date">2023-08-19</span>
+                            </div>
+                            <div class="mock__row">
+                                <span class="mock__acc">2023.0640</span>
+                                <span><em>Pinus strobus</em></span>
+                                <span class="mock__dim">Conifer Slope</span>
+                                <span class="mock__dim">Seed, known origin</span>
+                                <span class="mock__date">2023-06-11</span>
+                            </div>
+                            <div class="mock__row">
+                                <span class="mock__acc">2022.0312</span>
+                                <span><em>Ficus benjamina</em></span>
+                                <span class="mock__dim">Glasshouse 1</span>
+                                <span class="mock__dim">Unknown</span>
+                                <span class="mock__date">2022-03-28</span>
+                            </div>
+                            <div class="mock__count">6 of 1,284 records</div>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-
-                <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-                    <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-                        <div class="relative pl-16">
-                            <dt class="text-base font-semibold leading-7 text-gray-900">
-                                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-green-700">
-                                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
-                                    </svg>
-                                </div>
-                                Plant collection management
-                            </dt>
-                            <dd class="mt-2 text-base leading-7 text-gray-600">
-                                Create and manage taxa, accessions and locations of plants in your collection.
-                            </dd>
-                        </div>
-                        <div class="relative pl-16">
-                            <dt class="text-base font-semibold leading-7 text-gray-900">
-                                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-green-700">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                         fill="none"
-                                         viewBox="0 0 24 24"
-                                         stroke-width="1.5"
-                                         stroke="currentColor"
-                                         class="w-6 h-6 text-white">
-                                        <path stroke-linecap="round"
-                                              stroke-linejoin="round"
-                                              d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                                    </svg>
-                                </div>
-                                Media management
-                            </dt>
-                            <dd class="mt-2 text-base leading-7 text-gray-600">
-                                Upload photos, videos, docs, etc and associate them with accessions and taxa.
-                            </dd>
-                        </div>
-                        <div class="relative pl-16">
-                            <dt class="text-base font-semibold leading-7 text-gray-900">
-                                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-green-700">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                         fill="none"
-                                         viewBox="0 0 24 24"
-                                         stroke-width="1.5"
-                                         stroke="currentColor"
-                                         class="w-6 h-6 text-white">
-                                        <path stroke-linecap="round"
-                                              stroke-linejoin="round"
-                                              d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-                                    </svg>
-
-                                </div>
-                                User management
-                            </dt>
-                            <dd class="mt-2 text-base leading-7 text-gray-600">
-                                Create organizations and invite people to manage your collection and grant them different roles.
-                            </dd>
-                        </div>
-                        <div class="relative pl-16">
-                            <dt class="text-base font-semibold leading-7 text-gray-900">
-                                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-green-700">
-                                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
-                                    </svg>
-                                </div>
-                                Open source
-                            </dt>
-                            <dd class="mt-2 text-base leading-7 text-gray-600">
-                                Open source so that your collection data isn't locked in to a proprietary system.
-                            </dd>
-                        </div>
-                        <div class="relative pl-16">
-                            <dt class="text-base font-semibold leading-7 text-gray-900">
-                                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-green-700">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                         fill="none"
-                                         viewBox="0 0 24 24"
-                                         stroke-width="1.5"
-                                         stroke="currentColor"
-                                         class="w-6 h-6 text-white">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
-                                    </svg>
-                                </div>
-                                Cloud hosted
-                            </dt>
-                            <dd class="mt-2 text-base leading-7 text-gray-600">
-                                Sepal is hosted in the cloud so you don't need to worry about servers, backups, databases, etc.
-                            </dd>
-                        </div>
-                    </dl>
+            <section id="features" class="section">
+                <h2 class="h2">Built around how collections actually work</h2>
+                <p class="section__lede section__lede--intro">Taxon, accession, plant and location as separate records, related the way a curator expects.</p>
+                <div class="feature-grid">
+                    <div class="card"><h3 class="h3">Taxa, accessions, locations</h3><p class="card__text">Follow a plant from its name to its accession to the bed it grows in today.</p></div>
+                    <div class="card"><h3 class="h3">Media library</h3><p class="card__text">Photos, scans and documents attached to the records they belong to.</p></div>
+                    <div class="card"><h3 class="h3">Organizations and roles</h3><p class="card__text">Invite staff and volunteers with the access each of them needs.</p></div>
+                    <div class="card"><h3 class="h3">Fast search</h3><p class="card__text">Look up any record by name, number, family or location as you type.</p></div>
+                    <div class="card"><h3 class="h3">Import and export</h3><p class="card__text">Start from your spreadsheets, and take a full copy out at any time.</p></div>
+                    <div class="card"><h3 class="h3">Hosted or self-run</h3><p class="card__text">We handle servers and backups, or run the same code yourself.</p></div>
                 </div>
-                <div class="mx-auto max-w-2xl lg:text-center mt-32 my-auto">
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSddOaWTIfNhiEyhcz5004NohEtyrMwqdDx71TnC1YMii1V3Lw/viewform?embedded=true"
-                            width="640"
-                            height="800"
-                            frameborder="0"
-                            marginheight="0"
-                            marginwidth="0"
-                    >Loading…</iframe>
+            </section>
+
+            <section id="open" class="band band--dark">
+                <div class="band__inner open-grid">
+                    <div>
+                        <p class="eyebrow eyebrow--on-dark">open source</p>
+                        <h2 class="h2 h2--on-dark">Your records outlive any software.</h2>
+                        <p class="open__lede">Sepal is developed in the open. You can read the code, run it yourself, and export everything you've entered. Nothing about your collection depends on us staying in business.</p>
+                        <a href="https://github.com/sepal-app/sepal" class="btn btn--on-dark">sepal-app/sepal on GitHub</a>
+                    </div>
+                    <div class="open__list">
+                        <div class="open__card"><strong class="open__card-title">Export everything, any time</strong><p class="open__card-text">Your full collection in standard spreadsheet formats, on demand — not a support request.</p></div>
+                        <div class="open__card"><strong class="open__card-title">Keep running it yourself</strong><p class="open__card-text">The application is free to install elsewhere, so leaving the hosted service doesn't mean leaving Sepal.</p></div>
+                        <div class="open__card"><strong class="open__card-title">Developed in the open</strong><p class="open__card-text">Anyone can see what we're building and what's coming next.</p></div>
+                    </div>
                 </div>
-            </div>
+            </section>
+
+            <section class="band band--donation">
+                <div class="band__inner donation">
+                    <p class="donation__headline">10% of all profits are donated to Belize Botanic Gardens.</p>
+                    <p class="donation__detail">A share of every subscription supports living-collection conservation and education work in Belize.</p>
+                </div>
+            </section>
+
+            <section id="pricing" class="section section--padded">
+                <div class="pricing__header">
+                    <div>
+                        <h2 class="h2">Priced for smaller collections</h2>
+                        <!-- <p class="section__lede">Start free. Upgrade when your collection outgrows it.</p> -->
+                        <p class="section__lede">Signup today, credit card not required.</p>
+                    </div>
+                    <div class="toggle">
+                        <button type="button" id="billing-monthly" class="toggle__btn is-active">Monthly</button>
+                        <button type="button" id="billing-annual" class="toggle__btn">Annual <span class="toggle__hint">· 2 months free</span></button>
+                    </div>
+                </div>
+                <div class="plan-grid">
+                    <!-- <div class="card plan">
+                         <div><p class="plan__name">Free</p><p class="plan__price">$0</p><p class="plan__blurb">Try it out, or a small personal collection</p></div>
+                         <ul class="plan__features"><li>500 items</li><li>200 MB media storage</li><li>Full export</li></ul>
+                         <a href="#signup" class="btn btn--outline plan__cta">Start free</a>
+                         </div> -->
+                    <div class="card plan">
+                        <div>
+                            <p class="plan__name">Personal</p>
+                            <p class="plan__price">
+                                <span data-price data-monthly="$10" data-annual="$110">$10</span>
+                                <span class="plan__per" data-per=""> / mo</span>
+                            </p>
+                            <p class="plan__blurb">Small private, public or personal collections</p>
+                        </div>
+                        <ul class="plan__features">
+                            <li>500 accessions</li>
+                            <li>2 GB media storage</li>
+                            <!-- <li>Spreadsheet import</li> -->
+                        </ul>
+                        <a href="https://buy.stripe.com/5kQ28qcGadXR7APeNM1kA05"
+                           data-href-monthly="https://buy.stripe.com/5kQ28qcGadXR7APeNM1kA05"
+                           data-href-annual="https://buy.stripe.com/dRm6oGbC69HB9IX8po1kA03"
+                           class="btn btn--outline plan__cta">Personal Collection</a>
+                    </div>
+                    <div class="card plan plan--featured">
+                        <span class="plan__badge">MOST COMMON</span>
+                        <div><p class="plan__name">Garden</p>
+                            <p class="plan__price">
+                                <span data-price data-monthly="$40" data-annual="$440">$40</span>
+                                <span class="plan__per" data-per=""> / mo</span></p>
+                            <p class="plan__blurb">Small gardens and nurseries</p>
+                        </div>
+                        <ul class="plan__features">
+                            <li>3,000 accessions</li>
+                            <li>10 GB media storage</li>
+                            <!-- <li>Users and roles</li> -->
+                            <!-- <li>Email support</li> -->
+                        </ul>
+                        <a href="https://buy.stripe.com/6oU5kCgWqaLF3kz2101kA07"
+                           data-href-monthly="https://buy.stripe.com/6oU5kCgWqaLF3kz2101kA07"
+                           data-href-annual="https://buy.stripe.com/14A14may29HB9IX0WW1kA08"
+                           class="btn btn--primary plan__cta">Choose Garden</a>
+                    </div>
+                    <div class="card plan">
+                        <div>
+                            <p class="plan__name">Institution</p>
+                            <p class="plan__price">
+                                <span data-price data-monthly="$150" data-annual="$1,650">$150</span>
+                                <span class="plan__per" data-per=""> / mo</span>
+                            </p>
+                            <p class="plan__blurb">Larger collections</p>
+                        </div>
+                        <ul class="plan__features">
+                            <li>Unlimited accessions</li>
+                            <li>50 GB media storage</li>
+                            <li>API access</li>
+                            <li>Priority support</li></ul>
+                        <a href="https://buy.stripe.com/6oU5kC7lQbPJ9IX5dc1kA04"
+                           data-href-monthly="https://buy.stripe.com/6oU5kC7lQbPJ9IX5dc1kA04"
+                           data-href-annual="https://buy.stripe.com/00w5kCfSm4nhaN1axw1kA06"
+                           class="btn btn--outline plan__cta">Choose Institution</a>
+                    </div>
+                </div>
+                <p class="pricing__note">Larger instances, higher limits or self-hosting support — <a href="#docs">get in touch</a>.</p>
+            </section>
+
+            <section class="section">
+                <div class="faq">
+                    <h2 class="h2 faq__title">Common questions</h2>
+                    <div class="faq__list">
+                        <div>
+                            <h3 class="h3">How does Sepal compare to other plant collection management systems?</h3>
+                            <p class="faq__answer">Plant collections management software is generally built for large institutions and
+                                priced accordingly. Sepal covers the core of collection management for a lower cost, aimed at smaller gardens
+                                and individual collectors who don't need the full feature set.  Sepal also open-source so you can choose
+                                to export your records at any time and run your own instance of Sepal.</p></div>
+                        <div>
+                            <h3 class="h3">Can I bring existing records in?</h3>
+                            <p class="faq__answer">Yes. Spreadsheet import is supported, and we'll help map columns from another system.</p></div>
+                        <div>
+                            <h3 class="h3">What if I stop using the hosted service?</h3>
+                            <p class="faq__answer">Export everything, then run the open source application on your own infrastructure.</p></div>
+                        <div>
+                            <h3 class="h3">Do I need to pay to try it?</h3>
+                            <p class="faq__answer">No. Signup doesn't require a credit card and comes with either a 14 or 30 free
+                                trial period. If you need to extend your trial just contact us.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="signup" class="band signup">
+                <h2 class="h2 signup__title">Create your account</h2>
+                <p class="signup__lede">Start on the free plan. No card required.</p>
+                <form id="signup-form" class="signup__form">
+                    <input type="email" placeholder="you@garden.org" required="" class="field" />
+                    <button type="submit" class="btn btn--primary">Create account</button>
+                </form>
+                <p id="form-note" class="signup__note">cancel any time · export your data any time</p>
+            </section>
+
+            <footer id="docs" class="site-footer">
+                <div class="footer-grid">
+                    <div class="footer__brand">
+                        <div class="footer__brand-row"><div class="brand__mark brand__mark--sm"></div><span class="footer__brand-name">Sepal</span></div>
+                        <p class="footer__tagline">A plant collection manager for gardens, nurseries and collectors.</p>
+                    </div>
+                    <div class="footer-col">
+                        <p class="footer-col__title">Product</p>
+                        <a href="#features">Features</a>
+                        <a href="#pricing">Pricing</a>
+                        <a href="#signup">Sign up</a></div>
+                    <div class="footer-col">
+                        <p class="footer-col__title">Docs</p>
+                        <a href="#">Getting started</a>
+                        <a href="#">Importing data</a>
+                        <a href="#">Self-hosting</a></div>
+                    <div class="footer-col">
+                        <p class="footer-col__title">Project</p>
+                        <a href="https://github.com/sepal-app/sepal">GitHub</a>
+                        <a href="#">Changelog</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                <p class="footer__legal">© 2026 Sepal, LLC</p>
+            </footer>
         </div>
-        <footer class="bg-gray-900" aria-labelledby="footer-heading">
-            <h2 id="footer-heading" class="sr-only">Footer</h2>
-            <div class="mx-auto max-w-7xl px-6 pb-8 pt-20 sm:pt-24 lg:px-8 lg:pt-32">
-                <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-                    <div class="grid grid-cols-2 gap-8 xl:col-span-2">
-                        <div class="md:grid md:grid-cols-2 md:gap-8">
-                            <div>
-                                <!-- <h3 class="text-sm font-semibold leading-6 text-white">Solutions</h3>
-                                     <ul role="list" class="mt-6 space-y-4">
-                                     <li>
-                                     <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Marketing</a>
-                                     </li>
-                                     <li>
-                                     <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Analytics</a>
-                                     </li>
-                                     <li>
-                                     <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Commerce</a>
-                                     </li>
-                                     <li>
-                                     <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Insights</a>
-                                     </li>
-                                     </ul> -->
-                            </div>
-                            <div class="mt-10 md:mt-0">
-                                <!-- <h3 class="text-sm font-semibold leading-6 text-white">Support</h3>
-                                     <ul role="list" class="mt-6 space-y-4">
-                                     <li>
-                                     <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Pricing</a>
-                                     </li>
-                                     <li>
-                                     <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Documentation</a>
-                                     </li>
-                                     <li>
-                                     <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Guides</a>
-                                     </li>
-                                     <li>
-                                     <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">API Status</a>
-                                     </li>
-                                     </ul> -->
-                            </div>
-                        </div>
-                        <div class="md:grid md:grid-cols-2 md:gap-8">
-                            <div>
-                                <!-- <h3 class="text-sm font-semibold leading-6 text-white">Company</h3>
-                                     <ul role="list" class="mt-6 space-y-4">
-                                     <li>
-                                     <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">About</a>
-                                     </li>
-                                     <li>
-                                     <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Blog</a>
-                                     </li>
-                                     <li>
-                                     <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Jobs</a>
-                                     </li>
-                                     <li>
-                                     <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Press</a>
-                                     </li>
-                                     <li>
-                                     <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Partners</a>
-                                     </li>
-                                     </ul> -->
-                            </div>
-                            <div class="mt-10 md:mt-0">
-                                <!-- <h3 class="text-sm font-semibold leading-6 text-white">Legal</h3>
-                                     <ul role="list" class="mt-6 space-y-4">
-                                     <li>
-                                     <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Claim</a>
-                                     </li>
-                                     <li>
-                                     <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Privacy</a>
-                                     </li>
-                                     <li>
-                                     <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Terms</a>
-                                     </li>
-                                     </ul> -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div class="mt-10 xl:mt-0">
-                         <h3 class="text-sm font-semibold leading-6 text-white">Subscribe to our newsletter</h3>
-                         <p class="mt-2 text-sm leading-6 text-gray-300">The latest news, articles, and resources, sent to your inbox weekly.</p>
-                         <form class="mt-6 sm:flex sm:max-w-md">
-                         <label for="email-address" class="sr-only">Email address</label>
-                         <input type="email" name="email-address" id="email-address" autocomplete="email" required class="w-full min-w-0 appearance-none rounded-md border-0 bg-white/5 px-3 py-1.5 text-base text-white shadow-sm ring-1 ring-inset ring-white/10 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:w-64 sm:text-sm sm:leading-6 xl:w-full" placeholder="Enter your email">
-                         <div class="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
-                         <button type="submit" class="flex w-full items-center justify-center rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Subscribe</button>
-                         </div>
-                         </form>
-                         </div> -->
-                </div>
-                <div class="mt-16 border-t border-white/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
-                    <!-- <div class="flex space-x-6 md:order-2">
-                         <a href="#" class="text-gray-500 hover:text-gray-400">
-                         <span class="sr-only">Facebook</span>
-                         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                         <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
-                         </svg>
-                         </a>
-                         <a href="#" class="text-gray-500 hover:text-gray-400">
-                         <span class="sr-only">Instagram</span>
-                         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                         <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
-                         </svg>
-                         </a>
-                         <a href="#" class="text-gray-500 hover:text-gray-400">
-                         <span class="sr-only">Twitter</span>
-                         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                         <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                         </svg>
-                         </a>
-                         <a href="#" class="text-gray-500 hover:text-gray-400">
-                         <span class="sr-only">GitHub</span>
-                         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                         <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-                         </svg>
-                         </a>
-                         <a href="#" class="text-gray-500 hover:text-gray-400">
-                         <span class="sr-only">YouTube</span>
-                         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                         <path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd" />
-                         </svg>
-                         </a>
-                         </div> -->
-                    <p class="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">&copy; 2022 Sepal, LLC. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
+
+        <script>
+         (function () {
+             var tagLines = [
+                 "petal perfect plant collection management.",
+                 "at the root of every great plant collection.",
+                 "plant collection without stipule-ations."
+             ]
+             var monthly = document.getElementById('billing-monthly');
+             var annual = document.getElementById('billing-annual');
+             function set(isAnnual) {
+                 monthly.classList.toggle('is-active', !isAnnual);
+                 annual.classList.toggle('is-active', isAnnual);
+                 document.querySelectorAll('[data-price]').forEach(function (el) {
+                     el.textContent = isAnnual ? el.dataset.annual : el.dataset.monthly;
+                 });
+                 document.querySelectorAll('[data-per]').forEach(function (el) {
+                     el.textContent = isAnnual ? ' / yr' : ' / mo';
+                 });
+                 document.querySelectorAll('[data-href-monthly]').forEach(function (el) {
+                     el.href = isAnnual ? el.dataset.hrefAnnual : el.dataset.hrefMonthly;
+                 });
+             }
+             monthly.addEventListener('click', function () { set(false); });
+             annual.addEventListener('click', function () { set(true); });
+
+             // Replace with a POST to your signup endpoint.
+             document.getElementById('signup-form').addEventListener('submit', function (e) {
+                 e.preventDefault();
+                 document.getElementById('form-note').textContent = "Thanks — we'll be in touch.";
+             });
+         }());
+        </script>
+        <script data-goatcounter="https://sepal.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     </body>
 </html>
