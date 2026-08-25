@@ -17,6 +17,8 @@ node_modules/
 devenv.local.nix
 devenv.local.yaml
 
+.envrc
+
 # direnv
 .direnv
 
