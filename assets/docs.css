@@ -211,14 +211,6 @@
   padding: 48px var(--gutter) var(--section-y);
 }
 
-.prose-page h1 {
-  margin: 0 0 8px;
-  font-size: 40px;
-  line-height: 1.1;
-  letter-spacing: -.03em;
-  font-weight: 700;
-}
-
 .post__meta { margin: 0 0 32px; color: var(--text-dim); font-size: 15px; }
 
 .post-list { margin: 32px 0 0; padding: 0; list-style: none; }
