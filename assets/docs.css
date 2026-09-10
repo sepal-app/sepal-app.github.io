@@ -230,3 +230,7 @@
 .post-list a { font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
 
 .post-list p { margin: 4px 0 0; color: var(--text-muted); font-size: 16px; }
+
+.changelog-entry h2 { font-size: 18px; letter-spacing: 0; }
+
+.changelog-entry ul { padding-left: 22px; }

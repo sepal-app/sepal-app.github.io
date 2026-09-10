@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div class="prose-page" data-pagefind-body>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="docs__lede">{{ . }}</p>{{ end }}
+    {{ range .RegularPages.ByDate.Reverse }}
+    <section class="changelog-entry">
+        <h2><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></h2>
+        {{ .Content }}
+    </section>
+    {{ end }}
+</div>
+{{ end }}
