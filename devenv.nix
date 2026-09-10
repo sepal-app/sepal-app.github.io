@@ -1,13 +1,11 @@
 { pkgs, ... }:
 {
+  # Hugo builds the site; pagefind indexes it afterwards. The hugo version here
+  # comes from devenv.lock. .github/workflows/pages.yml pins its own literal —
+  # keep the two in step.
   packages = with pkgs; [
     git
+    hugo
+    pagefind
   ];
-
-  # Node is here only to run the Tailwind CLI that builds styles.css. The site
-  # itself is static HTML with no build step.
-  languages.javascript = {
-    enable = true;
-    package = pkgs.nodejs_22;
-  };
 }

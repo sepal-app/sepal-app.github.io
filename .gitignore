@@ -24,3 +24,8 @@ devenv.local.yaml
 
 # Claude local state
 .claude/
+
+# Hugo
+public/
+resources/
+.hugo_build.lock

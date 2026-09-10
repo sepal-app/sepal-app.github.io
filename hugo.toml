@@ -1,0 +1,23 @@
+baseURL = "https://sepal.app/"
+languageCode = "en-us"
+title = "Sepal"
+
+# The landing page is static/index.html, copied to the site root byte for byte.
+# Disabling the home kind stops Hugo generating a page that would collide with
+# it. taxonomy and term are off because docs and blog carry no tags; leaving
+# them on emits empty /categories/ and /tags/ feeds and a build warning.
+disableKinds = ["home", "taxonomy", "term"]
+
+[outputs]
+  section = ["html", "rss"]
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3
+
+# Syntax highlighting is off. Code samples here are shell commands and search
+# queries, which highlighting does little for, and turning it on means either
+# inline styles on every token or a generated stylesheet that lives outside
+# site.css. Code blocks are styled in docs.css instead.
+[markup.highlight]
+  codeFences = false
