@@ -12,6 +12,7 @@
                     <div class="brand__mark"></div>
                     <span class="brand__name">Sepal</span>
                 </a>
+                <div id="search" class="site-search"></div>
                 <nav class="site-nav">
                     <a href="/#features">Features</a>
                     <a href="/#pricing">Pricing</a>
@@ -53,6 +54,13 @@
             </footer>
         </div>
 
+        <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+         window.addEventListener('DOMContentLoaded', function () {
+             new PagefindUI({ element: "#search", showSubResults: true, showImages: false });
+         });
+        </script>
         <script data-goatcounter="https://sepal.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     </body>
 </html>

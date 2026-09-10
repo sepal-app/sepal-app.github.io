@@ -234,3 +234,26 @@
 .changelog-entry h2 { font-size: 18px; letter-spacing: 0; }
 
 .changelog-entry ul { padding-left: 22px; }
+
+/* Pagefind. Its own stylesheet is loaded first; these override its variables
+   so the widget uses the token set. */
+
+.site-search {
+  flex: 1;
+  max-width: 320px;
+}
+
+.site-search .pagefind-ui {
+  --pagefind-ui-scale: .8;
+  --pagefind-ui-primary: var(--text);
+  --pagefind-ui-text: var(--text-soft);
+  --pagefind-ui-background: var(--surface);
+  --pagefind-ui-border: var(--border);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: var(--radius);
+  --pagefind-ui-font: var(--font-sans);
+}
+
+@media (max-width: 800px) {
+  .site-search { display: none; }
+}
