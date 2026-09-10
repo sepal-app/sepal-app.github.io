@@ -51,9 +51,9 @@
 
 /* Prose ------------------------------------------------------- */
 
-.docs__body { min-width: 0; }
+.docs__body, .prose-page { min-width: 0; }
 
-.docs__body h1 {
+.docs__body h1, .prose-page h1 {
   margin: 0 0 8px;
   font-size: 40px;
   line-height: 1.1;
@@ -68,7 +68,7 @@
   color: var(--text-soft);
 }
 
-.docs__body h2 {
+.docs__body h2, .prose-page h2 {
   margin: 48px 0 12px;
   padding-top: 8px;
   border-top: 1px solid var(--border-light);
@@ -76,24 +76,30 @@
   letter-spacing: -.02em;
 }
 
-.docs__body h3 { margin: 32px 0 8px; font-size: 19px; }
+.docs__body h3, .prose-page h3 { margin: 32px 0 8px; font-size: 19px; }
 
 .docs__body p,
-.docs__body li { font-size: 16px; line-height: 1.65; color: var(--text-soft); }
+.docs__body li,
+.prose-page p,
+.prose-page li { font-size: 16px; line-height: 1.65; color: var(--text-soft); }
 
-.docs__body strong { color: var(--text); font-weight: 600; }
+.docs__body strong, .prose-page strong { color: var(--text); font-weight: 600; }
 
 .docs__body ul,
-.docs__body ol { padding-left: 22px; }
+.docs__body ol,
+.prose-page ul,
+.prose-page ol { padding-left: 22px; }
 
-.docs__body li { margin-bottom: 6px; }
+.docs__body li, .prose-page li { margin-bottom: 6px; }
 
 .docs__body i,
-.docs__body em { font-family: var(--font-serif); font-style: italic; }
+.docs__body em,
+.prose-page i,
+.prose-page em { font-family: var(--font-serif); font-style: italic; }
 
 /* Code -------------------------------------------------------- */
 
-.docs__body code {
+.docs__body code, .prose-page code {
   padding: 2px 5px;
   border-radius: 4px;
   background: var(--surface-alt);
@@ -102,7 +108,7 @@
   color: var(--text-table);
 }
 
-.docs__body pre {
+.docs__body pre, .prose-page pre {
   overflow-x: auto;
   margin: 20px 0;
   padding: 16px 18px;
@@ -112,7 +118,7 @@
   line-height: 1.55;
 }
 
-.docs__body pre code {
+.docs__body pre code, .prose-page pre code {
   padding: 0;
   background: none;
   font-size: 14px;
@@ -120,7 +126,7 @@
 
 /* Tables ------------------------------------------------------ */
 
-.docs__body table {
+.docs__body table, .prose-page table {
   width: 100%;
   margin: 20px 0;
   border-collapse: collapse;
@@ -128,7 +134,9 @@
 }
 
 .docs__body th,
-.docs__body td {
+.docs__body td,
+.prose-page th,
+.prose-page td {
   padding: 10px 12px;
   border-bottom: 1px solid var(--border-light);
   text-align: left;
@@ -136,7 +144,7 @@
   color: var(--text-table);
 }
 
-.docs__body th {
+.docs__body th, .prose-page th {
   border-bottom: 1px solid var(--border);
   color: var(--text);
   font-weight: 600;
@@ -194,3 +202,39 @@
   color: var(--text-muted);
   font-size: 15px;
 }
+
+/* Prose pages: blog posts and the changelog. One column, no sidebar. --------- */
+
+.prose-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px var(--gutter) var(--section-y);
+}
+
+.prose-page h1 {
+  margin: 0 0 8px;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  font-weight: 700;
+}
+
+.post__meta { margin: 0 0 32px; color: var(--text-dim); font-size: 15px; }
+
+.post-list { margin: 32px 0 0; padding: 0; list-style: none; }
+
+.post-list li {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.post-list time {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+.post-list a { font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+
+.post-list p { margin: 4px 0 0; color: var(--text-muted); font-size: 16px; }
