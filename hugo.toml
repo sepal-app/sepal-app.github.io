@@ -1,5 +1,5 @@
 baseURL = "https://sepal.app/"
-languageCode = "en-us"
+locale = "en-us"
 title = "Sepal"
 
 # The landing page is static/index.html, copied to the site root byte for byte.
