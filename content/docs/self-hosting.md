@@ -4,9 +4,8 @@ description: Run Sepal yourself, with Docker or a jar, and every setting it read
 weight: 30
 ---
 
-This page covers deploying Sepal, where it keeps its data on disk, and every
-environment variable it reads at startup, whether you run it in Docker or as a
-jar.
+Run Sepal on your own machine with Docker or a jar. This page is the reference
+for both.
 
 ## Running Sepal
 
