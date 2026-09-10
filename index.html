@@ -5,12 +5,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Sepal — plant collection management</title>
         <meta name="description" content="Sepal is a plant collection manager for botanic gardens, arboreta, nurseries and private collections. Open source, affordable, no vendor lock-in.">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="canonical" href="https://sepal.app/">
+
+        <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+        <meta name="color-scheme" content="light">
+        <meta name="theme-color" content="#FBFCFB">
+
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Sepal">
+        <meta property="og:url" content="https://sepal.app/">
+        <meta property="og:title" content="Bring order to your plant collections">
+        <meta property="og:description" content="A plant collection manager for botanic gardens, arboreta, nurseries and personal collections. Open source, so your records are never locked in.">
+        <meta property="og:image" content="https://sepal.app/og-image.png">
+        <meta property="og:image:alt" content="The Sepal accessions list: a section rail beside a table of accession codes, taxa, provenance and dates received.">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <link rel="preload" href="fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="stylesheet" href="site.css">
     </head>
     <body>
+        <a class="skip-link" href="#main">Skip to main content</a>
         <div class="page">
 
             <header class="site-header">
@@ -27,6 +45,8 @@
                 </nav>
             </header>
 
+            <main id="main">
+
             <section class="hero">
                 <p class="eyebrow">plant collection management</p>
                 <h1 class="hero__title">
@@ -41,69 +61,70 @@
                        class="btn btn--outline">
                         <img class="icon" src="icons/github.svg"> GitHub</a>
                 </div>
-                <p class="hero__note">credit card not require for signup · export your data any time</p>
+                <p class="hero__note">credit card not required for signup · export your data any time</p>
             </section>
 
             <section class="section">
                 <div class="mock">
-                    <div class="mock__chrome">
-                        <div class="mock__dot"></div>
-                        <div class="mock__dot"></div>
-                        <div class="mock__dot"></div>
-                        <span class="mock__url">sepal.app / accessions</span>
+                    <div class="mock__topbar">
+                        <span class="mock__toggle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/><path d="M9 4v16"/><path d="M14 10l2 2l-2 2"/></svg></span>
+                        <span class="mock__crumb">Accessions</span>
+                        <span class="mock__topbar-spacer"></span>
+                        <span class="mock__action">New accession</span>
                     </div>
                     <div class="mock__body">
-                        <div class="mock__sidebar">
-                            <p class="mock__label">COLLECTION</p>
-                            <div class="mock__item is-active">Accessions</div>
-                            <div class="mock__item">Taxa</div>
-                            <div class="mock__item">Locations</div>
-                            <div class="mock__item">Media</div>
-                            <div class="mock__item">People</div>
+                        <div class="mock__rail">
+                            <div class="mock__nav">
+                                <div class="mock__nav-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg><span>Activity</span></div>
+                                <div class="mock__nav-item is-active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg><span>Accessions</span></div>
+                                <div class="mock__nav-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3"/><path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4"/><path d="M5 21h14"/></svg><span>Material</span></div>
+                                <div class="mock__nav-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"/><circle cx="12" cy="8" r="2"/><path d="M12 10v12"/><path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z"/><path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z"/></svg><span>Taxa</span></div>
+                                <div class="mock__nav-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Locations</span></div>
+                                <div class="mock__nav-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg><span>Tags</span></div>
+                                <div class="mock__nav-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg><span>Media</span></div>
+                                <div class="mock__nav-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 2v2"/><path d="M17.915 22a6 6 0 0 0-12 0"/><path d="M8 2v2"/><circle cx="12" cy="12" r="4"/><rect x="3" y="4" width="18" height="18" rx="2"/></svg><span>Contacts</span></div>
+                            </div>
+                            <div class="mock__nav mock__nav--end">
+                                <div class="mock__nav-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></svg><span>Settings</span></div>
+                            </div>
                         </div>
                         <div class="mock__main">
                             <div class="mock__row mock__row--head">
-                                <span>ACC. NO.</span><span>TAXON</span><span>LOCATION</span><span>PROVENANCE</span><span>RECEIVED</span>
+                                <span>CODE</span><span>TAXON</span><span>PROVENANCE</span><span>RECEIVED</span>
                             </div>
                             <div class="mock__row">
                                 <span class="mock__acc">2024.0117</span>
                                 <span><em>Quercus alba</em></span>
-                                <span class="mock__dim">North Woodland · Bed 12</span>
                                 <span class="mock__dim">Wild collected</span>
                                 <span class="mock__date">2024-03-14</span>
                             </div>
                             <div class="mock__row">
                                 <span class="mock__acc">2024.0118</span>
                                 <span><em>Acer palmatum</em></span>
-                                <span class="mock__dim">Japanese Garden</span>
                                 <span class="mock__dim">Nursery</span>
                                 <span class="mock__date">2024-03-14</span>
                             </div>
                             <div class="mock__row">
                                 <span class="mock__acc">2023.0904</span>
                                 <span><em>Magnolia grandiflora</em></span>
-                                <span class="mock__dim">South Lawn</span>
                                 <span class="mock__dim">Garden exchange</span>
                                 <span class="mock__date">2023-09-02</span>
                             </div>
                             <div class="mock__row">
                                 <span class="mock__acc">2023.0871</span>
                                 <span><em>Cattleya trianae</em></span>
-                                <span class="mock__dim">Glasshouse 2 · Bench A</span>
                                 <span class="mock__dim">Wild collected</span>
                                 <span class="mock__date">2023-08-19</span>
                             </div>
                             <div class="mock__row">
                                 <span class="mock__acc">2023.0640</span>
                                 <span><em>Pinus strobus</em></span>
-                                <span class="mock__dim">Conifer Slope</span>
                                 <span class="mock__dim">Seed, known origin</span>
                                 <span class="mock__date">2023-06-11</span>
                             </div>
                             <div class="mock__row">
                                 <span class="mock__acc">2022.0312</span>
                                 <span><em>Ficus benjamina</em></span>
-                                <span class="mock__dim">Glasshouse 1</span>
                                 <span class="mock__dim">Unknown</span>
                                 <span class="mock__date">2022-03-28</span>
                             </div>
@@ -161,7 +182,7 @@
                     </div>
                     <div class="toggle">
                         <button type="button" id="billing-monthly" class="toggle__btn is-active">Monthly</button>
-                        <button type="button" id="billing-annual" class="toggle__btn">Annual <span class="toggle__hint">· 1 months free</span></button>
+                        <button type="button" id="billing-annual" class="toggle__btn">Annual <span class="toggle__hint">· 1 month free</span></button>
                     </div>
                 </div>
                 <div class="plan-grid">
@@ -268,6 +289,8 @@
             </section>
             -->
 
+            </main>
+
             <footer id="docs" class="site-footer">
                 <div class="footer-grid">
                     <div class="footer__brand">
@@ -324,11 +347,12 @@
              monthly.addEventListener('click', function () { set(false); });
              annual.addEventListener('click', function () { set(true); });
 
-             // Replace with a POST to your signup endpoint.
-             document.getElementById('signup-form').addEventListener('submit', function (e) {
-                 e.preventDefault();
-                 document.getElementById('form-note').textContent = "Thanks — we'll be in touch.";
-             });
+             // Off while the #signup section is commented out. Uncomment both
+             // together, and replace the stub with a POST to the signup endpoint.
+             // document.getElementById('signup-form').addEventListener('submit', function (e) {
+             //     e.preventDefault();
+             //     document.getElementById('form-note').textContent = "Thanks — we'll be in touch.";
+             // });
          }());
         </script>
         <script data-goatcounter="https://sepal.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
