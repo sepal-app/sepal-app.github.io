@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="docs">
+    {{ partial "docs-nav.html" . }}
+    <article class="docs__body" data-pagefind-body>
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p class="docs__lede">{{ . }}</p>{{ end }}
+        {{ .Content }}
+    </article>
+    <aside class="docs__toc">
+        <p class="docs__toc-title">On this page</p>
+        {{ .TableOfContents }}
+    </aside>
+</div>
+{{ end }}

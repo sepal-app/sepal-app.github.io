@@ -78,6 +78,18 @@
   /* Incidental */
   --toggle-track: #EEF3F2;
 
+  /* Semantic colours. Adopted from bases/app/src/sepal/app/css/tokens.css in
+     the sepal-app/sepal repo, which is the source of truth and checks these
+     against WCAG AA. Docs callouts are the only consumer here. */
+  --ok: #1D6B45;
+  --ok-bg: #E3F1E9;
+  --info: #1B5A78;
+  --info-bg: #E2EEF4;
+  --danger: #8C2F26;
+  --danger-bg: #F6E7E5;
+  --neutral: #4A5C57;
+  --neutral-bg: #EEF2F1;
+
   /* Layout */
   --gutter: clamp(20px, 4vw, 32px);
   --section-y: clamp(64px, 8vw, 96px);

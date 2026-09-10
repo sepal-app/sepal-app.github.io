@@ -1,0 +1,196 @@
+/* Styles for the Hugo-generated pages: docs, blog and changelog.
+   Every value comes from the :root block in site.css. Nothing is redeclared
+   here; if a token is missing, add it there. */
+
+.docs {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 200px;
+  gap: 48px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 48px var(--gutter) var(--section-y);
+}
+
+@media (max-width: 1000px) {
+  .docs { grid-template-columns: 1fr; gap: 32px; }
+  .docs__toc { display: none; }
+}
+
+/* Sidebar ----------------------------------------------------- */
+
+.docs-nav { align-self: start; position: sticky; top: 24px; }
+
+.docs-nav__title {
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.docs-nav ul { margin: 0; padding: 0; list-style: none; }
+
+.docs-nav li { margin-bottom: 2px; }
+
+.docs-nav a {
+  display: block;
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  color: var(--text-nav);
+  font-size: 15px;
+}
+
+.docs-nav a:hover { background: var(--surface-alt); }
+
+.docs-nav a.is-active {
+  background: var(--brand-tint);
+  color: var(--brand);
+  font-weight: 600;
+}
+
+/* Prose ------------------------------------------------------- */
+
+.docs__body { min-width: 0; }
+
+.docs__body h1 {
+  margin: 0 0 8px;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  font-weight: 700;
+}
+
+.docs__lede {
+  margin: 0 0 32px;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+.docs__body h2 {
+  margin: 48px 0 12px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-light);
+  font-size: 26px;
+  letter-spacing: -.02em;
+}
+
+.docs__body h3 { margin: 32px 0 8px; font-size: 19px; }
+
+.docs__body p,
+.docs__body li { font-size: 16px; line-height: 1.65; color: var(--text-soft); }
+
+.docs__body strong { color: var(--text); font-weight: 600; }
+
+.docs__body ul,
+.docs__body ol { padding-left: 22px; }
+
+.docs__body li { margin-bottom: 6px; }
+
+.docs__body i,
+.docs__body em { font-family: var(--font-serif); font-style: italic; }
+
+/* Code -------------------------------------------------------- */
+
+.docs__body code {
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: var(--surface-alt);
+  font-family: var(--font-mono);
+  font-size: .88em;
+  color: var(--text-table);
+}
+
+.docs__body pre {
+  overflow-x: auto;
+  margin: 20px 0;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--surface-alt);
+  line-height: 1.55;
+}
+
+.docs__body pre code {
+  padding: 0;
+  background: none;
+  font-size: 14px;
+}
+
+/* Tables ------------------------------------------------------ */
+
+.docs__body table {
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.docs__body th,
+.docs__body td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-light);
+  text-align: left;
+  vertical-align: top;
+  color: var(--text-table);
+}
+
+.docs__body th {
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Callouts ---------------------------------------------------- */
+
+.callout {
+  margin: 20px 0;
+  padding: 14px 16px;
+  border-left: 3px solid;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.callout p { margin: 0; }
+.callout p + p { margin-top: 10px; }
+
+.callout--info { border-color: var(--info); background: var(--info-bg); }
+.callout--ok { border-color: var(--ok); background: var(--ok-bg); }
+.callout--danger { border-color: var(--danger); background: var(--danger-bg); }
+
+/* Table of contents ------------------------------------------- */
+
+.docs__toc { align-self: start; position: sticky; top: 24px; font-size: 14px; }
+
+.docs__toc-title {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.docs__toc ul { margin: 0; padding: 0 0 0 12px; list-style: none; }
+
+.docs__toc li { margin-bottom: 6px; }
+
+.docs__toc a { color: var(--text-muted); }
+
+/* Docs index -------------------------------------------------- */
+
+.docs-index { margin: 24px 0 0; padding: 0; list-style: none; }
+
+.docs-index li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.docs-index a { font-size: 17px; font-weight: 600; }
+
+.docs-index span {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 15px;
+}
