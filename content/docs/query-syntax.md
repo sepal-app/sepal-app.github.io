@@ -97,10 +97,11 @@ year.
 
 ## Which fields exist
 
-Fields differ by list page. An accession can be filtered by `code`, `taxon`,
-`taxon.rank`, `provenance`, `private`, `supplier`, `location`,
-`material.type`, `material.status`, `tag`, `created` and `updated`. Each list
-page shows its own filters as you type.
+Fields differ by list page. On an accession, `code`, `taxon`, `taxon.rank`,
+`provenance`, `private`, `supplier`, `location`, `material.type`,
+`material.status`, `tag`, `created` and `updated` are the ones worth typing;
+a few more exist as `.id` variants, matching a record by its numeric id
+rather than its name. Each list page shows its own filters as you type.
 
 {{< note >}}
 This page describes the language, not the field list of every resource. The
