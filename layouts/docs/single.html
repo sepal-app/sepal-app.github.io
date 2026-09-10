@@ -6,9 +6,11 @@
         {{ with .Description }}<p class="docs__lede">{{ . }}</p>{{ end }}
         {{ .Content }}
     </article>
+    {{ with .Fragments.Headings }}
     <aside class="docs__toc">
         <p class="docs__toc-title">On this page</p>
-        {{ .TableOfContents }}
+        {{ $.TableOfContents }}
     </aside>
+    {{ end }}
 </div>
 {{ end }}

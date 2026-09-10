@@ -87,8 +87,6 @@
   --info-bg: #E2EEF4;
   --danger: #8C2F26;
   --danger-bg: #F6E7E5;
-  --neutral: #4A5C57;
-  --neutral-bg: #EEF2F1;
 
   /* Layout */
   --gutter: clamp(20px, 4vw, 32px);
@@ -274,6 +272,10 @@ a:hover:not(.btn) { color: var(--brand-hover); }
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.brand {
+  color: var(--text);
 }
 
 .brand__mark {

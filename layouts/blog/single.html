@@ -1,7 +1,8 @@
 {{ define "main" }}
 <article class="prose-page" data-pagefind-body>
     <h1>{{ .Title }}</h1>
-    <p class="post__meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></p>
+    {{ with .Description }}<p class="docs__lede">{{ . }}</p>{{ end }}
+    {{ if not .Date.IsZero }}<p class="post__meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></p>{{ end }}
     {{ .Content }}
 </article>
 {{ end }}

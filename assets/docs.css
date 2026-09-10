@@ -92,9 +92,7 @@
 
 .docs__body li, .prose-page li { margin-bottom: 6px; }
 
-.docs__body i,
 .docs__body em,
-.prose-page i,
 .prose-page em { font-family: var(--font-serif); font-style: italic; }
 
 /* Code -------------------------------------------------------- */
@@ -232,8 +230,6 @@
 .post-list p { margin: 4px 0 0; color: var(--text-muted); font-size: 16px; }
 
 .changelog-entry h2 { font-size: 18px; letter-spacing: 0; }
-
-.changelog-entry ul { padding-left: 22px; }
 
 /* Pagefind. Its own stylesheet is loaded first; these override its variables
    so the widget uses the token set. */
