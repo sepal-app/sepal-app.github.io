@@ -18,11 +18,10 @@ A word on its own is a full-text search.
 quercus
 ```
 
-To match a phrase whole, put the phrase in double quotation marks.
-
-```
-"red oak"
-```
+Quotation marks around a bare search do not hold the words together. Sepal
+searches each word on its own, so `"red oak"` matches the same records as
+`red oak` does, including a record that has the two words far apart or in the
+other order.
 
 ## Filters
 
@@ -66,17 +65,10 @@ updated:<=2024-06-01
 
 ## Negation
 
-A leading `-` excludes. It works on a word and on a filter.
+A leading `-` excludes a filter.
 
 ```
--quercus
 -location:GH
-```
-
-A negated field name with no value excludes records where that field is true.
-
-```
--private
 ```
 
 ## Nested fields

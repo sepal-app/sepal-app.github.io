@@ -39,12 +39,9 @@ A bare word is a full-text search, and what it matches depends on the page:
 | Contacts | The name, the business, and the email address |
 
 The last word you type is matched as a prefix, so `Quer` finds `Quercus` before
-you finish typing it. To match a phrase whole, put the phrase in double
-quotation marks.
-
-```
-"red oak"
-```
+you finish typing it. Every word before it has to match in full. Quotation marks
+make no difference to a bare search: Sepal looks for each word on its own, so
+`"red oak"` matches the same records as `red oak` does.
 
 ## Filter on a field
 
