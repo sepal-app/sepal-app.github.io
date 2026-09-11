@@ -132,7 +132,8 @@ Every list page takes the same search box, and it searches text and filters
 fields at the same time.
 
 1. Select **Accessions** in the sidebar.
-2. Type the accession code, such as `2026.0001`, or part of the taxon name.
+2. Type the accession code, such as `2026.0001`. A bare word on this list
+   matches the code, so search by name with `taxon:` instead.
 3. Select the row. The panel shows the summary, and the **Statistics** section
    links to the material that belongs to the accession.
 
@@ -143,7 +144,8 @@ To find plants by where they are rather than by what they are, select
 location.code:GH2 status:alive
 ```
 
-The list pages suggest their own fields as you type.
+Select **Filter** beside the search box to build a term from the fields that
+list carries.
 [Query syntax](/docs/query-syntax/) describes the whole language, including
 comparisons, negation, and matching several values at once.
 

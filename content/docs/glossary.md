@@ -50,8 +50,7 @@ characters, and it takes an optional **Description**.
 A material is a quantity of an accession at one location. If you sow twenty
 seeds from one accession into two flats in two greenhouses, you have two
 materials. A material needs a **Code**, an **Accession**, a **Location**, a
-**Type**, a **Status**, and a **Quantity**. It takes one optional field,
-`memorial`.
+**Type**, a **Status**, and a **Quantity**.
 
 Sepal records each move between locations and each change in quantity. The
 quantity you see is the current one, and the history of those changes stays on

@@ -103,7 +103,8 @@ The fields differ by list page. An accession takes `code`, `taxon`,
 `taxon.rank`, `provenance`, `private`, `supplier`, `location`, `material.type`,
 `material.status`, `tag`, `created`, and `updated`. A few more fields exist as
 `.id` variants, which match a record by its numeric ID rather than by its name.
-Each list page shows its own filters as you type.
+Each list page offers its own fields in the **Filter** dropdown beside the
+search box.
 
 {{< note >}}
 This page describes the language rather than the field list of every resource.
