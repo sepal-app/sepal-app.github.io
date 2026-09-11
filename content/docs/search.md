@@ -54,18 +54,13 @@ typed.
 taxon:Quercus
 ```
 
-The fields differ by page. The accession filters are `code`, `taxon`,
-`taxon.rank`, `provenance`, `supplier`, `location`, `material.type`,
-`material.status`, `tag`, `created`, and `updated`. The material filters are
-`code`, `type`, `status`, `accession`, `taxon`, `location.code`,
-`location.name`, `tag`, `created`, and `updated`. The location filters are
-`code`, `name`, `description`, `taxon`, `material.type`, `material.status`,
-`created`, and `updated`. [Query syntax](/docs/query-syntax/) covers the `.id`
-variants and the flags that these lists leave out.
+The fields differ by list. [Which fields
+exist](/docs/query-syntax/#which-fields-exist) gives every field that each list
+takes, with the type that decides how it matches.
 
 Sepal ignores a field it does not recognize rather than reporting it, so a
 misspelled field name widens the result instead of narrowing it. If a term
-appears to do nothing, check its spelling against the list above.
+appears to do nothing, check its spelling against that table.
 
 ## Narrow the result
 

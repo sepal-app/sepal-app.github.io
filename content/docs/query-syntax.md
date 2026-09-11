@@ -73,9 +73,8 @@ location:=GH
 
 That finds `GH` and not `GH2`.
 
-Only text filters work this way. A date, an enum, and an ID filter are exact
-already. A full-text filter matches on whole words rather than on substrings,
-and it ignores an `=` placed in front of its value.
+Only a `text` field works this way. [Field types](#field-types) gives the
+matching rule and the operators for every type.
 
 ## Comparisons
 
@@ -116,20 +115,131 @@ only records created after January 1, 2026.
 
 ## Which fields exist
 
-The fields differ by list page. An accession takes `code`, `taxon`,
-`taxon.rank`, `provenance`, `supplier`, `location`, `material.type`,
-`material.status`, `tag`, `created`, and `updated`. A few more fields exist as
-`.id` variants, which match a record by its numeric ID rather than by its name.
-Each list page offers its own fields in the **Filter** dropdown beside the
-search box.
+The fields differ by list. Every field has a type, and the type decides how a
+value matches and which operators the field honours. The name of the field
+makes no difference.
 
-A filter naming a field that the list does not have is dropped rather than
+A filter naming a field that its list does not have is dropped rather than
 matching nothing, so a misspelled field name widens the result instead of
-narrowing it. If a term seems to do nothing, check its spelling against the list
-above.
+narrowing it. If a term appears to do nothing, check its spelling against the
+table for the list you are on.
+
+### Field types
+
+| Type | What a value matches | Operators |
+|---|---|---|
+| `text` | Any part of the stored value, as `LIKE '%value%'` | `=` matches the whole value exactly |
+| `fts` | Whole words, with the last word matched as a prefix | None. Sepal ignores an `=` in front of the value |
+| `enum` | One value from a fixed set, matched exactly | None |
+| `id` | A record's numeric ID, matched exactly | None |
+| `date` | A date, matched exactly | `>`, `>=`, `<`, and `<=` |
+| `count` | The number of related records | `>`, `>=`, `<`, and `<=` |
+
+Sepal reads a comma-separated list before it reads the type, so `field:a,b`
+compiles to `IN ('a', 'b')` whichever type the field has. That is why
+`location:GH,SH` matches each value exactly where `location:GH` matches a
+substring.
+
+An ID field matches a record by its numeric ID rather than by its name. You can
+type one into the search box, though the **Filter** dropdown does not offer it.
+
+### Accessions
+
+| Field | Type |
+|---|---|
+| `code` | `fts` |
+| `id` | `id` |
+| `provenance` | `enum` |
+| `taxon` | `fts` |
+| `taxon.id` | `id` |
+| `taxon.rank` | `enum` |
+| `supplier` | `text` |
+| `supplier.id` | `id` |
+| `location` | `text` |
+| `location.id` | `id` |
+| `material.type` | `enum` |
+| `material.status` | `enum` |
+| `tag` | `text` |
+| `created` | `date` |
+| `updated` | `date` |
+
+### Material
+
+| Field | Type |
+|---|---|
+| `code` | `text` |
+| `type` | `enum` |
+| `status` | `enum` |
+| `id` | `id` |
+| `accession` | `text` |
+| `accession.id` | `id` |
+| `taxon` | `fts` |
+| `taxon.id` | `id` |
+| `location.code` | `text` |
+| `location.name` | `text` |
+| `location.id` | `id` |
+| `tag` | `text` |
+| `created` | `date` |
+| `updated` | `date` |
+
+### Locations
+
+| Field | Type |
+|---|---|
+| `code` | `fts` |
+| `name` | `fts` |
+| `description` | `fts` |
+| `id` | `id` |
+| `taxon` | `fts` |
+| `taxon.id` | `id` |
+| `material.type` | `enum` |
+| `material.status` | `enum` |
+| `created` | `date` |
+| `updated` | `date` |
+
+The `taxon` field on this list asks what a location holds, so `taxon:Quercus`
+finds the locations that hold an oak.
+
+### Taxa
+
+| Field | Type |
+|---|---|
+| `name` | `fts` |
+| `author` | `text` |
+| `rank` | `enum` |
+| `id` | `id` |
+| `parent` | `text` |
+| `parent.id` | `id` |
+| `material.type` | `enum` |
+| `material.status` | `enum` |
+| `location.code` | `text` |
+| `location.name` | `text` |
+| `location.id` | `id` |
+| `accessions` | `count` |
+| `tag` | `text` |
+| `synonym` | `text` |
+
+The `accessions` field counts the accessions of a taxon. `accessions:>0` finds
+the taxa you hold, and `accessions:0` finds the ones you do not. The **Only taxa
+with accessions** checkbox above the table writes `accessions:>0` for you.
+
+The `synonym` field is the exception to the type table. Sepal resolves the
+value against the synonyms it knows and returns the taxa those names point to,
+rather than matching a column.
+
+### Contacts
+
+| Field | Type |
+|---|---|
+| `name` | `fts` |
+| `email` | `fts` |
+| `business` | `fts` |
+| `address` | `text` |
+| `id` | `id` |
+| `created` | `date` |
+| `updated` | `date` |
 
 {{< note >}}
-This page describes the language rather than the field list of every resource.
-The grammar in the app is the source of truth for both. If a query that this
-page shows does not work, report it.
+The search grammar in the app is the source of truth for both the language and
+the fields. If a query that this page shows does not work, report it.
 {{< /note >}}
