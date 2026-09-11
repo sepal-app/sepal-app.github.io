@@ -42,8 +42,10 @@ A bare word is a full-text search, and what it matches depends on the page:
 
 The last word you type is matched as a prefix, so `Quer` finds `Quercus` before
 you finish typing it. Every word before it has to match in full. Quotation marks
-make no difference to a bare search: Sepal looks for each word on its own, so
-`"red oak"` matches the same records as `red oak` does.
+around two or more words hold them together as a phrase, so `"red oak"` matches
+`red oak` where the unquoted `red oak` also matches `oak red`. A phrase that ends
+the query keeps the prefix on its own last word, which is why `"Quercus alb"`
+still finds `Quercus alba`.
 
 ## Filter on a field
 
@@ -58,6 +60,14 @@ taxon:Quercus
 The fields differ by list. [Which fields
 exist](/docs/query-syntax/#which-fields-exist) gives every field that each list
 takes, with the type that decides how it matches.
+
+Searching the code reaches a year rather than one accession, because Sepal holds
+a code like `2022.0001` as the two words `2022` and `0001`. Put `=` in front of
+the whole code to match it as it is stored.
+
+```
+code:=2022.0001
+```
 
 Sepal ignores a field it does not recognize rather than reporting it, so a
 misspelled field name widens the result instead of narrowing it. If a term

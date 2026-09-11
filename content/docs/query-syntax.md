@@ -23,10 +23,15 @@ A word on its own is a full-text search.
 quercus
 ```
 
-Quotation marks around a bare search do not hold the words together. Sepal
-searches each word on its own, so `"red oak"` matches the same records as
-`red oak` does, including a record that has the two words far apart or in the
-other order.
+Quotation marks around two or more words hold them together as a phrase.
+`"red oak"` matches a record where `red` is followed by `oak`, and it does not
+match one holding `oak red` or `red maple and oak tree`. Without the quotation
+marks, `red oak` matches a record holding both words wherever they sit.
+
+Sepal matches the last word of the whole query as a prefix, and a phrase at the
+end of the query takes that prefix on its own last word. A query ending in
+`"Quercus alb"` finds `Quercus alba`. A phrase with another term after it has to
+match in full.
 
 ## Filters
 
@@ -41,6 +46,9 @@ If a value contains a space, put the value in double quotation marks.
 ```
 taxon:"Quercus alba"
 ```
+
+A quoted value is a phrase on a Full text field, so that filter matches a taxon
+named `Quercus alba` and not one named `alba Quercus`.
 
 To match any one of several values, separate the values with commas.
 
@@ -78,9 +86,19 @@ location:=GH
 
 That finds `GH` and not `GH2`.
 
-Only a Text field works this way. A Full text field ignores an `=`.
-[Field types](#field-types) gives the matching rule and the operators for every
-type.
+A Full text field takes `=` as well, where it asks for the stored value rather
+than the index. `code:2022` searches the index, which holds a code like
+`2022.0001` as the two words `2022` and `0001`, so that term returns every
+accession of that year. `code:=2022.0001` compares the column and returns the
+one accession carrying that code.
+
+```
+code:=2022.0001
+```
+
+A Full text field ignores `>`, `>=`, `<`, and `<=`, and searches for the value
+as it would without them. [Field types](#field-types) gives the matching rule
+and the operators for every type.
 
 ## Comparisons
 
@@ -103,6 +121,15 @@ A leading `-` excludes a filter.
 ```
 -location:GH
 ```
+
+A leading `-` on a word excludes a full-text term.
+
+```
+-quercus
+```
+
+That query returns the accessions the search `quercus` leaves out. A phrase
+takes a `-` the same way, so `-"red oak"` excludes what `"red oak"` matches.
 
 ## Nested fields
 
@@ -137,7 +164,7 @@ table for the list you are on.
 
 | Type | Matches | Operators |
 |---|---|---|
-| Full text (`fts`) | Whole words, with the last word matched as a prefix | None. Sepal ignores an operator in front of the value |
+| Full text (`fts`) | Whole words, with the last word matched as a prefix | `=` matches the stored value exactly. Sepal ignores `>`, `>=`, `<`, and `<=` |
 | Text (`text`) | Any part of the stored value, as `LIKE '%value%'` | `=` matches the whole value exactly |
 | Fixed list (`enum`) | One value from the set the field allows | None. The match is always exact |
 | Date (`date`) | A date, matched exactly | `>`, `>=`, `<`, and `<=` |
