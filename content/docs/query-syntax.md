@@ -91,16 +91,16 @@ material.status:alive
 ## Putting it together
 
 ```
-quercus location:GH,SH material.status:alive -private created:>2026-01-01
+quercus location:GH,SH material.status:alive created:>2026-01-01
 ```
 
-That query matches oaks with living material in `GH` or `SH`. It excludes
-private accessions, and it matches only records created after January 1, 2026.
+That query matches oaks with living material in `GH` or `SH`, and it matches
+only records created after January 1, 2026.
 
 ## Which fields exist
 
 The fields differ by list page. An accession takes `code`, `taxon`,
-`taxon.rank`, `provenance`, `private`, `supplier`, `location`, `material.type`,
+`taxon.rank`, `provenance`, `supplier`, `location`, `material.type`,
 `material.status`, `tag`, `created`, and `updated`. A few more fields exist as
 `.id` variants, which match a record by its numeric ID rather than by its name.
 Each list page offers its own fields in the **Filter** dropdown beside the

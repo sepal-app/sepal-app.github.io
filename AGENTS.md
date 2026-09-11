@@ -80,6 +80,10 @@ for steps: "Open Settings. Select Users." Blog posts may be first person.
 Every factual claim in the docs is traceable to the app. Name the file you took
 it from in the pull request, not in the page.
 
+A field in the spec is not a feature. Before documenting one, find the control
+that renders it: `private` and `memorial` are both in the schema, neither has a
+form field, and both reached a page before anyone checked.
+
 Enforcement is review. Every page is read before it merges. There is no linter,
 and adding one is not wanted: Vale would catch the mechanical cases and cost a
 binary, a CI step and a stream of false positives to silence.

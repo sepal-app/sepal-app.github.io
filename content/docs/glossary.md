@@ -100,8 +100,9 @@ accession, a material, or a taxon.
 ## Taxon
 
 A taxon is a botanical name at any rank, such as the species *Quercus alba* or
-the genus *Acer*. Sepal ships the World Flora Online Plantlist, so most of the
-names you need already exist. You search for a name instead of typing it.
+the genus *Acer*. The setup wizard offers to import the World Flora Online
+Plantlist, so most instances already hold the names you need, and an instance
+that skipped it starts with none. You search for a name instead of typing it.
 
 ## Why accessions and materials are separate
 

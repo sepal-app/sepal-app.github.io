@@ -46,7 +46,7 @@ while you still have the label and the paperwork in front of you.
    code has to be unique. Gardens commonly use the year and a serial number,
    such as `2026.0001`.
 4. Start typing a name in the **Taxon** field and select the name you want from
-   the results. Sepal searches the World Flora Online Plantlist, so you rarely
+   the results. The field searches the taxa your instance holds, so you rarely
    have to add a name yourself.
 5. Under **Provenance**, set **Provenance Type**. The field is optional, and it
    is worth setting, because it records how the plant came to be where it is.

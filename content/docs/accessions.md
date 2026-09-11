@@ -25,9 +25,9 @@ reader who opens an accession sees the summary panel rather than the form.
 not impose a format. Gardens commonly use the year and a serial number, such as
 `2026.0001`.
 
-**Taxon** is the botanical name of the accession. Start typing a
-name and select one of the results. Sepal searches the World Flora Online
-Plantlist, so you rarely have to add a name yourself.
+**Taxon** is the botanical name of the accession. Start typing a name and
+select one of the results. The field searches the taxa your instance holds, so
+you rarely have to add a name yourself.
 
 **ID Qualifier** and **ID Qualifier Rank** record how confident the
 identification is. They are covered in [Qualify an uncertain
