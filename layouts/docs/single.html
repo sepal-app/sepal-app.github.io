@@ -4,24 +4,7 @@
     <article class="docs__body{{ if .Params.steps }} docs__body--steps{{ end }}" data-pagefind-body>
         <h1>{{ .Title }}</h1>
         {{ with .Description }}<p class="docs__lede">{{ . }}</p>{{ end }}
-        {{ if .Params.steps }}
-        {{/* A walkthrough page sets steps: true. Each h2 and the content under
-             it becomes a section, which is what the rail in docs.css runs down;
-             the step numbers come from a CSS counter, so the headings in the
-             markdown carry none. A closing "What to read next" is not a step
-             and stays where the markdown put it. */}}
-        {{ $parts := split .Content "<h2" }}
-        {{ index $parts 0 | safeHTML }}
-        {{ range after 1 $parts }}
-        {{ if in . "what-to-read-next" }}
-        {{ printf "<h2%s" . | safeHTML }}
-        {{ else }}
-        {{ printf "<section class=\"docs__step\"><h2%s</section>" . | safeHTML }}
-        {{ end }}
-        {{ end }}
-        {{ else }}
         {{ .Content }}
-        {{ end }}
     </article>
     {{ with .Fragments.Headings }}
     <aside class="docs__toc">

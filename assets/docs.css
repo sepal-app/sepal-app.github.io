@@ -365,46 +365,44 @@
 
 /* Step rail --------------------------------------------------- */
 
-/* A walkthrough page sets steps: true in its front matter. The template wraps
-   each h2 and the content under it in a section; the numbers come from the
-   counter below, and the rail is the line joining the badges. */
+/* A walkthrough page sets steps: true in its front matter and the template
+   puts docs__body--steps on the article. Everything else happens here, with no
+   wrapper around a step: indenting the content from the first h2 on opens a
+   gutter, each h2 is numbered by a counter and drops a badge into that gutter,
+   and each badge also drops a line from its centre. The lines overlap into one
+   rail, the article clips the overhang, and the closing section paints out the
+   tail so the rail ends with the last step.
 
-.docs__body--steps { counter-reset: step; }
+   The rail sits behind the text (the article is a stacking context and the
+   rail is below it), so nothing it passes is disturbed. */
 
-.docs__step {
+.docs__body--steps {
   position: relative;
-  padding: 40px 0 8px 52px;
+  z-index: 0;
+  overflow: hidden;
+  counter-reset: step;
+}
+
+/* The gutter. The title, the lede and the introduction keep the full column;
+   everything from the first h2 on moves over to clear the badges. */
+.docs__body--steps > h2,
+.docs__body--steps > h2 ~ * { margin-left: 52px; }
+
+.docs__body--steps h2:not(#what-to-read-next) {
+  position: relative;
+  margin-top: 64px;
+  padding-top: 0;
+  border-top: 0;
   counter-increment: step;
 }
 
-/* The rail runs the height of each section, so consecutive sections join into
-   one line. It starts at the first badge and stops under the last step. */
-.docs__step::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 15px;
-  width: 2px;
-  background: var(--border-light);
-}
-
-.docs__step:first-of-type::before { top: 56px; }
-
-.docs__step:last-of-type::before { bottom: 24px; }
-
-/* The rail replaces the rule that separates sections elsewhere. */
-.docs__body--steps .docs__step > h2 {
-  margin: 0 0 14px;
-  padding-top: 0;
-  border-top: 0;
-}
-
-.docs__body--steps .docs__step > h2::before {
+/* The badge. Its ring is the page background, so the rail passes behind it
+   without touching it. */
+.docs__body--steps h2:not(#what-to-read-next)::before {
   content: counter(step);
   position: absolute;
-  top: 40px;
-  left: 0;
+  top: 0;
+  left: -52px;
   width: 32px;
   height: 32px;
   border-radius: var(--radius-pill);
@@ -418,18 +416,54 @@
   text-align: center;
 }
 
-@media (max-width: 600px) {
-  .docs__step { padding: 32px 0 8px 40px; }
-  .docs__step::before { left: 12px; }
-  .docs__step:first-of-type::before { top: 45px; }
+/* The rail. Each badge drops one the length of the article; they overlap into
+   a single line from the first badge down, and overflow does the clipping. */
+.docs__body--steps h2:not(#what-to-read-next)::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 16px;
+  left: -37px;
+  width: 2px;
+  height: 9999px;
+  background: var(--border-light);
+}
 
-  .docs__body--steps .docs__step > h2::before {
-    top: 32px;
+/* A closing "What to read next" is not a step. It takes no badge and no
+   number, it comes back out to the full column, and it paints the page colour
+   over the rail from its own top margin down, which is what ends the rail
+   under the last step. */
+.docs__body--steps > h2#what-to-read-next,
+.docs__body--steps > h2#what-to-read-next ~ * { margin-left: 0; }
+
+.docs__body--steps > h2#what-to-read-next { position: relative; }
+
+.docs__body--steps > h2#what-to-read-next::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -66px;
+  left: 15px;
+  width: 2px;
+  height: 9999px;
+  background: var(--bg);
+}
+
+@media (max-width: 600px) {
+  .docs__body--steps > h2,
+  .docs__body--steps > h2 ~ * { margin-left: 40px; }
+
+  .docs__body--steps h2:not(#what-to-read-next)::before {
+    left: -40px;
     width: 26px;
     height: 26px;
     font-size: 13px;
     line-height: 26px;
   }
+
+  .docs__body--steps h2:not(#what-to-read-next)::after { top: 13px; left: -27px; }
+
+  .docs__body--steps > h2#what-to-read-next::before { left: 12px; }
 }
 
 /* What to read next ------------------------------------------- */
