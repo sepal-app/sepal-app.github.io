@@ -1,23 +1,24 @@
 ---
 title: Self-hosting
-description: Run Sepal yourself, with Docker or a jar, and every setting it reads.
+description: Run Sepal yourself with Docker or a jar, and set every option it reads.
 weight: 30
 ---
 
-Run Sepal on your own machine with Docker or a jar. This page is the reference
-for both.
+You can run Sepal on your own machine with Docker or with a jar. This page
+describes both, and it lists every setting Sepal reads.
 
 ## Running Sepal
 
-Sepal is one process backed by one SQLite database. It provisions that database
-on first start, applies pending migrations, and walks you through a setup wizard
-that creates the first admin user and downloads the taxon data. `SEPAL_SECRET` is
-the only variable you have to set.
+Sepal runs as one process backed by one SQLite database. On first start, Sepal
+provisions that database and applies any pending migrations. Sepal then runs a
+setup wizard that creates the first admin user and downloads the taxon data.
+`SEPAL_SECRET` is the only variable you have to set.
 
 ### Docker
 
-`projects/app/Dockerfile` builds the whole thing — frontend assets, uberjar and a
-runtime image carrying SpatiaLite.
+`projects/app/Dockerfile` builds everything Sepal needs. The build produces the
+frontend assets and the uberjar, and it produces a runtime image that carries
+SpatiaLite.
 
 ```bash
 docker build -f projects/app/Dockerfile -t sepal .
@@ -27,13 +28,16 @@ docker run -d -p 3000:3000 \
     sepal
 ```
 
-Then open `http://localhost:3000` and follow the setup wizard.
+After the container starts, open `http://localhost:3000` and follow the setup
+wizard.
 
-`bin/smoke-test` does exactly this against an empty volume and asserts the
-container provisions, migrates, loads SpatiaLite and serves HTTP, so it is the
-executable version of the paragraph above.
+`bin/smoke-test` runs the same two commands against an empty volume. The script
+asserts that the container provisions the database, applies migrations, loads
+SpatiaLite, and serves HTTP.
 
 ### From a jar
+
+To run Sepal from a jar, build the uberjar and then start it with `java`.
 
 ```bash
 bin/build-uberjar.sh
@@ -42,32 +46,35 @@ SEPAL_SECRET="$(openssl rand -hex 16)" \
          -jar projects/app/target/sepal.jar
 ```
 
-Outside Docker you also need `mod_spatialite` on disk and
-`EXTENSIONS_LIBRARY_PATH` pointing at the directory holding it.
+Outside Docker, you also need `mod_spatialite` on disk. Set
+`EXTENSIONS_LIBRARY_PATH` to the directory that holds it.
 
 ### Where data lives
 
-Everything Sepal writes — the database, the thumbnail cache, backups — goes under
-`SEPAL_DATA_HOME`. Unset, it falls back to `$XDG_DATA_HOME/Sepal`, then to
-`~/Library/Application Support/Sepal` on macOS or `~/.local/share/Sepal`
+Sepal writes the database, the thumbnail cache, and the backups under
+`SEPAL_DATA_HOME`. If you do not set `SEPAL_DATA_HOME`, Sepal falls back to
+`$XDG_DATA_HOME/Sepal`. If that variable is unset too, Sepal uses
+`~/Library/Application Support/Sepal` on macOS and `~/.local/share/Sepal`
 elsewhere.
 
 ### Schema versions
 
-Sepal records applied migrations in a `schema_version` table inside the database
-and refuses to start against one older than its supported minimum, reporting
-`:schema-version-unsupported`. A database at or above that minimum works,
-including one newer than the running build — so rolling back to a previous
-release does not strand a database that has already been migrated.
+Sepal records the migrations it has applied in a `schema_version` table inside
+the database. If the database is older than the minimum version the build
+supports, Sepal refuses to start and reports `:schema-version-unsupported`. A
+database at or above that minimum works, including one newer than the running
+build. Rolling back to a previous release therefore does not strand a database
+that has already been migrated.
 
 Sepal applies pending migrations automatically at startup, so a database it
-created and has kept current is always accepted. The minimum matters when a
-database has been migrated by a newer build than the one now running it.
+created and has kept current is always accepted. The minimum version matters
+when a newer build has migrated the database that an older build now runs.
 
 ## Configuration
 
-`sepal.app.main/env-opts` is the only place Sepal reads the environment.
-Everything it reads is listed here; anything not listed is not read.
+Sepal reads the environment in one place, `sepal.app.main/env-opts`. The tables
+below list every variable Sepal reads. Sepal does not read a variable that is
+not listed.
 
 ### Required
 
@@ -76,9 +83,9 @@ Everything it reads is listed here; anything not listed is not read.
 | `SEPAL_SECRET` | Master secret, minimum 16 characters. The session cookie key and the password reset token secret are both HKDF-derived from it, so it has no default and changing it invalidates every session. |
 
 {{< note "danger" >}}
-`SEPAL_SECRET` has no default and must be at least 16 characters. The session
-cookie key and the password reset token secret are both derived from it, so
-changing it signs every user out.
+`SEPAL_SECRET` has no default, and it must be at least 16 characters. Sepal
+derives both the session cookie key and the password reset token secret from
+it, so changing it signs every user out.
 {{< /note >}}
 
 ### Server
@@ -97,8 +104,8 @@ changing it signs every user out.
 
 ### Email
 
-Optional. Without `SMTP_HOST` no mail client is built at all, and password
-resets and invitations go nowhere.
+Email is optional. If you do not set `SMTP_HOST`, Sepal builds no mail client
+at all, and password resets and invitations go nowhere.
 
 | Variable | Default | Description |
 |----------|---------|-------------|
@@ -116,8 +123,9 @@ resets and invitations go nowhere.
 
 ### Media uploads
 
-Optional. Any S3-compatible store works, Cloudflare R2 included. Without
-`AWS_ACCESS_KEY_ID` no S3 client is built and media upload is off.
+Media upload is optional, and any S3-compatible store works, Cloudflare R2
+included. If you do not set `AWS_ACCESS_KEY_ID`, Sepal builds no S3 client and
+media upload stays off.
 
 | Variable | Default | Description |
 |----------|---------|-------------|
@@ -129,11 +137,12 @@ Optional. Any S3-compatible store works, Cloudflare R2 included. Without
 | `MEDIA_KEY_PREFIX` | `media/` | Prefix every media key is stored under. Must end in a slash |
 | `IMAGE_CACHE_SIZE_MB` | `500` | Thumbnail cache ceiling, cached under `$SEPAL_DATA_HOME/cache` |
 
-With Cloudflare R2 specifically:
+Cloudflare R2 needs some specific settings:
 
 - Use an API token scoped to the one bucket.
-- Set `AWS_REGION=auto`. The region only signs requests; R2 accepts `auto` for
-  all buckets.
+- Set `AWS_REGION=auto`. The region only signs requests, and R2 accepts `auto`
+  for all buckets.
 - The browser uploads directly to the bucket with a presigned PUT, so the bucket
-  needs a CORS rule allowing `PUT` from your app's origin with the
-  `content-type` header. Reads need no CORS rule: the app proxies them.
+  needs a CORS rule that allows `PUT` from your app's origin with the
+  `content-type` header. Reads need no CORS rule, because the app proxies
+  them.

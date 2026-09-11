@@ -60,6 +60,12 @@ On top of it, these do not appear:
   terms.
 - A summarizing flourish at the end of a section.
 - Emoji.
+- Sentence fragments. Every sentence carries a subject and a verb.
+- An aphorism or an epigram. A sentence that sounds quotable is wrong here.
+- A definition written as a phrase instead of a sentence. "A material is the
+  living stuff of an accession, in one place, counted." The first sentence about
+  a thing says what it is: "A material is a quantity of an accession at one
+  location."
 
 Register differs by section. Docs are second person, present tense, imperative
 for steps: "Open Settings. Select Users." Blog posts may be first person.
