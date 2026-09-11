@@ -6,8 +6,9 @@ weight: 190
 steps: true
 ---
 
-Every list page in Sepal carries the same search box, and it searches text and
-filters fields at the same time. This page works one query from a bare word down
+Five lists in Sepal carry the same search box: **Accessions**, **Material**,
+**Locations**, **Taxa**, and **Contacts**. The box searches text and filters
+fields at the same time. This page works one query from a bare word down
 to a narrow result. [Query syntax](/docs/query-syntax/) describes the whole
 grammar, including comparisons, negation, and matching several values at once.
 
@@ -84,7 +85,10 @@ table.
 
 To widen one field without widening the rest, separate its values with commas.
 Commas mean OR inside a single field, and two different fields still narrow each
-other.
+other. A comma list also matches each value exactly, where a single value
+matches a substring, so `location:GH,SH` misses the `GH2` that `location:GH`
+finds. [How a text filter
+matches](/docs/query-syntax/#how-a-text-filter-matches) explains that.
 
 ```
 taxon:Quercus location:GH,SH

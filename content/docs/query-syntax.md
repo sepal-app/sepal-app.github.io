@@ -5,8 +5,9 @@ group: Finding things
 weight: 200
 ---
 
-Every list page takes the same query language. Type a word to search text, or
-type `field:value` to filter on a field. You can combine as many words and
+Five lists take the same query language: **Accessions**, **Material**,
+**Locations**, **Taxa**, and **Contacts**. Type a word to search text, or type
+`field:value` to filter on a field. You can combine as many words and
 filters as you need. Sepal joins the terms with AND, so a record has to match
 every term.
 
@@ -52,9 +53,33 @@ taxon:Quercus location:GH,SH
 
 That query matches an oak in one of those two locations.
 
+## How a text filter matches
+
+A text filter with no operator matches a substring. `location:GH` finds a
+location coded `GH`, and it also finds one coded `GH2`, because Sepal compiles
+the term to `LIKE '%GH%'`.
+
+A comma-separated list matches exactly. `location:GH,SH` compiles to
+`IN ('GH', 'SH')`, so it finds `GH` and `SH` and no longer finds `GH2`. A comma
+widens how many values a field accepts and narrows how each one matches, which
+means a comma list can return fewer rows than the single-value term it grew out
+of.
+
+To match one value exactly, put `=` in front of it.
+
+```
+location:=GH
+```
+
+That finds `GH` and not `GH2`.
+
+Only text filters work this way. A date, an enum, and an ID filter are exact
+already. A full-text filter matches on whole words rather than on substrings,
+and it ignores an `=` placed in front of its value.
+
 ## Comparisons
 
-Four comparison operators work on dates and numbers.
+Four comparison operators work on dates.
 
 ```
 created:>2024-01-01
@@ -97,6 +122,11 @@ The fields differ by list page. An accession takes `code`, `taxon`,
 `.id` variants, which match a record by its numeric ID rather than by its name.
 Each list page offers its own fields in the **Filter** dropdown beside the
 search box.
+
+A filter naming a field that the list does not have is dropped rather than
+matching nothing, so a misspelled field name widens the result instead of
+narrowing it. If a term seems to do nothing, check its spelling against the list
+above.
 
 {{< note >}}
 This page describes the language rather than the field list of every resource.
