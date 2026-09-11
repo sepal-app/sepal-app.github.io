@@ -21,24 +21,25 @@
 .docs-nav { align-self: start; position: sticky; top: 24px; }
 
 .docs-nav__title {
-  margin: 0 0 12px;
+  margin: 0 0 16px;
   font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .08em;
+  font-weight: 700;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--text-dim);
+  color: var(--text);
 }
 
 .docs-nav ul { margin: 0; padding: 0; list-style: none; }
 
-.docs-nav li { margin-bottom: 2px; }
+.docs-nav li { margin-bottom: 1px; }
 
 .docs-nav a {
   display: block;
-  padding: 6px 10px;
+  padding: 5px 10px;
   border-radius: var(--radius);
   color: var(--text-nav);
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 1.45;
 }
 
 .docs-nav a:hover { background: var(--surface-alt); }
@@ -54,43 +55,121 @@
 .docs__body, .prose-page { min-width: 0; }
 
 .docs__body h1, .prose-page h1 {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   font-size: 40px;
-  line-height: 1.1;
-  letter-spacing: -.03em;
+  line-height: 1.08;
+  letter-spacing: -.035em;
   font-weight: 700;
 }
 
 .docs__lede {
-  margin: 0 0 32px;
-  font-size: 19px;
-  line-height: 1.5;
+  max-width: 62ch;
+  margin: 0 0 36px;
+  font-size: 20px;
+  line-height: 1.55;
   color: var(--text-soft);
 }
 
 .docs__body h2, .prose-page h2 {
-  margin: 48px 0 12px;
-  padding-top: 8px;
+  margin: 64px 0 14px;
+  padding-top: 10px;
   border-top: 1px solid var(--border-light);
-  font-size: 26px;
-  letter-spacing: -.02em;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -.028em;
 }
 
-.docs__body h3, .prose-page h3 { margin: 32px 0 8px; font-size: 19px; }
+.docs__body h3, .prose-page h3 {
+  margin: 36px 0 10px;
+  font-size: 20px;
+  line-height: 1.3;
+  letter-spacing: -.015em;
+  font-weight: 600;
+}
 
 .docs__body p,
 .docs__body li,
 .prose-page p,
-.prose-page li { font-size: 16px; line-height: 1.65; color: var(--text-soft); }
+.prose-page li { font-size: 17px; line-height: 1.7; color: var(--text-soft); }
 
 .docs__body strong, .prose-page strong { color: var(--text); font-weight: 600; }
 
 .docs__body ul,
 .docs__body ol,
 .prose-page ul,
-.prose-page ol { padding-left: 22px; }
+.prose-page ol { font-size: 17px; }
 
-.docs__body li, .prose-page li { margin-bottom: 6px; }
+.docs__body ul,
+.prose-page ul { padding-left: 22px; }
+
+.docs__body li, .prose-page li { margin-bottom: 8px; }
+
+/* Measure. The grid column is wider than a line of text wants to be, so the
+   text is capped rather than the column. Tables and code blocks keep the full
+   width: they carry columns and lines that must not wrap. */
+
+.docs__body p,
+.docs__body ul,
+.docs__body ol,
+.docs__body .callout { max-width: 68ch; }
+
+/* The index on /docs/ is a list of pages, not prose, and keeps the column. */
+.docs__body .docs-index { max-width: none; }
+
+/* Links in running text. Underlined below the baseline so they read as links;
+   the colour is the one they already had. Lists that are navigation rather
+   than prose stay plain. */
+
+.docs__body p a,
+.docs__body li a,
+.docs__body td a,
+.prose-page p a,
+.prose-page li a,
+.prose-page td a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.docs__body p a:hover,
+.docs__body li a:hover,
+.docs__body td a:hover,
+.prose-page p a:hover,
+.prose-page li a:hover,
+.prose-page td a:hover { text-decoration-thickness: 2px; }
+
+.docs__body .docs-index a,
+.prose-page .post-list a { text-decoration: none; }
+
+/* Ordered lists carry every walkthrough, so the numerals get the brand colour
+   and a column of their own, and the steps get room between them. */
+
+.docs__body ol,
+.prose-page ol {
+  padding-left: 0;
+  counter-reset: item;
+  list-style: none;
+}
+
+.docs__body ol > li,
+.prose-page ol > li {
+  position: relative;
+  margin-bottom: 14px;
+  padding-left: 34px;
+  counter-increment: item;
+}
+
+.docs__body ol > li::before,
+.prose-page ol > li::before {
+  content: counter(item) ".";
+  position: absolute;
+  left: 0;
+  width: 24px;
+  color: var(--brand);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
 
 .docs__body em,
 .prose-page em { font-family: var(--font-serif); font-style: italic; }
@@ -166,22 +245,31 @@
 
 /* Table of contents ------------------------------------------- */
 
-.docs__toc { align-self: start; position: sticky; top: 24px; font-size: 14px; }
+.docs__toc { align-self: start; position: sticky; top: 24px; font-size: 13px; }
 
 .docs__toc-title {
-  margin: 0 0 10px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .08em;
+  margin: 0 0 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--text-dim);
 }
 
-.docs__toc ul { margin: 0; padding: 0 0 0 12px; list-style: none; }
+/* The rule down the left ties the entries together and sets them off from the
+   prose beside them. */
+.docs__toc ul {
+  margin: 0;
+  padding: 0 0 0 12px;
+  border-left: 1px solid var(--border-light);
+  list-style: none;
+}
 
-.docs__toc li { margin-bottom: 6px; }
+.docs__toc ul ul { margin-top: 8px; padding-left: 12px; border-left: 0; }
 
-.docs__toc a { color: var(--text-muted); }
+.docs__toc li { margin-bottom: 8px; }
+
+.docs__toc a { color: var(--text-nav); line-height: 1.4; }
 
 /* Docs index -------------------------------------------------- */
 
@@ -258,10 +346,129 @@
    divided and each division is labelled. */
 
 .docs-nav__group {
-  margin: 18px 0 6px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .04em;
+  margin: 0 0 6px;
+  padding-left: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--text-dim);
+}
+
+/* Every group after the first is separated by a rule, so the divisions read as
+   divisions rather than as one longer list. */
+.docs-nav ul + .docs-nav__group {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+}
+
+/* Step rail --------------------------------------------------- */
+
+/* A walkthrough page sets steps: true in its front matter. The template wraps
+   each h2 and the content under it in a section; the numbers come from the
+   counter below, and the rail is the line joining the badges. */
+
+.docs__body--steps { counter-reset: step; }
+
+.docs__step {
+  position: relative;
+  padding: 40px 0 8px 52px;
+  counter-increment: step;
+}
+
+/* The rail runs the height of each section, so consecutive sections join into
+   one line. It starts at the first badge and stops under the last step. */
+.docs__step::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 15px;
+  width: 2px;
+  background: var(--border-light);
+}
+
+.docs__step:first-of-type::before { top: 56px; }
+
+.docs__step:last-of-type::before { bottom: 24px; }
+
+/* The rail replaces the rule that separates sections elsewhere. */
+.docs__body--steps .docs__step > h2 {
+  margin: 0 0 14px;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.docs__body--steps .docs__step > h2::before {
+  content: counter(step);
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background: var(--brand-tint);
+  box-shadow: 0 0 0 4px var(--bg);
+  color: var(--brand);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .docs__step { padding: 32px 0 8px 40px; }
+  .docs__step::before { left: 12px; }
+  .docs__step:first-of-type::before { top: 45px; }
+
+  .docs__body--steps .docs__step > h2::before {
+    top: 32px;
+    width: 26px;
+    height: 26px;
+    font-size: 13px;
+    line-height: 26px;
+  }
+}
+
+/* What to read next ------------------------------------------- */
+
+/* The closing list of links reads as cards. Hugo gives the heading a stable
+   id, so the list under it is styled without touching the page. */
+
+.docs__body h2#what-to-read-next + ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: none;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.docs__body h2#what-to-read-next + ul > li {
+  margin: 0;
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.docs__body h2#what-to-read-next + ul > li > a:first-child {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  text-decoration: none;
+}
+
+.docs__body h2#what-to-read-next + ul > li > a:first-child:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }

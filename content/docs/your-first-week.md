@@ -3,6 +3,7 @@ title: Your first week
 description: Follow one arrival from an empty database to a planted, moved, and findable record.
 group: Getting started
 weight: 20
+steps: true
 ---
 
 This page follows one arrival all the way through Sepal: you add the place it
@@ -14,7 +15,7 @@ You need an account on a Sepal instance and permission to create records. If you
 are running Sepal yourself, [Self-hosting](/docs/self-hosting/) describes how to
 start one.
 
-## 1. Add a location
+## Add a location
 
 A [location](/docs/glossary/#location) is a place that holds plants. Add it
 before you record the arrival, because Sepal will not let you plant anything
@@ -33,7 +34,7 @@ Add one location for each place you want to tell apart. A shelf inside a
 greenhouse is worth its own location if you want to know which shelf a plant is
 on.
 
-## 2. Record the arrival as an accession
+## Record the arrival as an accession
 
 An [accession](/docs/glossary/#accession) is one arrival of one
 [taxon](/docs/glossary/#taxon). Record it as soon as the plant reaches you,
@@ -64,7 +65,7 @@ while you still have the label and the paperwork in front of you.
 The accession now has no material, and that is a valid state. The arrival is
 recorded and nothing has been planted yet.
 
-## 3. Plant material into the location
+## Plant material into the location
 
 A [material](/docs/glossary/#material) is a quantity of the accession at one
 location. Planting the accession means creating its first material.
@@ -97,7 +98,7 @@ Then fill in the rest of the form:
 Create a second material for the same accession whenever part of it goes
 somewhere else. Twenty seeds sown into two greenhouses are two materials.
 
-## 4. Move or split the material
+## Move or split the material
 
 Sepal keeps a history of every move and every change in quantity, so record
 these in the app rather than editing the number and forgetting why.
@@ -125,7 +126,7 @@ Both changes appear in the **History** section of the material's panel, newest
 first. The section shows the three most recent changes, and a **Show all** button
 appears when there are more.
 
-## 5. Find the record again
+## Find the record again
 
 Every list page takes the same search box, and it searches text and filters
 fields at the same time.
