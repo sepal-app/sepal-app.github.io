@@ -8,9 +8,10 @@ steps: true
 
 Five lists in Sepal carry the same search box: **Accessions**, **Material**,
 **Locations**, **Taxa**, and **Contacts**. The box searches text and filters
-fields at the same time. This page works one query from a bare word down
-to a narrow result. [Query syntax](/docs/query-syntax/) describes the whole
-grammar, including comparisons, negation, and matching several values at once.
+fields at the same time. This page works one query from a bare word down to a
+narrow result, and its examples assume the **Accessions** list. [Query
+syntax](/docs/query-syntax/) describes the whole grammar, including comparisons,
+negation, and matching several values at once.
 
 ## Open a list page
 

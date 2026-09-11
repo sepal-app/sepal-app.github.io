@@ -11,6 +11,10 @@ Five lists take the same query language: **Accessions**, **Material**,
 filters as you need. Sepal joins the terms with AND, so a record has to match
 every term.
 
+The examples on this page assume the **Accessions** list, except where a section
+names another one. The fields differ by list, and [Which fields
+exist](#which-fields-exist) gives each list its own.
+
 ## Words
 
 A word on its own is a full-text search.
@@ -44,8 +48,9 @@ To match any one of several values, separate the values with commas.
 location:GH,SH
 ```
 
-Commas mean OR. The query above matches material in `GH` or in `SH`. Commas
-only widen a single field. Two different fields still narrow each other.
+Commas mean OR. The query above matches an accession with material in `GH` or
+in `SH`. Commas only widen a single field. Two different fields still narrow
+each other.
 
 ```
 taxon:Quercus location:GH,SH
@@ -55,8 +60,8 @@ That query matches an oak in one of those two locations.
 
 ## How a text filter matches
 
-A text filter with no operator matches a substring. `location:GH` finds a
-location coded `GH`, and it also finds one coded `GH2`, because Sepal compiles
+A text filter with no operator matches a substring. `location:GH` matches a
+location coded `GH`, and it also matches one coded `GH2`, because Sepal compiles
 the term to `LIKE '%GH%'`.
 
 A comma-separated list matches exactly. `location:GH,SH` compiles to
