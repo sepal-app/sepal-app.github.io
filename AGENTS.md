@@ -67,6 +67,13 @@ On top of it, these do not appear:
   a thing says what it is: "A material is a quantity of an accession at one
   location."
 
+A docs page title names a task, written as a verb phrase. A concept does not get
+a page of its own: it belongs in the glossary, and the task page links to it at
+the point the reader needs it.
+
+External references live in one place, the glossary's Further reading section.
+Open every external link and confirm it resolves before it ships.
+
 Register differs by section. Docs are second person, present tense, imperative
 for steps: "Open Settings. Select Users." Blog posts may be first person.
 

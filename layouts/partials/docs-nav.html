@@ -1,11 +1,29 @@
+{{ $current := . }}
+{{ $pages := (site.GetPage "/docs").RegularPages }}
+{{ $labels := slice "Getting started" "The collection" "Finding things" "Admin" "Reference" }}
+{{ $groups := slice }}
+{{ $placed := slice }}
+{{ range $labels }}
+{{ $in := where $pages "Params.group" . }}
+{{ $groups = $groups | append (dict "label" . "pages" $in) }}
+{{ $placed = $placed | append $in }}
+{{ end }}
+{{/* A page whose group matches nothing above, or that carries no group at all,
+     still has to appear. It goes last, under its own heading. */}}
+{{ $groups = $groups | append (dict "label" "More" "pages" (complement $placed $pages)) }}
 <nav class="docs-nav" aria-label="Documentation">
     <p class="docs-nav__title">Documentation</p>
+    {{ range $groups }}
+    {{ $label := .label }}
+    {{ with .pages }}
+    <p class="docs-nav__group">{{ $label }}</p>
     <ul>
-        {{ $current := . }}
-        {{ range (site.GetPage "/docs").RegularPages.ByWeight }}
+        {{ range .ByWeight }}
         <li>
             <a href="{{ .RelPermalink }}"{{ if eq . $current }} class="is-active" aria-current="page"{{ end }}>{{ .Title }}</a>
         </li>
         {{ end }}
     </ul>
+    {{ end }}
+    {{ end }}
 </nav>

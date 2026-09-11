@@ -253,3 +253,15 @@
 @media (max-width: 800px) {
   .site-search { display: none; }
 }
+
+/* Sidebar group headings. The docs outgrew one flat list, so the nav is
+   divided and each division is labelled. */
+
+.docs-nav__group {
+  margin: 18px 0 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}

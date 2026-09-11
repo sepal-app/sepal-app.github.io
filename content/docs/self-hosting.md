@@ -1,7 +1,8 @@
 ---
 title: Self-hosting
 description: Run Sepal yourself with Docker or a jar, and set every option it reads.
-weight: 30
+group: Reference
+weight: 410
 ---
 
 You can run Sepal on your own machine with Docker or with a jar. This page

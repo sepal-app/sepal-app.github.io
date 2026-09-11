@@ -1,7 +1,8 @@
 ---
 title: Query syntax
 description: Search and filter records with the query language that every list page uses.
-weight: 20
+group: Finding things
+weight: 200
 ---
 
 Every list page takes the same query language. Type a word to search text, or
