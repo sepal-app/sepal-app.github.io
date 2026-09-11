@@ -78,8 +78,9 @@ location:=GH
 
 That finds `GH` and not `GH2`.
 
-Only a `text` field works this way. [Field types](#field-types) gives the
-matching rule and the operators for every type.
+Only a Text field works this way. A Full text field ignores an `=`.
+[Field types](#field-types) gives the matching rule and the operators for every
+type.
 
 ## Comparisons
 
@@ -91,6 +92,9 @@ created:>=2024-01-01
 updated:<2024-06-01
 updated:<=2024-06-01
 ```
+
+The colon always separates the field from the value, and the operators in
+[Field types](#field-types) are what you can put after it.
 
 ## Negation
 
@@ -131,76 +135,77 @@ table for the list you are on.
 
 ### Field types
 
-| Type | What a value matches | Operators |
+| Type | Matches | Operators |
 |---|---|---|
-| `text` | Any part of the stored value, as `LIKE '%value%'` | `=` matches the whole value exactly |
-| `fts` | Whole words, with the last word matched as a prefix | None. Sepal ignores an `=` in front of the value |
-| `enum` | One value from a fixed set, matched exactly | None |
-| `id` | A record's numeric ID, matched exactly | None |
-| `date` | A date, matched exactly | `>`, `>=`, `<`, and `<=` |
-| `count` | The number of related records | `>`, `>=`, `<`, and `<=` |
+| Full text (`fts`) | Whole words, with the last word matched as a prefix | None. Sepal ignores an operator in front of the value |
+| Text (`text`) | Any part of the stored value, as `LIKE '%value%'` | `=` matches the whole value exactly |
+| Fixed list (`enum`) | One value from the set the field allows | None. The match is always exact |
+| Date (`date`) | A date, matched exactly | `>`, `>=`, `<`, and `<=` |
+| Record ID (`id`) | A record's numeric ID, matched exactly | None. The match is always exact |
+| Count (`count`) | The number of related records, matched exactly | `>`, `>=`, `<`, and `<=` |
 
 Sepal reads a comma-separated list before it reads the type, so `field:a,b`
 compiles to `IN ('a', 'b')` whichever type the field has. That is why
 `location:GH,SH` matches each value exactly where `location:GH` matches a
 substring.
 
-An ID field matches a record by its numeric ID rather than by its name. You can
-type one into the search box, though the **Filter** dropdown does not offer it.
+A record ID field matches a record by its numeric ID rather than by its name.
+You can type one into the search box, though the **Filter** dropdown does not
+offer it.
 
 ### Accessions
 
 | Field | Type |
 |---|---|
-| `code` | `fts` |
-| `id` | `id` |
-| `provenance` | `enum` |
-| `taxon` | `fts` |
-| `taxon.id` | `id` |
-| `taxon.rank` | `enum` |
-| `supplier` | `text` |
-| `supplier.id` | `id` |
-| `location` | `text` |
-| `location.id` | `id` |
-| `material.type` | `enum` |
-| `material.status` | `enum` |
-| `tag` | `text` |
-| `created` | `date` |
-| `updated` | `date` |
+| `code` | Full text |
+| `id` | Record ID |
+| `provenance` | Fixed list |
+| `taxon` | Full text |
+| `taxon.id` | Record ID |
+| `taxon.rank` | Fixed list |
+| `supplier` | Text |
+| `supplier.id` | Record ID |
+| `location` | Text |
+| `location.id` | Record ID |
+| `material.type` | Fixed list |
+| `material.status` | Fixed list |
+| `tag` | Text |
+| `created` | Date |
+| `updated` | Date |
 
 ### Material
 
 | Field | Type |
 |---|---|
-| `code` | `text` |
-| `type` | `enum` |
-| `status` | `enum` |
-| `id` | `id` |
-| `accession` | `text` |
-| `accession.id` | `id` |
-| `taxon` | `fts` |
-| `taxon.id` | `id` |
-| `location.code` | `text` |
-| `location.name` | `text` |
-| `location.id` | `id` |
-| `tag` | `text` |
-| `created` | `date` |
-| `updated` | `date` |
+| `code` | Text |
+| `type` | Fixed list |
+| `status` | Fixed list |
+| `id` | Record ID |
+| `accession` | Text |
+| `accession.id` | Record ID |
+| `taxon` | Full text |
+| `taxon.id` | Record ID |
+| `location.code` | Text |
+| `location.name` | Text |
+| `location.id` | Record ID |
+| `tag` | Text |
+| `created` | Date |
+| `updated` | Date |
 
 ### Locations
 
 | Field | Type |
 |---|---|
-| `code` | `fts` |
-| `name` | `fts` |
-| `description` | `fts` |
-| `id` | `id` |
-| `taxon` | `fts` |
-| `taxon.id` | `id` |
-| `material.type` | `enum` |
-| `material.status` | `enum` |
-| `created` | `date` |
-| `updated` | `date` |
+| `code` | Full text |
+| `name` | Full text |
+| `description` | Full text |
+| `id` | Record ID |
+| `taxon` | Full text |
+| `taxon.id` | Record ID |
+| `material.type` | Fixed list |
+| `material.status` | Fixed list |
+| `created` | Date |
+| `updated` | Date |
 
 The `taxon` field on this list asks what a location holds, so `taxon:Quercus`
 finds the locations that hold an oak.
@@ -209,20 +214,20 @@ finds the locations that hold an oak.
 
 | Field | Type |
 |---|---|
-| `name` | `fts` |
-| `author` | `text` |
-| `rank` | `enum` |
-| `id` | `id` |
-| `parent` | `text` |
-| `parent.id` | `id` |
-| `material.type` | `enum` |
-| `material.status` | `enum` |
-| `location.code` | `text` |
-| `location.name` | `text` |
-| `location.id` | `id` |
-| `accessions` | `count` |
-| `tag` | `text` |
-| `synonym` | `text` |
+| `name` | Full text |
+| `author` | Text |
+| `rank` | Fixed list |
+| `id` | Record ID |
+| `parent` | Text |
+| `parent.id` | Record ID |
+| `material.type` | Fixed list |
+| `material.status` | Fixed list |
+| `location.code` | Text |
+| `location.name` | Text |
+| `location.id` | Record ID |
+| `accessions` | Count |
+| `tag` | Text |
+| `synonym` | Text |
 
 The `accessions` field counts the accessions of a taxon. `accessions:>0` finds
 the taxa you hold, and `accessions:0` finds the ones you do not. The **Only taxa
@@ -236,13 +241,13 @@ rather than matching a column.
 
 | Field | Type |
 |---|---|
-| `name` | `fts` |
-| `email` | `fts` |
-| `business` | `fts` |
-| `address` | `text` |
-| `id` | `id` |
-| `created` | `date` |
-| `updated` | `date` |
+| `name` | Full text |
+| `email` | Full text |
+| `business` | Full text |
+| `address` | Text |
+| `id` | Record ID |
+| `created` | Date |
+| `updated` | Date |
 
 {{< note >}}
 The search grammar in the app is the source of truth for both the language and
