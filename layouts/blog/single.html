@@ -1,8 +1,11 @@
 {{ define "main" }}
-<article class="prose-page" data-pagefind-body>
-    <h1>{{ .Title }}</h1>
-    {{ with .Description }}<p class="docs__lede">{{ . }}</p>{{ end }}
-    {{ if not .Date.IsZero }}<p class="post__meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></p>{{ end }}
+<article class="prose-page post" data-pagefind-body>
+    <header class="post__header">
+        {{ if not .Date.IsZero }}<p class="post__kicker"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></p>{{ end }}
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p class="post__standfirst">{{ . }}</p>{{ end }}
+    </header>
     {{ .Content }}
+    {{ partial "post-nav.html" . }}
 </article>
 {{ end }}

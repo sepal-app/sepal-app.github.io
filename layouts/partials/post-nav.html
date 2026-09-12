@@ -1,0 +1,31 @@
+{{/* Previous and next by date, computed explicitly rather than with
+     .PrevInSection, whose direction follows section ordering and reads
+     backwards for a blog. $posts is oldest first, so i-1 is older. */}}
+{{ $posts := (where site.RegularPages "Section" "blog").ByDate }}
+{{ $older := false }}
+{{ $newer := false }}
+{{ range $i, $p := $posts }}
+  {{ if eq $p.RelPermalink $.RelPermalink }}
+    {{ if gt $i 0 }}{{ $older = index $posts (sub $i 1) }}{{ end }}
+    {{ if lt (add $i 1) (len $posts) }}{{ $newer = index $posts (add $i 1) }}{{ end }}
+  {{ end }}
+{{ end }}
+<nav class="post-nav" aria-label="More posts">
+  {{ if or $older $newer }}
+  <div class="post-nav__links">
+    {{ with $older }}
+    <a class="post-nav__link" href="{{ .RelPermalink }}">
+      <span class="post-nav__dir">Older post</span>
+      <span class="post-nav__title">{{ .Title }}</span>
+    </a>
+    {{ end }}
+    {{ with $newer }}
+    <a class="post-nav__link post-nav__link--next" href="{{ .RelPermalink }}">
+      <span class="post-nav__dir">Newer post</span>
+      <span class="post-nav__title">{{ .Title }}</span>
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+  <p class="post-nav__all"><a href="/blog/">All posts</a></p>
+</nav>

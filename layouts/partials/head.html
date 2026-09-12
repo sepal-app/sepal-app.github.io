@@ -2,7 +2,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ .Title }} — Sepal</title>
 {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
-<link rel="canonical" href="{{ .Permalink }}">
+{{/* /blog/ repeats the newest post in full, so it points its canonical and
+     og:url at the post's own URL rather than at itself. */}}
+{{ $canonical := .Permalink }}
+{{ if and (eq .Kind "section") (eq .Section "blog") }}{{ with (index .RegularPages.ByDate.Reverse 0) }}{{ $canonical = .Permalink }}{{ end }}{{ end }}
+<link rel="canonical" href="{{ $canonical }}">
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
@@ -11,7 +15,7 @@
 
 <meta property="og:type" content="{{ if eq .Kind "page" }}article{{ else }}website{{ end }}">
 <meta property="og:site_name" content="Sepal">
-<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:url" content="{{ $canonical }}">
 <meta property="og:title" content="{{ .Title }}">
 {{ with .Description }}<meta property="og:description" content="{{ . }}">{{ end }}
 <meta property="og:image" content="https://sepal.app/og-image.png">

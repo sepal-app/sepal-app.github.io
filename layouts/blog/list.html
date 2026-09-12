@@ -1,15 +1,32 @@
 {{ define "main" }}
+{{/* The newest post in full, so the Blog link lands on something to read.
+     Its canonical URL is set in head.html, and there is no data-pagefind-body
+     here, which keeps the duplicate out of the search index. */}}
+{{ $posts := .RegularPages.ByDate.Reverse }}
 <div class="prose-page">
-    <h1>{{ .Title }}</h1>
-    {{ with .Description }}<p class="docs__lede">{{ . }}</p>{{ end }}
-    <ul class="post-list">
-        {{ range .RegularPages.ByDate.Reverse }}
-        <li>
-            {{ if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>{{ end }}
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            {{ with .Description }}<p>{{ . }}</p>{{ end }}
-        </li>
-        {{ end }}
-    </ul>
+    {{ with (index $posts 0) }}
+    <article class="post post--featured">
+        <header class="post__header">
+            {{ if not .Date.IsZero }}<p class="post__kicker"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></p>{{ end }}
+            <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+            {{ with .Description }}<p class="post__standfirst">{{ . }}</p>{{ end }}
+        </header>
+        {{ .Content }}
+    </article>
+    {{ end }}
+    {{ with after 1 $posts }}
+    <section class="post-archive">
+        <h2>Earlier posts</h2>
+        <ul class="post-list">
+            {{ range . }}
+            <li>
+                {{ if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>{{ end }}
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                {{ with .Description }}<p>{{ . }}</p>{{ end }}
+            </li>
+            {{ end }}
+        </ul>
+    </section>
+    {{ end }}
 </div>
 {{ end }}
