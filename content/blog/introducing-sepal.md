@@ -56,6 +56,6 @@ to host Sepal for you. More to come about that in our next blog post.
 So welcome to Sepal and stay tuned. You're gonna love some of our upcoming features and
 the joy that Sepal brings to your plant collection.
 
-Kind regards,{{ linebreak }}
-Brett Adams{{ linebreak }}
+Kind regards,{{< linebreak >}}
+Brett Adams{{< linebreak >}}
 CEO of Sepal, LLC
