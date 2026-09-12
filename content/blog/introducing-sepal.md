@@ -1,7 +1,7 @@
 ---
 title: Introducing Sepal
 date: 2026-09-12
-description: What Sepal is and where it came from.
+description:
 ---
 
 Hi there! Welcome to the first post of the Sepal blog. Sepal is a new-*ish* plant
