@@ -1,0 +1,82 @@
+{{ define "main" }}
+<div class="prose-page login">
+    <h1>Log in</h1>
+
+    <section id="remembered" hidden>
+        <p>Gardens that you have signed in to on this browser:</p>
+        <ul id="remembered-list" class="login__gardens"></ul>
+    </section>
+
+    <section>
+        <h2>Find your garden</h2>
+        <p>Enter your email address and we send you a login link for each garden that it belongs to.</p>
+        <p><a class="btn btn--primary" href="https://account.sepal.app/find-garden">Email me my login links</a></p>
+    </section>
+
+    <section>
+        <h2>Know your garden's address?</h2>
+        <form id="address-form" class="login__address">
+            <label for="address">Garden address</label>
+            <input id="address" name="address" type="text" required
+                   autocomplete="off" spellcheck="false"
+                   placeholder="brooklyn or brooklyn.sepal.app">
+            <button type="submit" class="btn btn--outline">Go</button>
+        </form>
+    </section>
+</div>
+<script>
+ (function () {
+     var suffix = "sepal.app";
+     var hostPattern = /^[a-z0-9][a-z0-9-]*\.sepal\.app$/;
+
+     function readCookie(name) {
+         var parts = document.cookie.split("; ");
+         for (var i = 0; i < parts.length; i++) {
+             var eq = parts[i].indexOf("=");
+             if (parts[i].slice(0, eq) === name) {
+                 try {
+                     return JSON.parse(decodeURIComponent(parts[i].slice(eq + 1)));
+                 } catch (e) {
+                     return [];
+                 }
+             }
+         }
+         return [];
+     }
+
+     var hosts = readCookie("sepal_gardens");
+     if (Array.isArray(hosts) && hosts.length > 0) {
+         var list = document.getElementById("remembered-list");
+         hosts.forEach(function (host) {
+             if (typeof host !== "string" || !hostPattern.test(host)) { return; }
+             var item = document.createElement("li");
+             var link = document.createElement("a");
+             link.className = "btn btn--primary";
+             link.href = "https://" + host + "/login";
+             link.textContent = host;
+             item.appendChild(link);
+             list.appendChild(item);
+         });
+         if (list.children.length > 0) {
+             document.getElementById("remembered").hidden = false;
+         }
+     }
+
+     document.getElementById("address-form").addEventListener("submit", function (event) {
+         event.preventDefault();
+         var raw = document.getElementById("address").value.trim().toLowerCase();
+         var host = raw.replace(/^https?:\/\//, "").split("/")[0];
+         if (host.indexOf(".") === -1) { host = host + "." + suffix; }
+         if (!hostPattern.test(host)) {
+             document.getElementById("address").setCustomValidity("Enter a garden name or a sepal.app address.");
+             document.getElementById("address").reportValidity();
+             return;
+         }
+         window.location.href = "https://" + host + "/login";
+     });
+     document.getElementById("address").addEventListener("input", function () {
+         this.setCustomValidity("");
+     });
+ })();
+</script>
+{{ end }}

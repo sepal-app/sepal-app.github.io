@@ -590,3 +590,19 @@
   font-size: 20px;
   letter-spacing: -.01em;
 }
+
+/* /login/ */
+.login section { margin-top: 32px; }
+.login__gardens { list-style: none; padding: 0; margin: 0; }
+.login__gardens li { margin-bottom: 8px; }
+.login__address { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; }
+.login__address label { flex-basis: 100%; font-size: 15px; color: var(--text-soft); }
+.login__address input {
+  flex: 1 1 240px;
+  padding: 10px 12px;
+  font: inherit;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+}
