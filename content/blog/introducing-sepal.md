@@ -50,7 +50,7 @@ things that make Sepal different:
   with third-party services like the IUCN Red List, World Flora Online Plant List, BGCI's PlantSearch,
   etc.
 
-We'll also be launching Sepal Cloud, which will be a cost-effective solution for paying us
+We'll also be launching a hosted version of Sepal, which will be a cost-effective solution for paying us
 to host Sepal for you. More to come about that in our next blog post.
 
 So welcome to Sepal and stay tuned. You're gonna love some of our upcoming features and
