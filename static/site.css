@@ -351,168 +351,142 @@ a:hover:not(.btn) { color: var(--brand-hover); }
   margin: 20px 0 0;
 }
 
-/* Product mock ------------------------------------------------ */
+/* Device frames ----------------------------------------------- */
 
-.mock {
+/* Three real captures of the accessions list, at widths that straddle the
+   app's own breakpoints, framed so the reader can tell at a glance which is
+   which. The frames are abstract on purpose: enough to read as a window, a
+   tablet and a phone, and no more, so they never compete with the screenshot.
+
+   Drawn in CSS rather than baked into the images, so a radius can change
+   without re-running the capture in the sepal repo. */
+
+.devices {
+  position: relative;
+}
+
+.devices img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.devices__desktop { width: 76%; }
+
+/* Both portrait devices stand on the desktop's baseline and overlap what is
+   behind them, left to right by decreasing size. */
+.devices__tablet,
+.devices__phone {
+  position: absolute;
+  bottom: 0;
+}
+
+.devices__tablet { right: 8%; width: 28%; }
+.devices__phone  { right: 0;  width: 15%; }
+
+/* Desktop: a browser window. A title bar and three dots is the whole idea. */
+.device--desktop {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: var(--shadow-mock);
 }
 
-/* The app's top bar: rail toggle, breadcrumb, then actions. Sepal is a web
-   app, so there is no window chrome above it. */
-.mock__topbar {
+.device__chrome {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 9px 14px;
-  border-bottom: 1px solid var(--border-light);
-  background: var(--surface);
-}
-
-.mock__toggle {
-  width: 30px;
-  height: 30px;
-  flex: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius);
-  color: var(--text-dim);
-}
-
-.mock__toggle svg { width: 16px; height: 16px; }
-
-.mock__crumb {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.mock__topbar-spacer { flex: 1; }
-
-.mock__action {
-  height: 30px;
-  display: flex;
-  align-items: center;
-  padding: 0 12px;
-  border-radius: var(--radius);
-  background: var(--brand);
-  color: var(--surface);
-  font-size: 13px;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-.mock__body {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-}
-
-/* The app's section rail in its expanded state: same 216px, same 34px rows,
-   same Lucide icons at 20px. Settings sits at the foot. */
-.mock__rail {
-  flex: 0 0 216px;
-  display: flex;
-  flex-direction: column;
-  padding: 12px 8px;
+  gap: 6px;
+  padding: 9px 12px;
   background: var(--surface-alt);
-  border-right: 1px solid var(--border);
   border-bottom: 1px solid var(--border-light);
 }
 
-.mock__nav {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+.device__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-strong);
 }
 
-.mock__nav--end { margin-top: auto; }
+/* Tablet and phone: a bezel rather than a window. The frame is the padding,
+   so the screen inside needs its own smaller radius to sit in it.
 
-.mock__nav-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  height: 34px;
-  padding: 0 10px;
-  border-radius: 7px;
-  color: var(--text-nav);
-  font-size: 13.5px;
+   These set no `position`. The layout classes above own it, and both classes
+   land on the same element — a `position` here would have equal specificity
+   and, coming later, would win and drop the device back into normal flow. */
+.device--tablet,
+.device--phone {
+  background: var(--text);
+  box-shadow: var(--shadow-mock);
 }
 
-.mock__nav-item.is-active {
-  background: var(--brand-tint);
-  color: var(--brand);
-  font-weight: 600;
+.device--tablet {
+  padding: 14px 10px;
+  border-radius: 18px;
 }
 
-.mock__nav-item svg {
-  width: 20px;
-  height: 20px;
-  flex: none;
+.device--phone {
+  padding: 16px 7px;
+  border-radius: 22px;
 }
 
-/* The app takes the rail off-canvas below 1024px, leaving the top bar's toggle
-   as the way back to it. Same breakpoint here, so the mock is not a 216px
-   column beside a table that has wrapped below it. */
-@media (max-width: 1023px) {
-  .mock__rail { display: none; }
+.device--tablet img { border-radius: 8px; }
+.device--phone img  { border-radius: 14px; }
+
+/* A camera dot and a speaker slot, the two marks that tell the two apart. */
+.device--tablet::before,
+.device--phone::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, .3);
 }
 
-.mock__main {
-  flex: 1 1 520px;
-  min-width: 0;
-  overflow-x: auto;
+.device--tablet::before {
+  top: 5px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
 }
 
-/* One grid definition for the header row and all six data rows. Four columns,
-   the same set the app's accessions list shows. */
-.mock__row {
-  display: grid;
-  grid-template-columns: 110px 1.7fr 1.1fr 90px;
-  gap: 16px;
-  min-width: 520px;
-  align-items: center;
-  padding: 13px 20px;
-  border-bottom: 1px solid var(--border-faint);
-  font-size: 13.5px;
-  color: var(--text-table);
+.device--phone::before {
+  top: 7px;
+  width: 26%;
+  height: 3px;
+  border-radius: 2px;
 }
 
-.mock__row--head {
-  align-items: stretch;
-  padding: 12px 20px;
-  border-bottom-color: var(--border-light);
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: .08em;
-  color: var(--text-dim);
+/* 768px to 1023px: a portrait tablet, or a half-width laptop window. Three
+   frames in this much room put a 1440px capture into 537px and the phone into
+   106px, which is decoration rather than a screenshot. The tablet goes — its
+   capture is the one that reads most like the desktop — and the other two take
+   the space, which roughly halves the reduction on both. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .devices__tablet { display: none; }
+  .devices__desktop { width: 92%; }
+  /* The desktop sets the container's height, and a portrait phone gets tall
+     fast: past about 28% it is taller than the desktop frame and its top bezel
+     is clipped. */
+  .devices__phone { width: 27%; }
 }
 
-/* Scientific names are set in the serif italic, matching the app. */
-.mock__row em { font-family: var(--font-serif); }
-
-.mock__acc {
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  color: var(--brand);
-}
-
-.mock__dim { color: var(--text-muted); }
-
-.mock__date {
-  color: var(--text-dim);
-  font-variant-numeric: tabular-nums;
-}
-
-.mock__count {
-  padding: 14px 20px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-dim);
+/* Below 768px the stack would shrink all three past legibility. The phone
+   capture is the one whose content is already sized for a narrow screen, so
+   it is the one that survives. */
+@media (max-width: 767px) {
+  .devices { display: flex; justify-content: center; }
+  .devices__desktop,
+  .devices__tablet { display: none; }
+  /* relative, not static: the notch is an absolutely positioned pseudo-element
+     and needs this element to stay its containing block. */
+  .devices__phone {
+    position: relative;
+    inset: auto;
+    width: auto;
+    max-width: 300px;
+  }
 }
 
 /* Features ---------------------------------------------------- */
