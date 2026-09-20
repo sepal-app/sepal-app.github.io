@@ -10,7 +10,8 @@
     <section>
         <h2>Find your garden</h2>
         <p>Enter your email address and we'll email a login link for every garden that address belongs to.</p>
-        <p><a class="btn btn--primary" href="https://account.sepal.app/find-garden">Email me my login links</a></p>
+        <p><a class="btn btn--primary" href="https://account.sepal.app/find-garden"
+              data-goatcounter-click="login-find-garden">Email me my login links</a></p>
     </section>
 
     <section>
@@ -52,6 +53,7 @@
              var item = document.createElement("li");
              var link = document.createElement("a");
              link.className = "btn btn--primary";
+             link.dataset.goatcounterClick = "login-remembered-garden";
              link.href = "https://" + host + "/login";
              link.textContent = host;
              item.appendChild(link);
