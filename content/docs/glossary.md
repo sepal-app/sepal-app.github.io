@@ -28,10 +28,11 @@ but any code that is unique to you works.
 ## Activity
 
 An activity is one recorded change to a record, together with the user who made
-it and the time it happened. Sepal writes an activity when you create or update
-an accession, a material, a location, or a taxon. The **Activity** section lists
-them for the whole collection, and each record's panel has an **Activity**
-section of its own.
+it and the time it happened. The **Activity** page lists the activities for the
+whole collection. It shows the accessions, material, locations, taxa, and
+propagations that were created or edited, the observations and notes that were
+added, edited, or removed, and the media that was uploaded or deleted. Most
+record panels also have an **Activity** section for that record alone.
 
 ## Contact
 
@@ -65,8 +66,8 @@ The type of a material records what the material is. The values are **plant**,
 
 The status of a material records what became of it. The values are **alive**,
 **dead**, **dormant**, **transferred**, **other**, and **unknown**. A material
-whose status is **dead**, **transferred**, or **other** has to have a quantity
-of zero, because a lot that is no longer current cannot hold plants.
+whose status is **dead**, **transferred**, or **other** is no longer current,
+and Sepal requires its quantity to be zero.
 
 {{< note >}}
 Some search filters offer only alive and dead as status choices. Those two
@@ -77,8 +78,7 @@ statuses.
 ## Provenance
 
 Provenance records how a plant came to be where it is. It is an optional field
-on an accession, and it is worth setting. Set **Provenance Type** to one of the
-following values:
+on an accession. Set **Provenance Type** to one of the following values:
 
 | Value | Meaning |
 |---|---|
@@ -111,10 +111,9 @@ that once, for the whole arrival. A material records how many plants are alive
 and where they are. Sepal updates the material as plants are moved, propagated,
 and lost.
 
-One record cannot do both jobs. If Sepal stored the provenance on the record
-that tracks living plants, the provenance would disappear when the last plant
-died. Storing a copy of the provenance on every row would create duplicates that
-drift apart.
+If Sepal stored the provenance on the record that tracks living plants, the
+provenance would disappear when the last plant died. Storing a copy of the
+provenance on every material would create copies that can disagree.
 
 ## Further reading
 

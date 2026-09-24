@@ -73,15 +73,14 @@ when a newer build has migrated the database that an older build now runs.
 
 ## Configuration
 
-Sepal reads the environment in one place, `sepal.app.main/env-opts`. The tables
-below list every variable Sepal reads. Sepal does not read a variable that is
-not listed.
+The tables below list every environment variable Sepal reads. Sepal does not
+read a variable that is not listed.
 
 ### Required
 
 | Variable | Description |
 |----------|-------------|
-| `SEPAL_SECRET` | Master secret, minimum 16 characters. The session cookie key and the password reset token secret are both HKDF-derived from it, so it has no default and changing it invalidates every session. |
+| `SEPAL_SECRET` | Master secret, at least 16 characters |
 
 {{< note "danger" >}}
 `SEPAL_SECRET` has no default, and it must be at least 16 characters. Sepal

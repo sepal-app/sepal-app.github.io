@@ -13,8 +13,8 @@ moves.
 
 ## Create a location
 
-Add the location before you plant anything into it. Sepal will not let you
-create material in a location that does not exist yet.
+Every material is filed in a location, so add the location before you plant
+anything into it.
 
 1. Select **Locations** in the sidebar.
 2. Select **Create**.
@@ -36,9 +36,28 @@ fields as the create form, and a reader sees the summary panel instead. Change
 what you need and select **Save**, or select **Cancel** to reload the record as
 it was.
 
-The app has no control that deletes a location. A material refers to its
-location rather than carrying a copy of the name, so renaming a location changes
-what every material in it reports.
+A material refers to its location and does not keep a copy of the name, so
+renaming a location changes what every material in it reports.
+
+## Archive or delete a location
+
+A location that has ever held material cannot be deleted, because the material
+history names it as the place plants moved from or to. Archive it instead.
+
+1. Open the location and stay on the **General** tab.
+2. Select **Actions**, then select **Archive**.
+3. Select **Archive** in the confirmation.
+
+Sepal refuses to archive a location that still holds material, so move the
+material somewhere else first. An archived location keeps its place in the
+history, and it no longer appears in the **Locations** list or in the
+**Location** field of the material form. To list archived locations, search for
+`archived:true`. To bring one back, open it, select **Actions**, and select
+**Restore**.
+
+**Delete** in the same menu removes a location that holds no material, appears
+in no material's history, and is not named by a propagation. You cannot undo a
+delete.
 
 ## Create material
 
@@ -48,60 +67,57 @@ location**:
 1. Select **Locations** in the sidebar and open the location.
 2. Open the **Awaiting planting** section of the panel.
 3. Select **Plant here** beside the accession. The material form opens with
-   **Accession** already filled in.
+   **Accession** and **Code** already filled in.
 
-Otherwise, select **Material** in the sidebar, select **Create**, and choose the
-accession in the **Accession** field.
+To start from the accession, open it, select **Actions**, and select **Add
+material**. To start from nothing, select **Material** in the sidebar, select
+**Create**, and choose the accession in the **Accession** field.
 
-Either way, fill in the rest of the form:
+Then fill in the rest of the form:
 
-1. Under **Identity**, enter a **Code**. Sepal identifies a material by the
-   accession code and the material code together, so a code as short as `1` is
-   enough.
-2. Check that **Location** names the place you are planting into.
+1. Under **Identity**, check the **Code**. Sepal fills it in with the next code
+   for the accession once the accession is set. Sepal identifies a material by
+   the accession code and the material code together, so a code as short as `1`
+   is enough.
+2. Choose the **Location** you are planting into. When the accession has an
+   intended location, the hint under the field names it.
 3. Under **Holding**, set the **Quantity** to the number of seeds or plants this
    material holds. A new material has to start with at least one.
 4. Set **Status** and **Type**.
 5. Select **Save**.
 
-Create a second material for the same accession whenever part of it goes
-somewhere else. Twenty seeds sown into two greenhouses are two materials.
+When part of an accession goes somewhere else, create a second material for it.
+For example, twenty seeds sown into two greenhouses are recorded as two
+materials.
 
 ## Choose a type and a status
 
 **Type** records what the material is. It takes one of `plant`, `seed`,
-`vegetative`, `tissue`, and `other`. Set it to what you are holding now rather
-than to what the material will become.
+`vegetative`, `tissue`, and `other`. Set it to what you are holding now, not to
+what the material will become.
 
 **Status** records what became of the material. It takes one of `alive`, `dead`,
-`dormant`, `transferred`, `other`, and `unknown`. Sepal splits the six into two
-groups. A material that is `alive`, `dormant`, or `unknown` is current and can
-hold any number of plants. A material that is `dead`, `transferred`, or `other`
-is no longer current and has to have a quantity of zero, because a lot that is
-no longer current cannot hold plants. Reduce the quantity in the same save that
+`dormant`, `transferred`, `other`, and `unknown`. A material that is `alive`,
+`dormant`, or `unknown` is current and can hold any number of plants. A material
+that is `dead`, `transferred`, or `other` is no longer current, and Sepal
+requires its quantity to be zero. Set the quantity to zero in the same save that
 changes the status.
-
-{{< note >}}
-Some search filters offer only `alive` and `dead` as status choices. Those two
-values are a shorthand for the search rather than the complete list.
-{{< /note >}}
 
 ## Change the quantity
 
-Record a change in the app rather than editing the number and moving on. Sepal
-writes a history row for the change and keeps it on the record.
+When the number of plants changes, record the change with a reason.
 
 1. Select **Material** in the sidebar and open the material.
 2. On the **General** tab, set **Quantity** to the new number.
 3. Set **Reason for change**. The field lists `Dead`, `Deleted, year dead
    unknown`, `Did not germinate`, `Discarded`, `Discarded seedling`, `Discarded,
-   weedy`, `Distributed elsewhere`, `Error correction`, `Given away`, `Lost,
-   whereabouts unknown`, `Other`, `Stolen`, `Summer kill`, `Transferred
+   weedy`, `Distributed elsewhere`, `Divided`, `Error correction`, `Given away`,
+   `Lost, whereabouts unknown`, `Other`, `Stolen`, `Summer kill`, `Transferred
    elsewhere`, and `Winter kill`. It starts on `None`.
 4. Select **Save**.
 
-The reason is stored on the history row rather than on the material, so it is
-recorded only when the quantity or the location actually changed. A save that
+Sepal stores the reason on the history entry, not on the material. It records
+the reason only when the quantity or the location actually changed. A save that
 changes neither records nothing, whatever the reason field says.
 
 ## Move material to another location
@@ -119,13 +135,13 @@ second:
 1. Open the material, reduce **Quantity** to the number that stays, set a
    **Reason for change**, and select **Save**.
 2. Select **Material** in the sidebar, then select **Create**.
-3. Enter a **Code**, choose the same **Accession**, and choose the location the
-   plants moved to.
+3. Choose the same **Accession**, and choose the **Location** the plants moved
+   to.
 4. Enter the **Quantity** that moved, set **Status** and **Type**, and select
    **Save**.
 
-The second material carries its own code, so the accession now has two lots you
-can count separately.
+The second material carries its own code, so you can count the two lots
+separately.
 
 ## Read the change history
 
@@ -134,17 +150,24 @@ Each entry shows the date and time, the change in quantity as a signed number,
 the move, and the reason if you set one. A move reads as the old location and
 the new one. A change with no move reads as `quantity change`.
 
-The section shows the three most recent entries, and a **Show all** button
-appears when there are more.
+The section shows the three most recent entries. When there are more, a **Show
+all** button lists the rest.
 
 Sepal writes a history entry when a material moves between locations or its
 quantity changes. Creating a material does not write one, and neither does
-changing its code, its type, or its status on its own.
+changing only its code, its type, or its status.
+
+## Delete material
+
+Open the material, select **Actions**, and select **Delete**. Sepal refuses to
+delete a material that a propagation names as its parent plant. Deleting a
+material also removes its history, its observations, and its tags, and it
+unlinks its media. You cannot undo a delete.
 
 ## How a location relates to its material
 
-A location holds material rather than holding accessions. Open a location and
-its panel reports three things.
+A location holds material, not accessions. Open a location and its panel shows
+the following sections:
 
 - **Statistics** counts the materials in the location and links to them in the
   **Material** list.
@@ -154,6 +177,7 @@ its panel reports three things.
   location.
 - **Moved** lists the material that has left this location, newest first, with
   the date and the place it went to.
+- **Propagation** lists the propagations running in this location.
 
 To see everything currently in a location, filter the **Material** list by the
 location code.
@@ -167,6 +191,6 @@ location.code:GH2 status:alive
 - [Add and edit accessions](/docs/accessions/) describes the record that
   material belongs to.
 - [Search your collection](/docs/search/) describes how to find material by
-  where it is rather than by what it is.
+  where it is.
 - [Glossary](/docs/glossary/) defines every record and every field value that
   this page used.

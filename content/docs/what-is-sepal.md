@@ -22,5 +22,5 @@ If plant collection management is new to you, the glossary's [further
 reading](/docs/glossary/#further-reading) points at published guidance on the
 practice itself.
 
-To use all four records on one real arrival, work through [Your first
+To create all four records for one arrival, work through [Your first
 week](/docs/your-first-week/).
