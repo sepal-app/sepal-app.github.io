@@ -10,14 +10,15 @@ An [accession](/docs/glossary/#accession) is one arrival of one
 field and the tabs that open once a record exists. [Your first
 week](/docs/your-first-week/) walks through creating the first one step by step.
 
+Creating, editing, and deleting an accession needs the [editor or admin
+role](/docs/users/#choose-a-role). A reader who opens an accession sees a
+read-only page that holds its panel, without the form or the tabs.
+
 ## Create an accession
 
 Select **Accessions** in the sidebar, then select **New accession**. Fill in the
 form and select **Save**. Sepal requires a **Code** and a **Taxon**. Every other
 field is optional, and you can fill it in later.
-
-Creating an accession needs the editor or admin role. A reader who opens an
-accession sees the summary panel instead of the form.
 
 ## Identity
 
@@ -28,10 +29,11 @@ sequence. By default that is the year and a four-digit serial number, such as
 takes the code before you save, select the refresh icon beside the field to
 fetch the next one.
 
-An admin can change the code format, and can set Sepal to reject codes that do
-not fit it. With that setting on, Sepal refuses a new code that does not fit and
-shows one that does. When you edit an existing accession, Sepal warns you
-instead of refusing, and **Save it anyway** keeps the code you typed.
+An admin can [change the code format](/docs/garden-settings/#set-the-code-format),
+and can set Sepal to reject codes that do not fit it. With that setting on,
+Sepal refuses a new code that does not fit and shows one that does. When you
+edit an existing accession, Sepal warns you instead of refusing, and **Save it
+anyway** keeps the code you typed.
 
 **Taxon** is the botanical name of the accession. Start typing a name and
 select one of the results. The field searches the taxa your instance holds, so
@@ -145,7 +147,7 @@ The note appears in the list below the form with the time it was written and the
 email address of whoever wrote it. Select **Edit** on a note to change it, or
 **Delete** to remove it. Sepal asks `Delete this note?` before it removes one.
 The three most recent notes also appear in the **Notes** section of the panel,
-so a reader who cannot open the tab can still see them.
+so a reader can see them too.
 
 ## Add a tag
 

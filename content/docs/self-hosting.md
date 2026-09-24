@@ -12,8 +12,9 @@ describes both, and it lists every setting Sepal reads.
 
 Sepal runs as one process backed by one SQLite database. On first start, Sepal
 provisions that database and applies any pending migrations. Sepal then runs a
-setup wizard that creates the first admin user and downloads the taxon data.
-`SEPAL_SECRET` is the only variable you have to set.
+[setup wizard](#complete-the-setup-wizard) that creates the first admin user
+and downloads the taxon data. `SEPAL_SECRET` is the only variable you have to
+set.
 
 ### Docker
 
@@ -49,6 +50,35 @@ SEPAL_SECRET="$(openssl rand -hex 16)" \
 
 Outside Docker, you also need `mod_spatialite` on disk. Set
 `EXTENSIONS_LIBRARY_PATH` to the directory that holds it.
+
+### Complete the setup wizard
+
+Until setup is complete, every page redirects to the setup wizard at `/setup`.
+The wizard has six steps, and it returns to the step you were on if you leave
+and come back.
+
+1. **Account** creates the first admin. Enter a **Full name**, an **Email**, and
+   a **Password** of at least eight characters, confirm the password, and select
+   **Create Account**. If an admin already exists, the step asks you to log in
+   and continue.
+2. **Server** checks four optional features: **Email (SMTP)**, **Media Storage
+   (S3)**, **App Domain**, and **SpatiaLite (Geo-coordinates)**. Each check
+   reports what does not work while its feature is missing. Set the variables
+   in [Configuration](#configuration), restart Sepal, and select **Re-run
+   Checks**, or select **Continue** and configure them later.
+3. **Organization** asks for an **Organization name**, a **Short name**, an
+   **Abbreviation**, a **Contact email**, and a **Contact phone**.
+4. **Regional** sets the **Timezone** that Sepal shows every date and time in.
+   It starts on UTC.
+5. **Taxonomy** offers to import the World Flora Online Plant List, which holds
+   over 450,000 taxa with their authors and their place in the hierarchy.
+   Select **Import WFO Plant List** to download it together with the synonym
+   reference, or **Skip for now**. The import is offered only while the
+   database holds no taxa.
+6. **Review** lists what you entered. Select **Complete Setup** to open Sepal.
+
+You can change everything from steps 3 and 4 later, under **Settings**.
+[Configure your garden](/docs/garden-settings/) describes those settings.
 
 ### Where data lives
 

@@ -9,9 +9,9 @@ steps: true
 This page follows one arrival through Sepal. You add the place it will live,
 record the arrival, plant it, move it, and then find it again.
 
-You need an account on a Sepal instance with the editor or admin role. If you
-are running Sepal yourself, [Self-hosting](/docs/self-hosting/) describes how to
-start one.
+You need an account on a Sepal instance with the [editor or admin
+role](/docs/users/#choose-a-role). If you are running Sepal yourself,
+[Self-hosting](/docs/self-hosting/) describes how to start one.
 
 ## Add a location
 

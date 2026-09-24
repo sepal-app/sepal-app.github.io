@@ -11,6 +11,11 @@ A [location](/docs/glossary/#location) is a place that holds plants, and a
 records, the values their fields take, and the history Sepal keeps as material
 moves.
 
+Creating, editing, moving, archiving, and deleting material and locations needs
+the [editor or admin role](/docs/users/#choose-a-role). A reader who opens a
+material or a location sees a read-only page that holds its panel, without the
+form or the tabs.
+
 ## Create a location
 
 Every material is filed in a location, so add the location before you plant
@@ -31,9 +36,8 @@ shelf if you want to know which shelf a plant is on.
 
 ## Edit a location
 
-Open a location from the **Locations** list. An editor sees the same three
-fields as the create form, and a reader sees the summary panel instead. Change
-what you need and select **Save**, or select **Cancel** to reload the record as
+Open a location from the **Locations** list. The **General** tab holds the
+same three fields as the create form. Change what you need and select **Save**, or select **Cancel** to reload the record as
 it was.
 
 A material refers to its location and does not keep a copy of the name, so

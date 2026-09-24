@@ -13,6 +13,10 @@ a bare word down to a narrow result, and its examples assume the **Accessions**
 list. [Query syntax](/docs/query-syntax/) describes the whole grammar, including
 comparisons, negation, and matching several values at once.
 
+Every role can search every list. Readers do not see the **Create** or **New**
+button at the top of a list, because creating a record needs the editor or
+admin role.
+
 ## Open a list page
 
 Select one of those lists in the sidebar. The search box sits at the left of
