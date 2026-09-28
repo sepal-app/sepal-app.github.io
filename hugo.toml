@@ -1,5 +1,4 @@
 baseURL = "https://sepal.app/"
-locale = "en-us"
 title = "Sepal"
 
 # Search engines ask for /robots.txt before they crawl, and a 404 there leaves
@@ -27,3 +26,14 @@ disableKinds = ["taxonomy", "term"]
 # site.css. Code blocks are styled in docs.css instead.
 [markup.highlight]
   codeFences = false
+
+# English is served from the site root and Spanish from /es/. Only pages with
+# an .es.md file, and the landing page, exist in Spanish.
+[languages.en]
+  locale = "en"
+  label = "English"
+  weight = 1
+[languages.es]
+  locale = "es"
+  label = "Español"
+  weight = 2

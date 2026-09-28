@@ -6,6 +6,7 @@
         <title>{{ i18n "home_title" }}</title>
         <meta name="description" content="{{ i18n "home_description" }}">
         <link rel="canonical" href="{{ .Permalink }}">
+        {{ partial "alternates.html" . }}
 
         <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 

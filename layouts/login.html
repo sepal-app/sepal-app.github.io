@@ -1,27 +1,27 @@
 {{ define "main" }}
 <div class="prose-page login">
-    <h1>Log in</h1>
+    <h1>{{ i18n "login_title" }}</h1>
 
     <section id="remembered" hidden>
-        <p>Gardens that you have signed in to on this browser:</p>
+        <p>{{ i18n "login_remembered" }}</p>
         <ul id="remembered-list" class="login__gardens"></ul>
     </section>
 
     <section>
-        <h2>Find your garden</h2>
-        <p>Enter your email address and we'll email a login link for every garden that address belongs to.</p>
+        <h2>{{ i18n "login_find_heading" }}</h2>
+        <p>{{ i18n "login_find_text" }}</p>
         <p><a class="btn btn--primary" href="https://account.sepal.app/find-garden"
-              data-goatcounter-click="login-find-garden">Email me my login links</a></p>
+              data-goatcounter-click="login-find-garden">{{ i18n "login_find_button" }}</a></p>
     </section>
 
     <section>
-        <h2>Go straight to your garden</h2>
+        <h2>{{ i18n "login_direct_heading" }}</h2>
         <form id="address-form" class="login__address">
-            <label for="address">Garden address</label>
+            <label for="address">{{ i18n "login_address_label" }}</label>
             <input id="address" name="address" type="text" required
                    autocomplete="off" spellcheck="false"
-                   placeholder="brooklyn or brooklyn.sepal.app">
-            <button type="submit" class="btn btn--outline">Go</button>
+                   placeholder="{{ i18n "login_address_placeholder" }}">
+            <button type="submit" class="btn btn--outline">{{ i18n "login_address_button" }}</button>
         </form>
     </section>
 </div>
@@ -70,7 +70,7 @@
          var host = raw.replace(/^https?:\/\//, "").split("/")[0];
          if (host.indexOf(".") === -1) { host = host + "." + suffix; }
          if (!hostPattern.test(host)) {
-             document.getElementById("address").setCustomValidity("Enter a garden name or a sepal.app address.");
+             document.getElementById("address").setCustomValidity({{ i18n "login_address_invalid" }});
              document.getElementById("address").reportValidity();
              return;
          }

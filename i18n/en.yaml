@@ -219,3 +219,34 @@ faq_trial_question:
   other: "Do I need to pay to try it?"
 faq_trial_answer:
   other: "No. Signup doesn't require a credit card and comes with either a 14- or 30-day free trial period. If you need to extend your trial just contact us."
+
+# Login page
+
+login_title:
+  description: "Heading and browser tab title of the Login page."
+  other: "Log in"
+login_description:
+  description: "Meta description of the Login page."
+  other: "Open one of your Sepal gardens."
+login_remembered:
+  other: "Gardens that you have signed in to on this browser:"
+login_find_heading:
+  other: "Find your garden"
+login_find_text:
+  other: "Enter your email address and we'll email a login link for every garden that address belongs to."
+login_find_button:
+  other: "Email me my login links"
+login_direct_heading:
+  other: "Go straight to your garden"
+login_address_label:
+  description: "Label of the field that takes a garden's web address."
+  other: "Garden address"
+login_address_placeholder:
+  description: "Placeholder in the address field. brooklyn is an example garden name; keep both examples as they are."
+  other: "brooklyn or brooklyn.sepal.app"
+login_address_button:
+  description: "Button that opens the garden typed in the address field."
+  other: "Go"
+login_address_invalid:
+  description: "Error shown when the typed address is not a garden name or a sepal.app address."
+  other: "Enter a garden name or a sepal.app address."
