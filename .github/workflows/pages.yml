@@ -21,7 +21,7 @@ jobs:
       # Kept in step with devenv.nix by hand. devenv resolves its hugo from
       # devenv.lock; this pins a literal so a CI build is reproducible on its
       # own. Hugo breaks little between releases.
-      HUGO_VERSION: 0.165.0
+      HUGO_VERSION: 0.166.0
       PAGEFIND_VERSION: 1.5.2
     steps:
       - uses: actions/checkout@v4
@@ -44,7 +44,15 @@ jobs:
 
       - name: Build
         run: |
-          hugo --minify
+          # Hugo renders the English for a string missing from es.yaml, and
+          # warns only when asked. With no es.yaml at all it does not warn.
+          set -o pipefail
+          test -f i18n/es.yaml || { echo "::error::i18n/es.yaml is missing"; exit 1; }
+          hugo --minify --printI18nWarnings 2>&1 | tee hugo.log
+          if grep MISSING_TRANSLATION hugo.log; then
+            echo "::error::A string has no translation. Run bin/translate for the language named above."
+            exit 1
+          fi
           pagefind --site public
 
       - uses: actions/configure-pages@v5

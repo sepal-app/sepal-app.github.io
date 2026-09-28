@@ -10,9 +10,10 @@ a changelog. Hugo builds it and GitHub Pages serves it.
 | `static/` | Copied to the site root byte for byte. |
 | `content/` | Markdown for docs, blog and changelog. |
 | `layouts/` | Templates. `index.html` is the landing page; `baseof.html` is the shell every other page uses. |
-| `i18n/` | Strings for the landing page and the shared header and footer. |
+| `i18n/` | Strings for the landing page, Login and the shared header and footer. `en.yaml` is edited by hand; `es.yaml` is written by `bin/translate`. |
 | `assets/site.css` | Styles and design tokens for every page. Published fingerprinted, so a change gets a new URL. |
 | `assets/docs.css` | Styles for generated pages. Reads the tokens in `assets/site.css`. |
+| `assets/icons/lucide/` | Lucide icons the templates inline, with Lucide's license. |
 | `og-image.html` | The source that produced `og-image.png`. Deliberately outside `static/`, so it is not published. |
 | `public/` | Build output. Gitignored. |
 
@@ -22,6 +23,7 @@ a changelog. Hugo builds it and GitHub Pages serves it.
 hugo --minify         # build to public/
 pagefind --site public
 hugo server           # preview on http://localhost:1313
+bin/translate es      # translate new and changed strings into i18n/es.yaml
 ```
 
 ## The landing page
@@ -34,6 +36,33 @@ Its text lives in `i18n/en.yaml`, not in the template. To change a sentence,
 edit the string there; to add one, add a key and an `{{ i18n "key" }}` call.
 Strings holding HTML render through `safeHTML`. Asset paths are root-relative
 (`/fonts/...`), since the page is also rendered below the site root.
+
+## Translations
+
+English is served at the site root and Spanish below `/es/`. The landing page
+and Login exist in Spanish; a content page does when it has a `.es.md` file, as
+`content/login.es.md` does. Docs, blog and changelog are English only. A page
+with a translation gets a language menu in the header and `hreflang` links.
+
+`bin/translate es` sends new and changed strings from `en.yaml` to Claude, with
+the app's glossary and the two prose sections below, and writes `es.yaml`. It
+reads the glossary from `../app/components/i18n/glossary.md`, so the app repo
+must be checked out beside this one. Review the diff before committing.
+
+Each Spanish entry records a hash of the English it was translated from, and
+the script retranslates an entry when that English changes. Editing only a
+`description` does not count. To retranslate an entry for another reason,
+delete it from `es.yaml` and run the script again. A hand edit to `es.yaml`
+stays until the English changes.
+
+The CI build fails when `es.yaml` lacks a key `en.yaml` has, or when the file is
+missing, since Hugo would otherwise render English without a warning. It does
+not check hashes, so run `bin/translate es` after editing `en.yaml`.
+
+A content page whose front matter names `titleKey` and `descriptionKey` takes
+its title and meta description from `i18n/`, so the Spanish file needs no text
+of its own. The banner that offers Spanish on English pages reads `es.yaml`
+directly, because `i18n` only returns strings in the language being rendered.
 
 ## Design tokens
 
