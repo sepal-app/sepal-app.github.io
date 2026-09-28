@@ -6,17 +6,14 @@ title = "Sepal"
 # the sitemap undiscoverable to any crawler that was not handed it directly.
 enableRobotsTXT = true
 
-# The landing page is static/index.html, copied to the site root byte for byte.
-# Disabling the home kind stops Hugo generating a page that would collide with
-# it. taxonomy and term are off because docs and blog carry no tags; leaving
-# them on emits empty /categories/ and /tags/ feeds and a build warning.
-disableKinds = ["home", "taxonomy", "term"]
+# taxonomy and term are off because docs and blog carry no tags; leaving them
+# on emits empty /categories/ and /tags/ feeds and a build warning.
+disableKinds = ["taxonomy", "term"]
 
 [outputs]
   # robots.txt is an output of the home node, so enableRobotsTXT on its own
   # emits nothing once this table names any kind: home falls back to its
-  # defaults, which do not include robots. html and rss are those defaults,
-  # repeated here so that enabling the home kind stays a one-line change.
+  # defaults, which do not include robots.
   home = ["html", "rss", "robots"]
   section = ["html", "rss"]
 

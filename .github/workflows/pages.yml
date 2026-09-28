@@ -47,9 +47,6 @@ jobs:
           hugo --minify
           pagefind --site public
 
-      - name: Check the landing page passed through unchanged
-        run: diff static/index.html public/index.html
-
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

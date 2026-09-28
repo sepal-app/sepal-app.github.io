@@ -1,0 +1,221 @@
+# English strings for the landing page and the shared header and footer.
+# bin/translate reads this file; `description` tells the translator where a
+# string appears. Strings holding HTML render through safeHTML.
+
+# Header and footer
+
+skip_link:
+  other: "Skip to main content"
+nav_features:
+  other: "Features"
+nav_pricing:
+  other: "Pricing"
+nav_open_source:
+  other: "Open source"
+nav_docs:
+  other: "Docs"
+nav_login:
+  other: "Log in"
+create_account:
+  description: "Button in the header and the hero that leads to pricing."
+  other: "Create an account"
+footer_tagline:
+  other: "A plant collection manager for gardens, nurseries and collectors."
+footer_product:
+  description: "Footer column heading."
+  other: "Product"
+footer_getting_started:
+  other: "Getting started"
+footer_self_hosting:
+  other: "Self-hosting"
+footer_project:
+  description: "Footer column heading for the open source project's links."
+  other: "Project"
+footer_changelog:
+  other: "Changelog"
+footer_blog:
+  other: "Blog"
+footer_contact:
+  other: "Contact"
+
+# Landing page: head
+
+home_title:
+  description: "Browser tab title of the landing page."
+  other: "Sepal — plant collection management"
+home_description:
+  description: "Meta description shown in search results."
+  other: "Sepal is a plant collection manager for botanic gardens, arboreta, nurseries and private collections. Open source, affordable, no vendor lock-in."
+home_og_description:
+  description: "Description shown when the page is shared on social media."
+  other: "A plant collection manager for botanic gardens, arboreta, nurseries and personal collections. Open source, so your records are never locked in."
+home_og_image_alt:
+  other: "The Sepal accessions list: a section rail beside a table of accession codes, taxa, provenance and dates received."
+
+# Landing page: hero and screenshots
+
+hero_eyebrow:
+  description: "Small lowercase label above the headline."
+  other: "plant collection management"
+hero_title:
+  description: "Main headline; also the title when the page is shared."
+  other: "Bring order to your plant collections"
+hero_lede:
+  other: "Sepal is a plant collection manager for botanic gardens, arboreta, nurseries and personal collections. Full-featured where it counts, priced for collections that don't need an enterprise system, and open source so your records are never locked in."
+hero_note:
+  description: "Small lowercase note under the hero buttons."
+  other: "credit card not required for signup · export your data any time"
+screen_desktop_alt:
+  other: "The Sepal accessions list in a desktop browser: a labelled section rail beside a table of accession codes, taxa, provenance and dates received."
+screen_tablet_alt:
+  other: "The same list on a tablet, narrower, with the provenance column dropped and the section rail behind a toggle."
+screen_phone_alt:
+  other: "The same list on a phone, collapsed to one entry per accession with the taxon and date stacked under the code."
+
+# Landing page: features
+
+features_title:
+  other: "Built for collections large and small."
+features_lede:
+  other: "Taxon, accession, plant and location as separate records, related the way a curator expects."
+feature_records_title:
+  other: "Taxa, accessions, locations"
+feature_records_text:
+  other: "Follow a plant from its name to its accession to the bed it grows in today."
+feature_media_title:
+  other: "Media library"
+feature_media_text:
+  other: "Photos, scans and documents attached to the records they belong to."
+feature_roles_title:
+  other: "Organizations and roles"
+feature_roles_text:
+  other: "Invite staff and volunteers with the access each of them needs."
+feature_search_title:
+  other: "Fast search"
+feature_search_text:
+  other: "Look up any record by name, number, family or location as you type."
+feature_import_title:
+  other: "Import and export"
+feature_import_text:
+  other: "Start from your spreadsheets, and take a full copy out at any time."
+feature_hosting_title:
+  other: "Hosted or self-run"
+feature_hosting_text:
+  other: "We handle servers and backups, or run the same code yourself."
+
+# Landing page: open source
+
+open_eyebrow:
+  description: "Small lowercase label above the section heading."
+  other: "open source"
+open_title:
+  other: "Your records outlive any software."
+open_lede:
+  other: "Sepal is developed in the open. You can read the code, run it yourself, and export everything you've entered. Nothing about your collection depends on us staying in business."
+open_github:
+  description: "Button text; sepal-app/sepal is the repository name."
+  other: "sepal-app/sepal on GitHub"
+open_export_title:
+  other: "Export everything, any time"
+open_export_text:
+  other: "Your full collection in standard spreadsheet formats, on demand — not a support request."
+open_selfhost_title:
+  other: "Keep running it yourself"
+open_selfhost_text:
+  other: "The application is free to install elsewhere, so leaving the hosted service doesn't mean leaving Sepal."
+open_develop_title:
+  other: "Developed in the open"
+open_develop_text:
+  other: "Anyone can see what we're building and what's coming next."
+
+# Landing page: donation
+
+donation_headline:
+  other: "10% of all profits are donated to Belize Botanic Gardens."
+donation_detail:
+  other: "A share of every subscription supports living-collection conservation and education work in Belize."
+
+# Landing page: pricing
+
+pricing_title:
+  other: "Priced for smaller collections"
+pricing_lede:
+  other: "Signup today, credit card not required."
+billing_monthly:
+  description: "Toggle button choosing monthly billing."
+  other: "Monthly"
+billing_annual:
+  description: "Toggle button choosing annual billing."
+  other: "Annual"
+billing_annual_hint:
+  description: "Follows the Annual toggle button."
+  other: "· 1 month free"
+price_per_month:
+  description: "Follows a price, as in $10 / mo."
+  other: "/ mo"
+price_per_year:
+  description: "Follows a price, as in $110 / yr."
+  other: "/ yr"
+plan_badge:
+  description: "Badge on the plan most customers choose. Uppercase in English."
+  other: "MOST COMMON"
+plan_personal_name:
+  other: "Personal"
+plan_personal_blurb:
+  other: "Small private, public or personal collections"
+plan_personal_accessions:
+  other: "500 accessions"
+plan_personal_storage:
+  other: "2 GB media storage"
+plan_personal_cta:
+  description: "Button that opens checkout for the Personal plan."
+  other: "Personal Collection"
+plan_garden_name:
+  other: "Garden"
+plan_garden_blurb:
+  other: "Small gardens and nurseries"
+plan_garden_accessions:
+  other: "3,000 accessions"
+plan_garden_storage:
+  other: "10 GB media storage"
+plan_garden_cta:
+  description: "Button that opens checkout for the Garden plan."
+  other: "Choose Garden"
+plan_institution_name:
+  other: "Institution"
+plan_institution_blurb:
+  other: "Larger collections"
+plan_institution_accessions:
+  other: "Unlimited accessions"
+plan_institution_storage:
+  other: "50 GB media storage"
+plan_institution_api:
+  other: "API access"
+plan_institution_support:
+  other: "Priority support"
+plan_institution_cta:
+  description: "Button that opens checkout for the Institution plan."
+  other: "Choose Institution"
+pricing_note:
+  other: 'Larger instances, higher limits or self-hosting support — <a href="mailto:support@sepal.app" data-goatcounter-click="pricing-contact">get in touch</a>.'
+
+# Landing page: questions
+
+faq_title:
+  other: "Common questions"
+faq_compare_question:
+  other: "How does Sepal compare to other plant collection management systems?"
+faq_compare_answer:
+  other: "Plant collections management software is generally built for large institutions and priced accordingly. Sepal covers the core of collection management for a lower cost, aimed at smaller gardens and individual collectors who don't need the full feature set. Sepal is also open source, so you can choose to export your records at any time and run your own instance of Sepal."
+faq_import_question:
+  other: "Can I bring existing records in?"
+faq_import_answer:
+  other: "Yes. Spreadsheet import is supported, and we'll help map columns from another system."
+faq_leave_question:
+  other: "What if I stop using the hosted service?"
+faq_leave_answer:
+  other: "Export everything, then run the open source application on your own infrastructure."
+faq_trial_question:
+  other: "Do I need to pay to try it?"
+faq_trial_answer:
+  other: "No. Signup doesn't require a credit card and comes with either a 14- or 30-day free trial period. If you need to extend your trial just contact us."

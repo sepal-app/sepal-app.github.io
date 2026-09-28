@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="{{ .Language.Lang }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ i18n "home_title" }}</title>
+        <meta name="description" content="{{ i18n "home_description" }}">
+        <link rel="canonical" href="{{ .Permalink }}">
+
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+        <meta name="color-scheme" content="light">
+        <meta name="theme-color" content="#FBFCFB">
+
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Sepal">
+        <meta property="og:url" content="{{ .Permalink }}">
+        <meta property="og:title" content="{{ i18n "hero_title" }}">
+        <meta property="og:description" content="{{ i18n "home_og_description" }}">
+        <meta property="og:image" content="https://sepal.app/og-image.png">
+        <meta property="og:image:alt" content="{{ i18n "home_og_image_alt" }}">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <link rel="preload" href="/fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="/site.css">
+    </head>
+    <body>
+        <a class="skip-link" href="#main">{{ i18n "skip_link" }}</a>
+        <div class="page">
+
+            {{ partial "header.html" . }}
+
+            <main id="main">
+
+            <section class="hero">
+                <p class="eyebrow">{{ i18n "hero_eyebrow" }}</p>
+                <h1 class="hero__title">
+                    <span class="hero__tagline">
+                        {{ i18n "hero_title" }}
+                    </span>
+                </h1>
+                <p class="hero__lede">{{ i18n "hero_lede" }}</p>
+                <div class="hero__actions">
+                    <a href="#pricing" class="btn btn--primary" data-goatcounter-click="hero-signup">{{ i18n "create_account" }}</a>
+                    <a href="https://github.com/sepal-app/sepal"
+                       class="btn btn--outline"
+                       data-goatcounter-click="hero-github"
+                       data-goatcounter-title="GitHub">
+                        <img class="icon" alt="" src="/icons/github.svg"> GitHub</a>
+                </div>
+                <p class="hero__note">{{ i18n "hero_note" }}</p>
+            </section>
+
+            <section class="section">
+                <div class="devices">
+                    <div class="device device--desktop devices__desktop">
+                        <div class="device__chrome">
+                            <span class="device__dot"></span>
+                            <span class="device__dot"></span>
+                            <span class="device__dot"></span>
+                        </div>
+                        <img src="/screens/accessions-desktop.webp" width="2880" height="1800"
+                             alt="{{ i18n "screen_desktop_alt" }}">
+                    </div>
+                    <div class="device device--tablet devices__tablet">
+                        <img src="/screens/accessions-tablet.webp" width="1668" height="2224"
+                             alt="{{ i18n "screen_tablet_alt" }}">
+                    </div>
+                    <div class="device device--phone devices__phone">
+                        <img src="/screens/accessions-phone.webp" width="780" height="1688"
+                             alt="{{ i18n "screen_phone_alt" }}">
+                    </div>
+                </div>
+            </section>
+
+            <section id="features" class="section">
+                <h2 class="h2">{{ i18n "features_title" }}</h2>
+                <p class="section__lede section__lede--intro">{{ i18n "features_lede" }}</p>
+                <div class="feature-grid">
+                    <div class="card"><h3 class="h3">{{ i18n "feature_records_title" }}</h3><p class="card__text">{{ i18n "feature_records_text" }}</p></div>
+                    <div class="card"><h3 class="h3">{{ i18n "feature_media_title" }}</h3><p class="card__text">{{ i18n "feature_media_text" }}</p></div>
+                    <div class="card"><h3 class="h3">{{ i18n "feature_roles_title" }}</h3><p class="card__text">{{ i18n "feature_roles_text" }}</p></div>
+                    <div class="card"><h3 class="h3">{{ i18n "feature_search_title" }}</h3><p class="card__text">{{ i18n "feature_search_text" }}</p></div>
+                    <div class="card"><h3 class="h3">{{ i18n "feature_import_title" }}</h3><p class="card__text">{{ i18n "feature_import_text" }}</p></div>
+                    <div class="card"><h3 class="h3">{{ i18n "feature_hosting_title" }}</h3><p class="card__text">{{ i18n "feature_hosting_text" }}</p></div>
+                </div>
+            </section>
+
+            <section id="open" class="band band--dark">
+                <div class="band__inner open-grid">
+                    <div>
+                        <p class="eyebrow eyebrow--on-dark">{{ i18n "open_eyebrow" }}</p>
+                        <h2 class="h2 h2--on-dark">{{ i18n "open_title" }}</h2>
+                        <p class="open__lede">{{ i18n "open_lede" }}</p>
+                        <a href="https://github.com/sepal-app/sepal" class="btn btn--on-dark"
+                           data-goatcounter-click="opensource-github"
+                           data-goatcounter-title="sepal-app/sepal on GitHub">
+                            <img class="icon"
+                                 alt=""
+                                 style="filter: invert(1);"
+                                 src="/icons/github.svg"> {{ i18n "open_github" }}</a>
+                    </div>
+                    <div class="open__list">
+                        <div class="open__card"><strong class="open__card-title">{{ i18n "open_export_title" }}</strong><p class="open__card-text">{{ i18n "open_export_text" }}</p></div>
+                        <div class="open__card"><strong class="open__card-title">{{ i18n "open_selfhost_title" }}</strong><p class="open__card-text">{{ i18n "open_selfhost_text" }}</p></div>
+                        <div class="open__card"><strong class="open__card-title">{{ i18n "open_develop_title" }}</strong><p class="open__card-text">{{ i18n "open_develop_text" }}</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="band band--donation">
+                <div class="band__inner donation">
+                    <p class="donation__headline">{{ i18n "donation_headline" }}</p>
+                    <p class="donation__detail">{{ i18n "donation_detail" }}</p>
+                </div>
+            </section>
+
+            <section id="pricing" class="section section--padded">
+                <div class="pricing__header">
+                    <div>
+                        <h2 class="h2">{{ i18n "pricing_title" }}</h2>
+                        <!-- <p class="section__lede">Start free. Upgrade when your collection outgrows it.</p> -->
+                        <p class="section__lede">{{ i18n "pricing_lede" }}</p>
+                    </div>
+                    <div class="toggle">
+                        <button type="button" id="billing-monthly" class="toggle__btn is-active" data-goatcounter-click="billing-monthly">{{ i18n "billing_monthly" }}</button>
+                        <button type="button" id="billing-annual" class="toggle__btn" data-goatcounter-click="billing-annual" data-goatcounter-title="Annual">{{ i18n "billing_annual" }} <span class="toggle__hint">{{ i18n "billing_annual_hint" }}</span></button>
+                    </div>
+                </div>
+                <div class="plan-grid">
+                    <!-- <div class="card plan">
+                         <div><p class="plan__name">Free</p><p class="plan__price">$0</p><p class="plan__blurb">Try it out, or a small personal collection</p></div>
+                         <ul class="plan__features"><li>500 items</li><li>200 MB media storage</li><li>Full export</li></ul>
+                         <a href="#signup" class="btn btn--outline plan__cta">Start free</a>
+                         </div> -->
+                    <div class="card plan">
+                        <div>
+                            <p class="plan__name">{{ i18n "plan_personal_name" }}</p>
+                            <p class="plan__price">
+                                <span data-price data-monthly="$10" data-annual="$110">$10</span>
+                                <span class="plan__per" data-price data-monthly=" {{ i18n "price_per_month" }}" data-annual=" {{ i18n "price_per_year" }}"> {{ i18n "price_per_month" }}</span>
+                            </p>
+                            <p class="plan__blurb">{{ i18n "plan_personal_blurb" }}</p>
+                        </div>
+                        <ul class="plan__features">
+                            <li>{{ i18n "plan_personal_accessions" }}</li>
+                            <li>{{ i18n "plan_personal_storage" }}</li>
+                            <!-- <li>Spreadsheet import</li> -->
+                        </ul>
+                        <a href="https://buy.stripe.com/5kQ28qcGadXR7APeNM1kA05"
+                           data-href-monthly="https://buy.stripe.com/5kQ28qcGadXR7APeNM1kA05"
+                           data-href-annual="https://buy.stripe.com/dRm6oGbC69HB9IX8po1kA03"
+                           data-goatcounter-click="plan-personal-monthly"
+                           class="btn btn--outline plan__cta">{{ i18n "plan_personal_cta" }}</a>
+                    </div>
+                    <div class="card plan plan--featured">
+                        <span class="plan__badge">{{ i18n "plan_badge" }}</span>
+                        <div><p class="plan__name">{{ i18n "plan_garden_name" }}</p>
+                            <p class="plan__price">
+                                <span data-price data-monthly="$40" data-annual="$440">$40</span>
+                                <span class="plan__per" data-price data-monthly=" {{ i18n "price_per_month" }}" data-annual=" {{ i18n "price_per_year" }}"> {{ i18n "price_per_month" }}</span></p>
+                            <p class="plan__blurb">{{ i18n "plan_garden_blurb" }}</p>
+                        </div>
+                        <ul class="plan__features">
+                            <li>{{ i18n "plan_garden_accessions" }}</li>
+                            <li>{{ i18n "plan_garden_storage" }}</li>
+                            <!-- <li>Users and roles</li> -->
+                            <!-- <li>Email support</li> -->
+                        </ul>
+                        <a href="https://buy.stripe.com/6oU5kCgWqaLF3kz2101kA07"
+                           data-href-monthly="https://buy.stripe.com/6oU5kCgWqaLF3kz2101kA07"
+                           data-href-annual="https://buy.stripe.com/14A14may29HB9IX0WW1kA08"
+                           data-goatcounter-click="plan-garden-monthly"
+                           class="btn btn--primary plan__cta">{{ i18n "plan_garden_cta" }}</a>
+                    </div>
+                    <div class="card plan">
+                        <div>
+                            <p class="plan__name">{{ i18n "plan_institution_name" }}</p>
+                            <p class="plan__price">
+                                <span data-price data-monthly="$150" data-annual="$1,650">$150</span>
+                                <span class="plan__per" data-price data-monthly=" {{ i18n "price_per_month" }}" data-annual=" {{ i18n "price_per_year" }}"> {{ i18n "price_per_month" }}</span>
+                            </p>
+                            <p class="plan__blurb">{{ i18n "plan_institution_blurb" }}</p>
+                        </div>
+                        <ul class="plan__features">
+                            <li>{{ i18n "plan_institution_accessions" }}</li>
+                            <li>{{ i18n "plan_institution_storage" }}</li>
+                            <li>{{ i18n "plan_institution_api" }}</li>
+                            <li>{{ i18n "plan_institution_support" }}</li></ul>
+                        <a href="https://buy.stripe.com/6oU5kC7lQbPJ9IX5dc1kA04"
+                           data-href-monthly="https://buy.stripe.com/6oU5kC7lQbPJ9IX5dc1kA04"
+                           data-href-annual="https://buy.stripe.com/00w5kCfSm4nhaN1axw1kA06"
+                           data-goatcounter-click="plan-institution-monthly"
+                           class="btn btn--outline plan__cta">{{ i18n "plan_institution_cta" }}</a>
+                    </div>
+                </div>
+                <p class="pricing__note">{{ i18n "pricing_note" | safeHTML }}</p>
+            </section>
+
+            <section class="section">
+                <div class="faq">
+                    <h2 class="h2 faq__title">{{ i18n "faq_title" }}</h2>
+                    <div class="faq__list">
+                        <div>
+                            <h3 class="h3">{{ i18n "faq_compare_question" }}</h3>
+                            <p class="faq__answer">{{ i18n "faq_compare_answer" }}</p></div>
+                        <div>
+                            <h3 class="h3">{{ i18n "faq_import_question" }}</h3>
+                            <p class="faq__answer">{{ i18n "faq_import_answer" }}</p></div>
+                        <div>
+                            <h3 class="h3">{{ i18n "faq_leave_question" }}</h3>
+                            <p class="faq__answer">{{ i18n "faq_leave_answer" }}</p></div>
+                        <div>
+                            <h3 class="h3">{{ i18n "faq_trial_question" }}</h3>
+                            <p class="faq__answer">{{ i18n "faq_trial_answer" }}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--
+            <section id="signup" class="band signup">
+                <h2 class="h2 signup__title">Create your account</h2>
+                <p class="signup__lede">Start on the free plan. No card required.</p>
+                <form id="signup-form" class="signup__form">
+                    <input type="email" placeholder="you@garden.org" required="" class="field" />
+                    <button type="submit" class="btn btn--primary">Create account</button>
+                </form>
+                <p id="form-note" class="signup__note">cancel any time · export your data any time</p>
+            </section>
+            -->
+
+            </main>
+
+            {{ partial "footer.html" . }}
+        </div>
+
+        <script>
+         (function () {
+             var tagLines = [
+                 "petal perfect plant collection management.",
+                 "at the root of every great plant collection.",
+                 "plant collection without stipule-ations."
+             ]
+             var monthly = document.getElementById('billing-monthly');
+             var annual = document.getElementById('billing-annual');
+             function set(isAnnual) {
+                 monthly.classList.toggle('is-active', !isAnnual);
+                 annual.classList.toggle('is-active', isAnnual);
+                 document.querySelectorAll('[data-price]').forEach(function (el) {
+                     el.textContent = isAnnual ? el.dataset.annual : el.dataset.monthly;
+                 });
+                 document.querySelectorAll('[data-href-monthly]').forEach(function (el) {
+                     el.href = isAnnual ? el.dataset.hrefAnnual : el.dataset.hrefMonthly;
+                     el.dataset.goatcounterClick = el.dataset.goatcounterClick.replace(
+                         /-(monthly|annual)$/, isAnnual ? '-annual' : '-monthly');
+                 });
+             }
+             monthly.addEventListener('click', function () { set(false); });
+             annual.addEventListener('click', function () { set(true); });
+
+             // Off while the #signup section is commented out. Uncomment both
+             // together, and replace the stub with a POST to the signup endpoint.
+             // document.getElementById('signup-form').addEventListener('submit', function (e) {
+             //     e.preventDefault();
+             //     document.getElementById('form-note').textContent = "Thanks — we'll be in touch.";
+             // });
+         }());
+        </script>
+        <script data-goatcounter="https://sepal.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    </body>
+</html>

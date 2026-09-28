@@ -1,0 +1,22 @@
+<header class="site-header">
+    {{ if .IsHome }}
+    <div class="brand">
+        <div class="brand__mark"></div>
+        <span class="brand__name">Sepal</span>
+    </div>
+    {{ else }}
+    <a class="brand" href="{{ "/" | relLangURL }}">
+        <div class="brand__mark"></div>
+        <span class="brand__name">Sepal</span>
+    </a>
+    {{ end }}
+    {{ if not (or .IsHome (eq .Layout "login")) }}<div id="search" class="site-search"></div>{{ end }}
+    <nav class="site-nav">
+        <a href="{{ "/#features" | relLangURL }}">{{ i18n "nav_features" }}</a>
+        <a href="{{ "/#pricing" | relLangURL }}">{{ i18n "nav_pricing" }}</a>
+        <a href="{{ "/#open" | relLangURL }}">{{ i18n "nav_open_source" }}</a>
+        <a href="/docs/" data-goatcounter-click="nav-docs">{{ i18n "nav_docs" }}</a>
+        <a href="{{ "/login/" | relLangURL }}" class="btn btn--outline btn--sm" data-goatcounter-click="nav-login">{{ i18n "nav_login" }}</a>
+        <a href="{{ "/#pricing" | relLangURL }}" class="btn btn--primary btn--sm" data-goatcounter-click="nav-signup">{{ i18n "create_account" }}</a>
+    </nav>
+</header>

@@ -4,55 +4,16 @@
         {{ partial "head.html" . }}
     </head>
     <body>
-        <a class="skip-link" href="#main">Skip to main content</a>
+        <a class="skip-link" href="#main">{{ i18n "skip_link" }}</a>
         <div class="page">
 
-            <header class="site-header">
-                <a class="brand" href="/">
-                    <div class="brand__mark"></div>
-                    <span class="brand__name">Sepal</span>
-                </a>
-                {{ if ne .Layout "login" }}<div id="search" class="site-search"></div>{{ end }}
-                <nav class="site-nav">
-                    <a href="/#features">Features</a>
-                    <a href="/#pricing">Pricing</a>
-                    <a href="/#open">Open source</a>
-                    <a href="/docs/" data-goatcounter-click="nav-docs">Docs</a>
-                    <a href="/login/" class="btn btn--outline btn--sm" data-goatcounter-click="nav-login">Log in</a>
-                    <a href="/#pricing" class="btn btn--primary btn--sm" data-goatcounter-click="nav-signup">Create an account</a>
-                </nav>
-            </header>
+            {{ partial "header.html" . }}
 
             <main id="main">
                 {{ block "main" . }}{{ end }}
             </main>
 
-            <footer class="site-footer">
-                <div class="footer-grid">
-                    <div class="footer__brand">
-                        <div class="footer__brand-row"><div class="brand__mark brand__mark--sm"></div><span class="footer__brand-name">Sepal</span></div>
-                        <p class="footer__tagline">A plant collection manager for gardens, nurseries and collectors.</p>
-                    </div>
-                    <div class="footer-col">
-                        <p class="footer-col__title">Product</p>
-                        <a href="/#features">Features</a>
-                        <a href="/#pricing">Pricing</a>
-                    </div>
-                    <div class="footer-col">
-                        <p class="footer-col__title">Docs</p>
-                        <a href="/docs/" data-goatcounter-click="footer-docs">Getting started</a>
-                        <a href="/docs/self-hosting/" data-goatcounter-click="footer-self-hosting">Self-hosting</a>
-                    </div>
-                    <div class="footer-col">
-                        <p class="footer-col__title">Project</p>
-                        <a href="https://github.com/sepal-app/sepal" data-goatcounter-click="footer-github">GitHub</a>
-                        <a href="/changelog/">Changelog</a>
-                        <a href="/blog/">Blog</a>
-                        <a href="mailto:support@sepal.app" data-goatcounter-click="footer-contact">Contact</a>
-                    </div>
-                </div>
-                <p class="footer__legal">© {{ now.Year }} Sepal, LLC</p>
-            </footer>
+            {{ partial "footer.html" . }}
         </div>
 
         <link rel="stylesheet" href="/pagefind/pagefind-ui.css">

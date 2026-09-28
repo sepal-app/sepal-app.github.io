@@ -7,9 +7,10 @@ a changelog. Hugo builds it and GitHub Pages serves it.
 
 | Path | What it is |
 |---|---|
-| `static/` | Copied to the site root byte for byte. The landing page lives here. |
+| `static/` | Copied to the site root byte for byte. |
 | `content/` | Markdown for docs, blog and changelog. |
-| `layouts/` | Templates. `baseof.html` is the shell every generated page uses. |
+| `layouts/` | Templates. `index.html` is the landing page; `baseof.html` is the shell every other page uses. |
+| `i18n/` | Strings for the landing page and the shared header and footer. |
 | `assets/docs.css` | Styles for generated pages. Reads the tokens in `static/site.css`. |
 | `og-image.html` | The source that produced `og-image.png`. Deliberately outside `static/`, so it is not published. |
 | `public/` | Build output. Gitignored. |
@@ -24,15 +25,14 @@ hugo server           # preview on http://localhost:1313
 
 ## The landing page
 
-`static/index.html` is hand-written and Hugo does not template it. Edit it
-directly. It must reach `public/index.html` unchanged:
+`layouts/index.html` is a standalone template: it does not use `baseof.html`,
+and it loads neither `docs.css` nor search. It shares the header and footer
+with every other page through `partials/header.html` and `partials/footer.html`.
 
-```bash
-hugo --minify && diff static/index.html public/index.html
-```
-
-Absorbing it into Hugo later is one move, `static/index.html` to
-`layouts/index.html`, and no other change. That is not wanted yet.
+Its text lives in `i18n/en.yaml`, not in the template. To change a sentence,
+edit the string there; to add one, add a key and an `{{ i18n "key" }}` call.
+Strings holding HTML render through `safeHTML`. Asset paths are root-relative
+(`/site.css`), since the page is also rendered below the site root.
 
 ## Design tokens
 

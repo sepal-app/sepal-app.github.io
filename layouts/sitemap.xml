@@ -1,13 +1,6 @@
 {{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  {{- /* Copied from Hugo's built-in sitemap template, with the site root added.
-  The home kind is disabled, so Hugo holds no page for the landing page and the
-  built-in template has nothing to range over for it. Without this entry the
-  most important URL on the site is the one search engines never hear about. */}}
-  <url>
-    <loc>{{ "" | absURL }}</loc>
-  </url>
   {{ range where .Pages "Sitemap.Disable" "ne" true }}
     {{- if .Permalink -}}
   <url>

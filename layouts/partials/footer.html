@@ -1,0 +1,26 @@
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div class="footer__brand">
+            <div class="footer__brand-row"><div class="brand__mark brand__mark--sm"></div><span class="footer__brand-name">Sepal</span></div>
+            <p class="footer__tagline">{{ i18n "footer_tagline" }}</p>
+        </div>
+        <div class="footer-col">
+            <p class="footer-col__title">{{ i18n "footer_product" }}</p>
+            <a href="{{ "/#features" | relLangURL }}">{{ i18n "nav_features" }}</a>
+            <a href="{{ "/#pricing" | relLangURL }}">{{ i18n "nav_pricing" }}</a>
+        </div>
+        <div class="footer-col">
+            <p class="footer-col__title">{{ i18n "nav_docs" }}</p>
+            <a href="/docs/" data-goatcounter-click="footer-docs">{{ i18n "footer_getting_started" }}</a>
+            <a href="/docs/self-hosting/" data-goatcounter-click="footer-self-hosting">{{ i18n "footer_self_hosting" }}</a>
+        </div>
+        <div class="footer-col">
+            <p class="footer-col__title">{{ i18n "footer_project" }}</p>
+            <a href="https://github.com/sepal-app/sepal" data-goatcounter-click="footer-github">GitHub</a>
+            <a href="/changelog/">{{ i18n "footer_changelog" }}</a>
+            <a href="/blog/">{{ i18n "footer_blog" }}</a>
+            <a href="mailto:support@sepal.app" data-goatcounter-click="footer-contact">{{ i18n "footer_contact" }}</a>
+        </div>
+    </div>
+    <p class="footer__legal">© {{ now.Year }} Sepal, LLC</p>
+</footer>
