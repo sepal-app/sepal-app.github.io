@@ -105,6 +105,7 @@
   --radius-pill: 100px;
   --shadow-mock: 0 24px 60px -30px rgba(18, 33, 30, .28);
   --shadow-toggle: 0 1px 3px rgba(18, 33, 30, .12);
+  --shadow-menu: 0 8px 24px -8px rgba(18, 33, 30, .22);
 }
 
 /* Base -------------------------------------------------------- */
@@ -308,6 +309,113 @@ a:hover:not(.btn) { color: var(--brand-hover); }
 }
 
 .site-nav a:not(.btn) { color: var(--text-nav); }
+
+/* Language menu. A <details> whose summary is the globe button. */
+
+.lang-menu {
+  position: relative;
+}
+
+.lang-menu__button {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: var(--radius);
+  color: var(--text-nav);
+  list-style: none;
+  cursor: pointer;
+}
+
+.lang-menu__button::-webkit-details-marker { display: none; }
+
+.lang-menu__button:hover,
+.lang-menu[open] .lang-menu__button { color: var(--brand-hover); }
+
+.lang-menu__icon { display: flex; }
+
+.lang-menu__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.lang-menu__list {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 20;
+  min-width: 160px;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-menu);
+}
+
+.lang-menu__item {
+  position: relative;
+  display: block;
+  padding: 8px 14px 8px 36px;
+  white-space: nowrap;
+}
+
+.site-nav a.lang-menu__item:hover {
+  background: var(--surface-alt);
+  color: var(--text);
+}
+
+.lang-menu__item--current {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.lang-menu__check {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  display: flex;
+  margin-top: -8px;
+  color: var(--brand);
+}
+
+.lang-menu__check svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Language banner --------------------------------------------- */
+
+.lang-banner {
+  background: var(--brand-tint);
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--text);
+}
+
+.lang-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+  padding: 8px var(--gutter);
+}
+
+.lang-banner__inner[hidden] { display: none; }
+
+.lang-banner__dismiss {
+  border: 0;
+  background: none;
+  padding: 0 4px;
+  font: inherit;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.lang-banner__dismiss:hover { color: var(--text); }
 
 /* Hero -------------------------------------------------------- */
 

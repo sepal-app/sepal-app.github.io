@@ -16,6 +16,39 @@
         <a href="{{ "/#pricing" | relLangURL }}">{{ i18n "nav_pricing" }}</a>
         <a href="{{ "/#open" | relLangURL }}">{{ i18n "nav_open_source" }}</a>
         <a href="/docs/" data-goatcounter-click="nav-docs">{{ i18n "nav_docs" }}</a>
+        {{ if .Translations }}
+        <details class="lang-menu">
+            <summary class="lang-menu__button" aria-label="{{ i18n "lang_menu_label" }}" title="{{ i18n "lang_menu_label" }}">
+                <span class="lang-menu__icon" aria-hidden="true">{{ (resources.Get "icons/lucide/globe.svg").Content | safeHTML }}</span>
+            </summary>
+            <ul class="lang-menu__list">
+                {{ range .AllTranslations }}
+                {{ if eq .Language.Lang $.Language.Lang }}
+                <li><span class="lang-menu__item lang-menu__item--current" lang="{{ .Language.Lang }}" aria-current="true">
+                    <span class="lang-menu__check" aria-hidden="true">{{ (resources.Get "icons/lucide/check.svg").Content | safeHTML }}</span>
+                    {{ .Language.Label }}</span></li>
+                {{ else }}
+                <li><a class="lang-menu__item" href="{{ .RelPermalink }}" hreflang="{{ .Language.Lang }}" lang="{{ .Language.Lang }}" data-lang-choice="{{ .Language.Lang }}" data-goatcounter-click="nav-language-{{ .Language.Lang }}">{{ .Language.Label }}</a></li>
+                {{ end }}
+                {{ end }}
+            </ul>
+        </details>
+        <script>
+         (function () {
+             // Close the menu on a click outside it or on Escape.
+             var menu = document.currentScript.previousElementSibling;
+             document.addEventListener("click", function (event) {
+                 if (menu.open && !menu.contains(event.target)) { menu.open = false; }
+             });
+             menu.addEventListener("keydown", function (event) {
+                 if (event.key === "Escape" && menu.open) {
+                     menu.open = false;
+                     menu.querySelector("summary").focus();
+                 }
+             });
+         }());
+        </script>
+        {{ end }}
         <a href="{{ "/login/" | relLangURL }}" class="btn btn--outline btn--sm" data-goatcounter-click="nav-login">{{ i18n "nav_login" }}</a>
         <a href="{{ "/#pricing" | relLangURL }}" class="btn btn--primary btn--sm" data-goatcounter-click="nav-signup">{{ i18n "create_account" }}</a>
     </nav>

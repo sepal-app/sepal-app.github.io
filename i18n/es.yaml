@@ -134,6 +134,18 @@ home_og_image_alt:
 home_title:
   hash: sha1-adddc5cd9df270b77867c715c513827db5c62772
   other: Sepal — gestión de colecciones de plantas
+lang_banner_dismiss:
+  hash: sha1-70afe9eff3f2888493d9b5169fec8331af1810de
+  other: Cerrar
+lang_banner_link:
+  hash: sha1-94eb80e642acf423396573c6c8451e237407bdf6
+  other: Ver en español
+lang_banner_text:
+  hash: sha1-5e00a9522264dd75ab8dc3cd73498c2c5457a5b5
+  other: Esta página está disponible en español.
+lang_menu_label:
+  hash: sha1-89b86ab0e66f527166d98df92ddbcf5416ed58f6
+  other: Idioma
 login_address_button:
   hash: sha1-2e0b45f2a456e8db55f08d7b65e87593a3e9a140
   other: Ir

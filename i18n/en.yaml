@@ -19,6 +19,18 @@ nav_login:
 create_account:
   description: "Button in the header and the hero that leads to pricing."
   other: "Create an account"
+lang_menu_label:
+  description: "Accessible name and tooltip of the globe button that opens the language menu."
+  other: "Language"
+lang_banner_text:
+  description: "Banner offering this page in the language of this file. Name the language you are translating into, not English: in French it would say the page is available in French."
+  other: "This page is available in English."
+lang_banner_link:
+  description: "Link in the same banner. Name the language you are translating into, not English."
+  other: "View in English"
+lang_banner_dismiss:
+  description: "Accessible label of the banner's close button."
+  other: "Dismiss"
 footer_tagline:
   other: "A plant collection manager for gardens, nurseries and collectors."
 footer_product:

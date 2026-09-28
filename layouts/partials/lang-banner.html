@@ -1,0 +1,52 @@
+{{/* On a page in the default language, a banner offering the page's
+     translation to a visitor whose browser prefers that language. It is
+     written in the translation's language, so its strings come from that
+     language's i18n file. The script also records a choice made through the
+     banner or the header's language link, after which the banner stays
+     hidden. Nothing redirects. */}}
+{{ if .Translations }}
+{{ if eq .Language.Lang hugo.Sites.Default.Language.Lang }}
+<div class="lang-banner" hidden>
+    {{ range .Translations }}
+    {{ $file := printf "i18n/%s.yaml" .Language.Lang }}
+    {{ $strings := os.ReadFile $file | resources.FromString $file | transform.Unmarshal }}
+    <p class="lang-banner__inner" lang="{{ .Language.Lang }}" data-lang="{{ .Language.Lang }}" hidden>
+        {{ index $strings "lang_banner_text" "other" }}
+        <a href="{{ .RelPermalink }}" data-lang-choice="{{ .Language.Lang }}" data-goatcounter-click="banner-language-{{ .Language.Lang }}">{{ index $strings "lang_banner_link" "other" }}</a>
+        <button type="button" class="lang-banner__dismiss" data-lang-choice="{{ $.Language.Lang }}"
+                data-goatcounter-click="banner-dismiss" aria-label="{{ index $strings "lang_banner_dismiss" "other" }}">×</button>
+    </p>
+    {{ end }}
+</div>
+{{ end }}
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+     var key = "sepal-language";
+     var banner = document.querySelector(".lang-banner");
+     var chosen = null;
+     try { chosen = localStorage.getItem(key); } catch (e) {}
+
+     document.querySelectorAll("[data-lang-choice]").forEach(function (el) {
+         el.addEventListener("click", function () {
+             try { localStorage.setItem(key, el.dataset.langChoice); } catch (e) {}
+             if (banner && el.tagName === "BUTTON") { banner.hidden = true; }
+         });
+     });
+
+     if (chosen || !banner) { return; }
+     var offered = {};
+     banner.querySelectorAll("[data-lang]").forEach(function (p) { offered[p.dataset.lang] = p; });
+     var current = document.documentElement.lang;
+     var preferred = navigator.languages || [navigator.language];
+     for (var i = 0; i < preferred.length; i++) {
+         var lang = String(preferred[i]).toLowerCase().split("-")[0];
+         if (lang === current) { return; }
+         if (offered[lang]) {
+             offered[lang].hidden = false;
+             banner.hidden = false;
+             return;
+         }
+     }
+ });
+</script>
+{{ end }}
