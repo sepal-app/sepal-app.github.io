@@ -1,0 +1,166 @@
+#!/usr/bin/env bb
+;; Translate i18n/en.yaml into i18n/<lang>.yaml with Claude.
+;;
+;;   usage: bin/translate <lang>
+;;
+;; Runs `claude -p`, so it uses the Claude Code login rather than an API key.
+;; An entry is translated when it is missing from <lang>.yaml, or when the
+;; `hash` it records no longer matches its English. Keys English no longer has
+;; are dropped. To retranslate an entry, delete it and run this again.
+;;
+;; Entries go in chunks with the app's glossary, read from the sibling app/
+;; checkout, and the Prose and Spanish prose sections of AGENTS.md. Each chunk
+;; is checked before it is written: the HTML tags and {{ }} placeholders of a
+;; translation must equal the English ones.
+
+(require '[babashka.fs :as fs]
+         '[babashka.process :as p]
+         '[cheshire.core :as json]
+         '[clj-yaml.core :as yaml]
+         '[clojure.string :as str])
+
+(def root (str (fs/parent (fs/parent (fs/absolutize *file*)))))
+(def glossary-path (str (fs/normalize (fs/path root ".." "app" "components" "i18n" "glossary.md"))))
+(def chunk-size 40)
+
+(def header
+  "# Written by bin/translate from i18n/en.yaml. Edit the English, then run it again.\n")
+
+(defn die [& msg]
+  (binding [*out* *err*] (apply println "error:" msg))
+  (System/exit 1))
+
+(defn read-strings [path]
+  (if (fs/exists? path)
+    (or (yaml/parse-string (slurp path) :keywords false) {})
+    {}))
+
+(defn sha1 [s]
+  (let [digest (.digest (java.security.MessageDigest/getInstance "SHA-1")
+                        (.getBytes ^String s "UTF-8"))]
+    (str "sha1-" (apply str (map #(format "%02x" %) digest)))))
+
+(defn todo
+  "Keys of en whose translation is missing or was made from other English."
+  [en translated]
+  (for [[k {:strs [other]}] en
+        :when (not= (sha1 other) (get-in translated [k "hash"]))]
+    k))
+
+(defn markup [s]
+  (sort (re-seq #"<[^>]+>|\{\{.*?\}\}" s)))
+
+(defn check-translation
+  "nil if text is a usable translation of english, else why not."
+  [english text]
+  (cond
+    (str/blank? text) "empty translation"
+    (not= (markup english) (markup text)) (str "markup " (pr-str (markup english))
+                                               " became " (pr-str (markup text)))))
+
+(defn prose-rules []
+  (let [agents (slurp (str root "/AGENTS.md"))
+        section (fn [title]
+                  (or (second (re-find (re-pattern (str "(?s)\n## " title "\n(.*?)(?=\n## |\\z)")) agents))
+                      (die "AGENTS.md has no" (pr-str title) "section")))]
+    (str (section "Prose") "\n" (section "Spanish prose"))))
+
+(defn system-prompt [lang]
+  (let [language (.getDisplayName (java.util.Locale/forLanguageTag lang) java.util.Locale/ENGLISH)]
+    (str/join "\n" [(str "You translate the marketing site of Sepal, a collection management application "
+                         "for botanical gardens, from English into " language " (" lang ").")
+                    ""
+                    "Rules:"
+                    "- Each entry has an id, the English text, and sometimes a description saying where the text appears. The description is not part of the text."
+                    "- Keep every HTML tag, with its attributes, and every {{ }} placeholder exactly as in the English. Translate only the text between tags."
+                    "- The glossary below gives the domain meaning of Sepal's terms. Use the translation botanical gardens use for each, and the same one everywhere."
+                    "- `previous_translation`, when present, translated an older wording of the English. Revise it to match the current English."
+                    "- Match the English capitalisation style. Lowercase stays lowercase."
+                    "- Answer with a translation for every id you were given."
+                    ""
+                    "The site's writing rules:"
+                    ""
+                    (prose-rules)
+                    ""
+                    "Glossary:"
+                    ""
+                    (slurp glossary-path)])))
+
+(def schema
+  (json/generate-string
+   {:type "object"
+    :properties {:translations {:type "array"
+                                :items {:type "object"
+                                        :properties {:id {:type "string"}
+                                                     :text {:type "string"}}
+                                        :required ["id" "text"]}}}
+    :required ["translations"]}))
+
+(defn request-item [en translated k]
+  (let [{:strs [other description]} (get en k)
+        previous (get-in translated [k "other"])]
+    (cond-> {:id k :english other}
+      description (assoc :description description)
+      previous (assoc :previous_translation previous))))
+
+(defn ask-claude [system items]
+  (let [{:keys [exit out err]} (p/shell {:continue true
+                                         :in (json/generate-string {:entries items})
+                                         :out :string
+                                         :err :string
+                                         ;; Outside the repo, so no project CLAUDE.md joins the prompt.
+                                         :dir (str (fs/temp-dir))}
+                                        "claude" "-p"
+                                        "--model" "sonnet"
+                                        "--output-format" "json"
+                                        "--tools" ""
+                                        "--no-session-persistence"
+                                        "--strict-mcp-config"
+                                        "--system-prompt" system
+                                        "--json-schema" schema)
+        result (when (zero? exit) (json/parse-string out true))]
+    (cond
+      (not (zero? exit)) (die "claude exited" exit (str/trim (str err out)))
+      (:is_error result) (die "claude failed:" (:result result))
+      :else (into {} (map (juxt :id :text)) (get-in result [:structured_output :translations])))))
+
+(defn write-strings! [path en translated]
+  (let [entries (into (sorted-map)
+                      (for [k (keys en) :when (contains? translated k)]
+                        [k (select-keys (get translated k) ["hash" "other"])]))]
+    (spit path (str header (yaml/generate-string entries :dumper-options {:flow-style :block})))))
+
+(defn -main [[lang & more]]
+  (when (or (nil? lang) (seq more) (= "en" lang))
+    (die "usage: bin/translate <lang>"))
+  (when-not (fs/exists? glossary-path)
+    (die "no glossary at" glossary-path "- check out the app repo beside this one"))
+  (let [en (read-strings (str root "/i18n/en.yaml"))
+        path (str root "/i18n/" lang ".yaml")
+        system (system-prompt lang)
+        keys-todo (vec (todo en (read-strings path)))]
+    (println (count keys-todo) "entries to translate into" path)
+    (loop [translated (select-keys (read-strings path) (keys en))
+           [batch & more] (partition-all chunk-size keys-todo)]
+      (if-not batch
+        (write-strings! path en translated)
+        (let [answers (ask-claude system (map #(request-item en translated %) batch))
+              problems (for [k batch
+                             :let [english (get-in en [k "other"])
+                                   text (get answers k)
+                                   problem (if text (check-translation english text) "no answer")]
+                             :when problem]
+                         (str k ": " problem))]
+          (when (seq problems)
+            (die (str "this chunk is not written:\n" (str/join "\n" problems))))
+          (let [translated (reduce (fn [t k]
+                                     (println "translated" k)
+                                     (assoc t k {"hash" (sha1 (get-in en [k "other"]))
+                                                 "other" (get answers k)}))
+                                   translated
+                                   batch)]
+            (write-strings! path en translated)
+            (recur translated more)))))))
+
+(when (= *file* (System/getProperty "babashka.file"))
+  (-main *command-line-args*))

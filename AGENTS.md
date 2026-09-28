@@ -87,3 +87,20 @@ form field, and both reached a page before anyone checked.
 Enforcement is review. Every page is read before it merges. There is no linter,
 and adding one is not wanted: Vale would catch the mechanical cases and cost a
 binary, a CI step and a stream of false positives to silence.
+
+## Spanish prose
+
+`bin/translate` sends this section and the one above to the model with every
+request, so a rule added here changes the next translation.
+
+- Address the reader as *usted*. Buttons and links take the infinitive:
+  "Crear una cuenta", "Iniciar sesión".
+- Use the term in the Español column of `app/components/i18n/glossary.md` for
+  each domain word. Where the column is empty, use the word Spanish-speaking
+  botanical gardens use, not a calque of the English.
+- Prefer a Spanish word to an anglicism where gardens in Spanish-speaking
+  countries use one.
+- The rules in Prose above apply where they are not specific to English:
+  plain sentences, no flourishes, no emphasis for effect.
+- "Sepal", prices, sizes such as "2 GB", and `sepal.app` addresses stay as
+  they are. Plan names are translated: Personal, Jardín, Institución.
