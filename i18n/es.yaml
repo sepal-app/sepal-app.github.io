@@ -1,0 +1,295 @@
+# Written by bin/translate from i18n/en.yaml. Edit the English, then run it again.
+billing_annual:
+  hash: sha1-0930f3f8992c80e64aab86a966307ac5ea35e841
+  other: Anual
+billing_annual_hint:
+  hash: sha1-c05e56d56aa39293ec47d5f96fa8a9115c01ed8d
+  other: · 1 mes gratis
+billing_monthly:
+  hash: sha1-d31edb7b8a94bbafe2184d44bbd83463e1dd1158
+  other: Mensual
+create_account:
+  hash: sha1-3f4f547d73646d774e8f690b36333e8c9572894b
+  other: Crear una cuenta
+donation_detail:
+  hash: sha1-663619c820e66c0f3cff58d8129ff44a86a9505a
+  other: Una parte de cada suscripción respalda la conservación de colecciones vivas y la labor educativa en Belice.
+donation_headline:
+  hash: sha1-2231698c0700ad13087f88e850c0a58a07806578
+  other: El 10 % de todos los beneficios se dona a Belize Botanic Gardens.
+faq_compare_answer:
+  hash: sha1-f9aff155bac96efbdd963b09151f0e249844b674
+  other: El software de gestión de colecciones de plantas generalmente está diseñado para grandes instituciones, con un precio acorde. Sepal cubre lo esencial de la gestión de colecciones a un costo menor, pensado para jardines más pequeños y coleccionistas individuales que no necesitan el conjunto completo de funciones. Sepal también es de código abierto, así que puede exportar sus registros en cualquier momento y ejecutar su propia instancia de Sepal.
+faq_compare_question:
+  hash: sha1-09256bf95045f5596139af613682a0749db55cbb
+  other: ¿Cómo se compara Sepal con otros sistemas de gestión de colecciones de plantas?
+faq_import_answer:
+  hash: sha1-e68168b361e6a7ac33908a0693ae66627e8efd8a
+  other: Sí. Se admite la importación de hojas de cálculo, y le ayudaremos a asignar las columnas de otro sistema.
+faq_import_question:
+  hash: sha1-de8e5fbacdf01f966960498625ef9b3386472d4d
+  other: ¿Puedo importar registros existentes?
+faq_leave_answer:
+  hash: sha1-252d1b33c3aeb5055b71993b737660e035751a2c
+  other: Exporte todo y ejecute la aplicación de código abierto en su propia infraestructura.
+faq_leave_question:
+  hash: sha1-4742fa6830c304505ed2429ff7a06aa21ad5efe3
+  other: ¿Qué pasa si dejo de usar el servicio alojado?
+faq_title:
+  hash: sha1-f07ac22a9e938c6666a19f6f6ddb015f1dbbaa47
+  other: Preguntas frecuentes
+faq_trial_answer:
+  hash: sha1-4a00d7bc19568e83c6c3560fafbac8d9c549465b
+  other: No. El registro no requiere tarjeta de crédito e incluye un período de prueba gratuito de 14 o 30 días. Si necesita ampliar su período de prueba, póngase en contacto con nosotros.
+faq_trial_question:
+  hash: sha1-08a4d9dba9c2059bd7c2049369ae416e2af3a46e
+  other: ¿Tengo que pagar para probarlo?
+feature_hosting_text:
+  hash: sha1-6fc120fda2cbe82c5413ddb35dd25b821ac58e46
+  other: Nosotros nos encargamos de los servidores y las copias de seguridad, o usted ejecuta el mismo código en su propio servidor.
+feature_hosting_title:
+  hash: sha1-6f4106faa93349e9908f888e581cbb8f65e0f151
+  other: Alojado o de instalación propia
+feature_import_text:
+  hash: sha1-4fe74cf252d5fdeb8abd76dfef8bda3097c066d5
+  other: Empiece a partir de sus hojas de cálculo y obtenga una copia completa en cualquier momento.
+feature_import_title:
+  hash: sha1-fe6115e1df7710369a2bf5872f6a47e821dc1c73
+  other: Importación y exportación
+feature_media_text:
+  hash: sha1-dc7492db0b6f7c40ed16516158b5032038631e4c
+  other: Fotos, escaneos y documentos adjuntos a los registros a los que pertenecen.
+feature_media_title:
+  hash: sha1-b9c58450babf0922636cd5ddc28742e418d3ae5d
+  other: Biblioteca multimedia
+feature_records_text:
+  hash: sha1-605f2b372d5c89e57ebaaea0975f9e08402b2416
+  other: Siga una planta desde su nombre hasta su accesión y la parcela donde crece hoy.
+feature_records_title:
+  hash: sha1-6e3441a32618c9547c7feb4481905222c2b9cafc
+  other: Taxones, accesiones, ubicaciones
+feature_roles_text:
+  hash: sha1-52b99798c331e103723dca5ca5c7542cc2d34ef9
+  other: Invite a su personal y voluntarios con el acceso que cada uno necesita.
+feature_roles_title:
+  hash: sha1-0b971f0118daf1652d6ec0b8ad1a17f6e792319a
+  other: Organizaciones y roles
+feature_search_text:
+  hash: sha1-a290fc040c2d15f4e7a9ee5ffbf499f5a6410cc1
+  other: Busque cualquier registro por nombre, número, familia o ubicación mientras escribe.
+feature_search_title:
+  hash: sha1-245bf869a2557b1fa585e57aa7912e2f25f33cd5
+  other: Búsqueda rápida
+features_lede:
+  hash: sha1-1b07de94b108974ddca2be7f1ca13d32e489a8f0
+  other: Taxón, accesión, planta y ubicación como registros independientes, relacionados de la forma en que un curador espera.
+features_title:
+  hash: sha1-0548ddaaf4dda0a1015f4b404b4aaf9b5db83e97
+  other: Diseñado para colecciones grandes y pequeñas.
+footer_blog:
+  hash: sha1-0b9d2b2362bc33581ba11fddcb0cf0590ebd3a7a
+  other: Blog
+footer_changelog:
+  hash: sha1-164b3d4809f98d0458414f1bf9cf3c9dcba16bb5
+  other: Registro de cambios
+footer_contact:
+  hash: sha1-b37456c4530be810dc040f50da72eda09addfb0a
+  other: Contacto
+footer_getting_started:
+  hash: sha1-76e7a3a3f9c225fe820ba7e9cff10ea2a73b79a1
+  other: Primeros pasos
+footer_product:
+  hash: sha1-dd3b86d1ef21b9fb2e1edc30f524e7afb491b1ad
+  other: Producto
+footer_project:
+  hash: sha1-f6f4da8d93e88a08220e03b7810451d3ba540a34
+  other: Proyecto
+footer_self_hosting:
+  hash: sha1-353962dcfd2ca10075eea203d7a2bd10b5b50aa5
+  other: Instalación propia
+footer_tagline:
+  hash: sha1-5046ebd5058ac3b6579b6b61c1bcfe5e318b1465
+  other: Un gestor de colecciones de plantas para jardines, viveros y coleccionistas.
+hero_eyebrow:
+  hash: sha1-3c52774c42da231f5991030ff99d32811e568d3d
+  other: gestión de colecciones de plantas
+hero_lede:
+  hash: sha1-b96b3daa213f099c2297da4222ce9fc1d34f2f3c
+  other: Sepal es un gestor de colecciones de plantas para jardines botánicos, arboretos, viveros y colecciones personales. Completo donde importa, con un precio pensado para colecciones que no necesitan un sistema empresarial, y de código abierto para que sus registros nunca queden bloqueados.
+hero_note:
+  hash: sha1-2277697f818ac939265bd7f9964fcbdf82c6dc65
+  other: no se requiere tarjeta de crédito para registrarse · exporte sus datos en cualquier momento
+hero_title:
+  hash: sha1-d25fbe44f95463ad43bb7e346946d9bae7051387
+  other: Ponga orden en sus colecciones de plantas
+home_description:
+  hash: sha1-75d50dc8e4610fa36b3fef0ccc9faff05ab5e0c3
+  other: Sepal es un gestor de colecciones de plantas para jardines botánicos, arboretos, viveros y colecciones privadas. Código abierto, asequible, sin dependencia de un proveedor.
+home_og_description:
+  hash: sha1-8d8b04b3ec28a938cfd36fe4188f4acb634ea0a0
+  other: Un gestor de colecciones de plantas para jardines botánicos, arboretos, viveros y colecciones personales. Código abierto, para que sus registros nunca queden bloqueados.
+home_og_image_alt:
+  hash: sha1-9f1114d8ae46ddc221e1081e7c1c5f96d3de807e
+  other: 'La lista de accesiones de Sepal: un panel lateral de secciones junto a una tabla con códigos de accesión, taxones, procedencia y fechas de recepción.'
+home_title:
+  hash: sha1-adddc5cd9df270b77867c715c513827db5c62772
+  other: Sepal — gestión de colecciones de plantas
+login_address_button:
+  hash: sha1-2e0b45f2a456e8db55f08d7b65e87593a3e9a140
+  other: Ir
+login_address_invalid:
+  hash: sha1-5a882c593fa474fe49d94b4aff0922840f4e61ec
+  other: Ingrese un nombre de jardín o una dirección de sepal.app.
+login_address_label:
+  hash: sha1-8549fd6aa7a519080ecb49d29889c78f90d3e703
+  other: Dirección del jardín
+login_address_placeholder:
+  hash: sha1-a98e1c99b3f67ad0d23020433859e67559144111
+  other: brooklyn o brooklyn.sepal.app
+login_description:
+  hash: sha1-c424a3700f0a3b212f5b91f7f7818c68759f245c
+  other: Abra uno de sus jardines de Sepal.
+login_direct_heading:
+  hash: sha1-531cccd4f463dc5f09b39ce7c20e29aea30d6404
+  other: Vaya directamente a su jardín
+login_find_button:
+  hash: sha1-ecd16af94d4746882f0c07e5d30ce5a0c8d29533
+  other: Enviarme mis enlaces de inicio de sesión
+login_find_heading:
+  hash: sha1-a78e3f581a4777d399a1fcd9a70552779dab7f93
+  other: Encuentre su jardín
+login_find_text:
+  hash: sha1-b67f6255759404bbe8244dad3c43be38524b1d51
+  other: Ingrese su dirección de correo electrónico y le enviaremos un enlace de inicio de sesión para cada jardín al que pertenezca esa dirección.
+login_remembered:
+  hash: sha1-5d6772fb0044bf5c087a66ce2d0d885507517a23
+  other: 'Jardines en los que ha iniciado sesión en este navegador:'
+login_title:
+  hash: sha1-f7c400ed695f898b8ee9d21664aa17b5bb693828
+  other: Iniciar sesión
+nav_docs:
+  hash: sha1-68a4194227be4ab74bc3d32363417c0fc1f30055
+  other: Documentación
+nav_features:
+  hash: sha1-fc338f87a058158eb824b53705961801516a9460
+  other: Características
+nav_login:
+  hash: sha1-f7c400ed695f898b8ee9d21664aa17b5bb693828
+  other: Iniciar sesión
+nav_open_source:
+  hash: sha1-6cc3364a242cbf9be7ce547554de30d92585b0cd
+  other: Código abierto
+nav_pricing:
+  hash: sha1-a0d9bbad5f932ea57aeb971021de67ea2252fb8c
+  other: Precios
+open_develop_text:
+  hash: sha1-ffedf30003249cecc25efa27cb862a4ccba8a39a
+  other: Cualquiera puede ver lo que estamos construyendo y lo que viene a continuación.
+open_develop_title:
+  hash: sha1-5ef02b5c509bfeaa27053fbf4e2ef5b095efbf33
+  other: Desarrollado en abierto
+open_export_text:
+  hash: sha1-9567036012dba6ede9ea58eeb2231ecc57a2a0c1
+  other: Toda su colección en formatos de hoja de cálculo estándar, cuando quiera, no mediante una solicitud de soporte.
+open_export_title:
+  hash: sha1-5dbea20c8653cb63e8149368478f6daa5146170b
+  other: Exportar todo, en cualquier momento
+open_eyebrow:
+  hash: sha1-53429897161b13d7ad0740311a113a4e7893fb81
+  other: código abierto
+open_github:
+  hash: sha1-7b1ee67c22c414dbe4ad596d5f0c867db1942232
+  other: sepal-app/sepal en GitHub
+open_lede:
+  hash: sha1-f606eefbfe2e8594ed91c0ca0b00d8749d64e646
+  other: Sepal se desarrolla de forma abierta. Puede leer el código, ejecutarlo usted mismo y exportar todo lo que ha introducido. Nada de su colección depende de que sigamos en funcionamiento.
+open_selfhost_text:
+  hash: sha1-42b51e4ae4bffe9a29387d0331d5fb7d5b2672a4
+  other: La aplicación se puede instalar gratis en otro lugar, así que dejar el servicio alojado no significa dejar Sepal.
+open_selfhost_title:
+  hash: sha1-930fc1748a1b46614c01d247d9a14f8cfcf74c8d
+  other: Seguir ejecutándolo usted mismo
+open_title:
+  hash: sha1-6e6d2a10a34032febe2ddc08020989bd025054ee
+  other: Sus registros sobreviven a cualquier software.
+plan_badge:
+  hash: sha1-4bd39a19acecef39d42dc0eca1d15c8e41fc9ef9
+  other: MÁS POPULAR
+plan_garden_accessions:
+  hash: sha1-1eda361ed3490f6ee4eca4fea90cd1a155cd42b5
+  other: 3.000 accesiones
+plan_garden_blurb:
+  hash: sha1-42d6a2a73ca97ca44a7f9c26b8fedf13d1548d5f
+  other: Jardines y viveros pequeños
+plan_garden_cta:
+  hash: sha1-d0c3aa4d43f3dc4b0b53c0ab028ef85ab457e8b5
+  other: Elegir Jardín
+plan_garden_name:
+  hash: sha1-714d913bba16d0006726051af578536765b39b0e
+  other: Jardín
+plan_garden_storage:
+  hash: sha1-6422264224bf4af42acfc2a7be327ee48a43361f
+  other: 10 GB de almacenamiento multimedia
+plan_institution_accessions:
+  hash: sha1-674328b57e812d0f56b66e177a2fa852b906ac01
+  other: Accesiones ilimitadas
+plan_institution_api:
+  hash: sha1-7381649bce01cd766e29f9d70399894b30ea06e0
+  other: Acceso a la API
+plan_institution_blurb:
+  hash: sha1-60eef01625e91be7727489b44776eaa11670f5d8
+  other: Colecciones más grandes
+plan_institution_cta:
+  hash: sha1-a35187946dc67db0e7fc93c5b14c92ef17c1cbae
+  other: Elegir Institución
+plan_institution_name:
+  hash: sha1-429f9450eaee6957c9b1461227b45d94079f2cac
+  other: Institución
+plan_institution_storage:
+  hash: sha1-f9035bc3b50c39e5ae9e75172880e494fa4477e9
+  other: 50 GB de almacenamiento multimedia
+plan_institution_support:
+  hash: sha1-585b6c79e99e28851bf8d252801aa34eef4e4c51
+  other: Soporte prioritario
+plan_personal_accessions:
+  hash: sha1-c07e3bc610f9348f09e8480543d7d742d392a29f
+  other: 500 accesiones
+plan_personal_blurb:
+  hash: sha1-c2c3ec8e4a9541f70cfe77047b5008ca0a1c9ef1
+  other: Pequeñas colecciones privadas, públicas o personales
+plan_personal_cta:
+  hash: sha1-b81005056a9dc679bc12012ca248008b2e52fe48
+  other: Elegir Personal
+plan_personal_name:
+  hash: sha1-40f07323796692b042288d1472a4fbaa735ffec7
+  other: Personal
+plan_personal_storage:
+  hash: sha1-801b0344fd3c62a9fe3c4b5c6a8c7dbf390dc621
+  other: 2 GB de almacenamiento multimedia
+price_per_month:
+  hash: sha1-5fc050e04f4e021a461b1e114e3c8778a24b8e31
+  other: / mes
+price_per_year:
+  hash: sha1-d20d79ed2224b75ef1f7cb6e50cb6cc4744a0737
+  other: / año
+pricing_lede:
+  hash: sha1-36a9dd493a2f74f1b6d93f623d47a2b704416339
+  other: Regístrese hoy, no se necesita tarjeta de crédito.
+pricing_note:
+  hash: sha1-60c4e229fc81eae234da4d7fe3f6796e5e9d9f55
+  other: Instancias más grandes, límites más altos o soporte para instalación propia — <a href="mailto:support@sepal.app" data-goatcounter-click="pricing-contact">póngase en contacto</a>.
+pricing_title:
+  hash: sha1-ad75ebaf58b431513fea472a90795902d3d0cb29
+  other: Precios pensados para colecciones más pequeñas
+screen_desktop_alt:
+  hash: sha1-3a056c456b35e0ce1d4b4648e65ffeaef3f93b32
+  other: 'La lista de accesiones de Sepal en un navegador de escritorio: un panel lateral de secciones etiquetado junto a una tabla con códigos de accesión, taxones, procedencia y fechas de recepción.'
+screen_phone_alt:
+  hash: sha1-7ef7dba1f6e2bc58cbfc70f77a540ba98ba1128f
+  other: La misma lista en un teléfono, reducida a una entrada por accesión, con el taxón y la fecha apilados bajo el código.
+screen_tablet_alt:
+  hash: sha1-efccdef61944f82b8fe7c89aff85eedf2e078ab0
+  other: La misma lista en una tableta, más estrecha, con la columna de procedencia oculta y el panel de secciones detrás de un interruptor.
+skip_link:
+  hash: sha1-be504f616fd1d37b2a0143949516a1f34b40e9cf
+  other: Saltar al contenido principal

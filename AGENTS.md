@@ -93,11 +93,16 @@ binary, a CI step and a stream of false positives to silence.
 `bin/translate` sends this section and the one above to the model with every
 request, so a rule added here changes the next translation.
 
-- Address the reader as *usted*. Buttons and links take the infinitive:
-  "Crear una cuenta", "Iniciar sesión".
+- Write neutral Latin American Spanish: "computadora", "costo", "ingrese".
+  Avoid words local to one country. The language is still published as `es`.
+- Address the reader as *usted*. Buttons and navigation links take the
+  infinitive: "Crear una cuenta", "Iniciar sesión". A link inside a sentence
+  follows the grammar of the sentence.
 - Use the term in the Español column of `app/components/i18n/glossary.md` for
   each domain word. Where the column is empty, use the word Spanish-speaking
   botanical gardens use, not a calque of the English.
+- Self-hosting is "instalación propia", and where it runs is "su propio
+  equipo" or "su propio servidor".
 - Prefer a Spanish word to an anglicism where gardens in Spanish-speaking
   countries use one.
 - The rules in Prose above apply where they are not specific to English:
