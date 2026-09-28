@@ -11,7 +11,8 @@ a changelog. Hugo builds it and GitHub Pages serves it.
 | `content/` | Markdown for docs, blog and changelog. |
 | `layouts/` | Templates. `index.html` is the landing page; `baseof.html` is the shell every other page uses. |
 | `i18n/` | Strings for the landing page and the shared header and footer. |
-| `assets/docs.css` | Styles for generated pages. Reads the tokens in `static/site.css`. |
+| `assets/site.css` | Styles and design tokens for every page. Published fingerprinted, so a change gets a new URL. |
+| `assets/docs.css` | Styles for generated pages. Reads the tokens in `assets/site.css`. |
 | `og-image.html` | The source that produced `og-image.png`. Deliberately outside `static/`, so it is not published. |
 | `public/` | Build output. Gitignored. |
 
@@ -32,11 +33,11 @@ with every other page through `partials/header.html` and `partials/footer.html`.
 Its text lives in `i18n/en.yaml`, not in the template. To change a sentence,
 edit the string there; to add one, add a key and an `{{ i18n "key" }}` call.
 Strings holding HTML render through `safeHTML`. Asset paths are root-relative
-(`/site.css`), since the page is also rendered below the site root.
+(`/fonts/...`), since the page is also rendered below the site root.
 
 ## Design tokens
 
-`static/site.css` holds the tokens in its `:root` block. The source of truth is
+`assets/site.css` holds the tokens in its `:root` block. The source of truth is
 `bases/app/src/sepal/app/css/tokens.css` in the `sepal-app/sepal` repo, where
 the values are checked against WCAG AA by a test. Sync is by hand. When you
 change a colour here, change it there first.

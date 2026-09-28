@@ -30,7 +30,8 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="preload" href="/fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/site.css">
+{{ $site := resources.Get "site.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $site.RelPermalink }}" integrity="{{ $site.Data.Integrity }}">
 {{ $docs := resources.Get "docs.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $docs.RelPermalink }}" integrity="{{ $docs.Data.Integrity }}">
 {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ $.Title }} — Sepal">{{ end }}
