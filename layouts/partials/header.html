@@ -14,8 +14,8 @@
     <nav class="site-nav">
         <a href="{{ "/#features" | relLangURL }}">{{ i18n "nav_features" }}</a>
         <a href="{{ "/#pricing" | relLangURL }}">{{ i18n "nav_pricing" }}</a>
-        <a href="{{ "/#open" | relLangURL }}">{{ i18n "nav_open_source" }}</a>
         <a href="/docs/" data-goatcounter-click="nav-docs">{{ i18n "nav_docs" }}</a>
+        <a class="site-nav__icon" href="https://github.com/sepal-app/sepal" data-goatcounter-click="nav-github">{{ os.ReadFile "static/icons/github.svg" | safeHTML }}</a>
         {{ if .Translations }}
         <details class="lang-menu">
             <summary class="lang-menu__button" aria-label="{{ i18n "lang_menu_label" }}" title="{{ i18n "lang_menu_label" }}">

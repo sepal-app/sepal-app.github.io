@@ -310,6 +310,22 @@ a:hover:not(.btn) { color: var(--brand-hover); }
 
 .site-nav a:not(.btn) { color: var(--text-nav); }
 
+/* The GitHub mark in the header, inlined so it takes the nav colour. */
+
+.site-nav__icon {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
+
+.site-nav__icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.site-nav .site-nav__icon:hover { color: var(--brand-hover); }
+
 /* Language menu. A <details> whose summary is the globe button. */
 
 .lang-menu {
